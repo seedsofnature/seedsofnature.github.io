@@ -10,6 +10,11 @@ topmenu:
 - title: Contact
   url: "contact/"
 
+- title: Help Us
+url: https://www.patreon.com/lightshaft
+class: "ml-2 btn btn-dark text-white px-3"
+external: true
+
 
 # Footer Menu
 footermenu:
