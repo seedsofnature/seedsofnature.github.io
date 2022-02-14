@@ -1,0 +1,60 @@
+title: "Seeds of Nature - Game"
+description: "A seeds of nature dev blog."
+domain: seedsofnature.github.io
+url: https://seedsofnature.github.io
+email: kelvinnparkour@gmail.com
+timezone: UTC
+baseurl: "/blog"
+permalink: "/:title/"
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+author: Frost
+paginate: 30
+disqus: 'seedsofnaturegame'
+locale: pt_br
+lang: pt_br
+feed_items: 10
+feed_update_period: daily
+feed_update_frequency: 1
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+sass:
+  sass_dir: _sass
+  style: :compressed
+ganalytics: G-LS1Z3LQQES
+github_username:  kelvinRosa
+
+# Authors
+authors:
+  sal:
+    name: Kelvin Rosa
+    display_name: Frost
+    avatar: 'assets/images/sal.png'
+    email: kelvinparkour@gmail.com
+    web: https://lightshaftgames.github.io/
+    twitter: https://twitter.com/ligthshaftdev
+    description: "Kelvin Rosa - 29 anos. Desenvolvedor de Jogos Indie, Trabalhando no Seeds of Nature. Pai de vários animais e fazendeiro no tempo 'livre' :D"
+  john:
+    name: John
+    display_name: John
+    avatar: 'assets/images/john.png'
+    email: wowthemesnet@gmail.com
+    web: https://www.wowthemes.net/category/jekyll-themes/
+    twitter: https://twitter.com/wowthemesnet
+    description: "This is the author box. Write a short description of the author here. You are currently previewing Affiliates theme demo, a Jekyll template compatible with Github pages."
+
+# Social
+social:
+  instagram: https://www.instagram.com/bootstrapstarter/
+  facebook: https://www.facebook.com/bootstrapstartercom-346329609045284
+  twitter: https://twitter.com/bstartercom
+
+# Plugins
+plugins: 
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-archives
