@@ -4,3 +4,7 @@ Just customize your theme here.
 ================================================== */
 
 body {}
+
+.goog-te-banner-frame {
+    display:none !important
+}
