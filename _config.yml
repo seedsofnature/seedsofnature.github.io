@@ -4,7 +4,7 @@ domain: seedsofnature.github.io
 url: https://seedsofnature.github.io
 email: kelvinparkour@gmail.com
 timezone: UTC
-baseurl: ""
+baseurl: "/"
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
