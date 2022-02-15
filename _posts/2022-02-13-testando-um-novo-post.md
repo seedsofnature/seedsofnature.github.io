@@ -10,12 +10,12 @@ Olá, esse é o primeiro post aqui do devblog, meu nome é Kelvin Rosa ('frost')
 
 O foco do blog é mostrar o andamento do jogo, as tecnologias aplicadas, talvez uns tutoriais.
 
-Esse projeto esta em desenvolvimento na minha cabeça a mais de 8 anos, é um jogo complexo com mecânicas de sobrevivência, simulação, fazenda e muito mais. Baseado no objetivo final do jogo o processo é bem complicado para um exercito de um homem só, meu foco principal a área que eu domino é programação, não sou bom com desenhos, até sei modelar em 3D, animar, fazer design de levels, mas para acelerar o desenvolvimento do jogo e finalizar uma demo para mostrar a ideia principal do jogo, eu compro modelos 3D prontos que se encaixariam com o resultado que desejo, meu jogo se chama Seeds of Nature, sigla SON (que inglês quer dizer filho, Meu filho >.<).
+Seeds of Nature esta em desenvolvimento na minha cabeça a mais de 8 anos, é um jogo complexo com mecânicas de sobrevivência, simulação, fazenda e muito mais. Baseado no objetivo final do jogo o processo é bem complicado para um exercito de um homem só, meu foco principal (a área que eu domino) é programação, não sou bom com desenhos, até sei modelar em 3D, animar, fazer design de levels, mas para acelerar o desenvolvimento do jogo e finalizar uma demo para mostrar a ideia principal do jogo, eu compro modelos 3D prontos que se encaixariam com o resultado que desejo, meu jogo se chama Seeds of Nature, sigla SON (que inglês quer dizer filho, Meu filho >.<).
 
-Eu até gostaria de ter alguém a bordo que pudesse cuidar da parte 3D, mas meu orçamento para contratar alguém é $0, 100% do dinheiro investido no jogo atualmente foi tirado dos meus fundos. Talvez eu venha a colocar o projeto no Kickstarter quando alcançar a metade do desenvolvimento, para ai sim conseguir encontrar uma designer perfeito para ajudar a finalizar a parte visual do jogo. Nesse blog vou falar sobre o processo de desenvolvimento, criar alguns tutoriais e talvez postar alguns de meus pets de espécies incomuns que estarão presente no jogo, vamos ao que interessa, nesse primeiro post irei falar sobre o processo de iluminação do jogo.
+Eu até gostaria de ter alguém a bordo que pudesse cuidar da parte 3D, mas meu orçamento para contratar alguém é $0, 100% do dinheiro investido no jogo atualmente foi tirado dos meus fundos. Coloquei este projeto no <a href="https://www.patreon.com/lightshaft">Patreon</a>exatamente para tentar arrecadar fundos para acelerar o desenvolvimento do jogo. Nesse blog vou falar sobre o processo de desenvolvimento, criar alguns tutoriais e talvez postar algo a respeito de meus pets de espécies incomuns que estarão presente no jogo, vamos ao que interessa, nesse primeiro post irei falar sobre o processo de iluminação do jogo.
 
 
-## Special formatting
+## O Bunker
 
 As well as bold and italics, you can also use some other special formatting in Markdown when the need arises, for example:
 
