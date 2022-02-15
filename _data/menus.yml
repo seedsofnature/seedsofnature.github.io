@@ -4,13 +4,13 @@ topmenu:
 - title: Home
   url: ""
 
-- title: About
+- title: Sobre
   url: "about/"
 
-- title: Contact
+- title: Contato
   url: "contact/"
 
-- title: Help Us
+- title: Apoie
   url: https://www.patreon.com/lightshaft
   class: "ml-2 btn btn-dark text-white px-3"
   external: true
@@ -22,8 +22,8 @@ footermenu:
 - title: Home
   url: ""
 
-- title: Privacy Policy
+- title: Politica de Privacidade
   url: "privacy-policy/"
 
-- title: Contact
+- title: Contato
   url: "contact/"
