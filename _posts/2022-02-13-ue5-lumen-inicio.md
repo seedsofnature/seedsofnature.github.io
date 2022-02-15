@@ -24,7 +24,8 @@ O bunker está equipado com vários equipamentos sobrevivencialistas, livros, re
 
 Como se trata de um bunker eu quis fazer dele um local que não recebe luz externa, como o jogo possui um sistema de iluminação dinâmica, ciclo de dia e noite, estações, climas diferentess, necessitei usar uma skylight (luz emitida pelo céu ou material de céu), isso faz com que todo o mundo do jogo seja iluminado inclusive partes subterrâneas isso fez com que o bunker ficasse iluminado em seu interior, não é o resultado que eu esperava. Deixando apenas uma luz direcional funciona já que a iluminação não é global, mas o ambiente externo fica muito escuro, e sem realismo nos climas.
 
-![ee](/assets/images/7.png "No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.")
+![ee](/assets/images/7.png "No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.")  
+_(No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.)_
 
 ## Writing code blocks
 
