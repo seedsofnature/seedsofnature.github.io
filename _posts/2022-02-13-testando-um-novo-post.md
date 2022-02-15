@@ -6,13 +6,13 @@ categories: []
 image: assets/images/6.jpg
 ---
 
-Olá, esse é o primeiro post aqui do devblog, meu nome é Kelvin Rosa ('frost'), sou o desenvolvedor por trás da Lightshaft games, nesse Blog irei falar do jogo no qual passei anos fazendo protótipos, parando, repensando e começando de novo. 
+Olá, esse é o primeiro post aqui do devblog, meu nome é Kelvin Rosa ('frost'), sou o desenvolvedor por trás da Lightshaft, nesse Blog irei falar do jogo no qual passei anos fazendo protótipos, parando, repensando e começando de novo. 
 
 O foco do blog é mostrar o andamento do jogo, as tecnologias aplicadas, talvez uns tutoriais.
 
-If you've gotten pretty comfortable with writing in Markdown, then you may enjoy some more advanced tips about the types of things you can do with Markdown!
+Esse projeto esta em desenvolvimento na minha cabeça a mais de 8 anos, é um jogo complexo com mecânicas de sobrevivência, simulação, fazenda e muito mais. Baseado no objetivo final do jogo o processo é bem complicado para um exercito de um homem só, meu foco principal a área que eu domino é programação, não sou bom com desenhos, até sei modelar em 3D, animar, fazer design de levels, mas para acelerar o desenvolvimento do jogo e finalizar uma demo para mostrar a ideia principal do jogo, eu compro modelos 3D prontos que se encaixariam com o resultado que desejo, meu jogo se chama Seeds of Nature, sigla SON (que inglês quer dizer filho, Meu filho >.<).
 
-As with the last post about the editor, you'll want to be actually editing this post as you read it so that you can see all the Markdown code we're using.
+Eu até gostaria de ter alguém a bordo que pudesse cuidar da parte 3D, mas meu orçamento para contratar alguém é $0, 100% do dinheiro investido no jogo atualmente foi tirado dos meus fundos. Talvez eu venha a colocar o projeto no Kickstarter quando alcançar a metade do desenvolvimento, para ai sim conseguir encontrar uma designer perfeito para ajudar a finalizar a parte visual do jogo. Nesse blog vou falar sobre o processo de desenvolvimento, criar alguns tutoriais e talvez postar alguns de meus pets de espécies incomuns que estarão presente no jogo, vamos ao que interessa, nesse primeiro post irei falar sobre o processo de iluminação do jogo.
 
 
 ## Special formatting
