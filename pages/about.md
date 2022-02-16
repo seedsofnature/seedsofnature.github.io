@@ -1,15 +1,16 @@
 ---
+title: Sobre
 layout: page
-title: About
 permalink: "/about/"
 image: assets/images/screenshot.png
 ---
 
-This website is a demonstration to see **Affiliates Jekyll theme** in action. 
+**Seeds of Nature** é um jogo em desenvolvimento pela Lightshaft Games. 
 
-The theme is compatible with Github pages. This demo is created with Github Pages and hosted with Github. 
+Somos um estúdio indie, 100% de nossa renda é proveniente de trabalhos freelance, ou seja fazemos jogos para outras empresas também, caso sua empresa esteja a procura de um grupo responsável, com experiência nas principais Game Engines do mercado (Unity e Unreal Engine), entre em contato.
 
-Everything is ready for your quick setup: Blog, Categories, About, Privacy Policy, Terms of Use, Contact form, Mailchimp
+Temos experiência em jogos Multiplayer, Realidade aumentada, Realidade Virtual, Blockchain Games e Mobile.
 
-[Get it here](https://bootstrapstarter.com/jekyll-theme-memoirs/)
 
+
+[Entre em contato](/about)
