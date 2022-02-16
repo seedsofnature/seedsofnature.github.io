@@ -27,26 +27,46 @@ Como se trata de um bunker eu quis fazer dele um local que não recebe luz exter
 ![ee](/assets/images/7.png "No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.")  
 _(No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.)_
 
-## Writing code blocks
+Isso fez eu repensar a iluminação do meu jogo, tentei usar Distance Fields e Ambient Occlusion, funcionou? Nahh, não como eu gostaria, precisei dar Bake, e várias manchas estranhas apareceram dentro do bunker, tinham a ver com o tamanho do distance mesh de cada objeto. Resolvi estudar mais um pouco zerei o valor da SkyLight, ajustei as luzes direcionais do sol e da lua. Deu certo? Sim! funcionou, mas notei que todo o ambiente externo ficou meio sem vida, com cores fracas, eu precisava da skylight. Algumas horas depois eu havia me tocado que estava usando a Unreal Engine 5 e que ela tinha uma nova tecnologia de iluminação chamada Lumen. Dei uma lida na documentação, assisti a alguns tutoriais, e chegou a hora de testar, Project Settings>Rendering>Global Ilumination: Lumen. Reiniciar a UE5, e pronto, lá estava meu bunker, todo escuro, sem luz interna!! Era o resultado que eu esperava.
 
-There are two types of code elements which can be inserted in Markdown, the first is inline, and the other is block. Inline code is formatted by wrapping any word or words in back-ticks, `like this`. Larger snippets of code can be displayed across multiple lines using triple back ticks:
+Agora posso criar interiores, cavernas, mais bunkers, tudo usando uma luz com comportamento real. Hoje em dia existem placas de video com raytracing custando o olho da cara, que usam raytracing baseado no hardware, o Lumen nada mais é que um raytracing via software. O desempenho foi afetado um pouco, mas muito pouco, coisa que na versão definitiva da Unreal Engine 5 provavelmente vai ter melhorado e muito. Resumindo o “Lumen” é incrível!
 
-    .my-link {
-        text-decoration: underline;
-    }
+Primeiro teste com o protótipo do bunker e o Lumen:
 
-If you want to get really fancy, you can even add syntax highlighting using Rouge.
+![](/assets/images/15.png)  
+_(Já aqui temos uma iluminação mais real, a única luz entrando dentro do bunker é a que esta passando pelo porta, vindo do sol.)_
 
-![walking]({{ site.baseurl }}/assets/images/3.jpg)
+Com alguns ajustes no interior, temos uma boa iluminação interna!  
+Notei que quanto mais luz eu coloco, mais pesado fica o calculo e diminui os frames, mas basta setar para as luzes não afetarem o calculo do ambiente. Mas de qualquer forma optei por usar poucas luzes, pois todos os sistemas do jogos serão dinâmicos, cada luz dessa pode ser definida a um interruptor, e poderão ser criadas dinamicamente pelos jogadores. Mas isso já fica para outro post onde irei explicar o sistema de energia elétrica do jogo.
 
-## Reference lists
+![](/assets/images/9.png)  
+_(Parte Interna do Bunker (WIP) - Subsolo sala de entrada com luzes internas acesas.)_
 
-The quick brown jumped over the lazy.
+![](/assets/images/20.png)  
+_(Parte Interna do Bunker (WIP) - Escada do Subsolo para a parte interna da superfície, com as luzes acesas.)_
 
-Another way to insert links in markdown is using reference lists. You might want to use this style of linking to cite reference material in a Wikipedia-style. All of the links are listed at the end of the document, so you can maintain full separation between content and its source or reference.
+![](/assets/images/8.png)  
+_(Parte Interna do Bunker (WIP) - Nível da superfície com as luzes acesas.)_
 
-## Full HTML
+![](/assets/images/10.png)  
+_(Parte Interna do Bunker (WIP) - Parte interna do bunker na Superfície, com vista da escada para o subsolo e entrada do bunker com vista exterior, luz interna acesa.)_
 
-Perhaps the best part of Markdown is that you're never limited to just Markdown. You can write HTML directly in the Markdown editor and it will just work as HTML usually does. No limits! Here's a standard YouTube embed code as an example:
+![](/assets/images/11.png)  
+_(Parte Interna do Bunker (WIP) - Parte interna da superfície, com vista para fora, e luz apenas na primeira sala.)_
 
-<p><iframe style="width:100%;" height="315" src="https://www.youtube.com/embed/Cniqsc9QfDo?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe></p>
+![](/assets/images/12.png)  
+_(Parte Interna do Bunker (WIP) - Vista da primeira sala para fora do bunker com luzes apagadas, aqui ´é possivel ver que a luz ambiente segue normalmente lá fora.)_
+
+![](/assets/images/13.png)  
+_(Parte Externa do Bunker (WIP) - Da pra ver no meio das sombras a porta do bunker, e toda a escuridão lá dentro pois as luzes estão apagadas.)_
+
+![](/assets/images/14.png)  
+_(Parte Externa do Bunker (WIP) - Agora com as luzes internas acesas da pra ver que a luz se comporta de forma real, tanto as sombras internas estão mais claras como também da pra ver a sombra e a luz externa passando pela porta do lado de dentro do bunker.)_
+
+## Ativando o Lumen em seu projeto
+
+Para usar o Lumen como iluminação padrão em seu projeto, basta navegar até Project Setting, clique em Rendering depois navegue até Global Illumination e em Dynamic Global Ilumination Method, selecione Lumen, a UE5 vai pedir para ativar Generate Mesh Distance Fields, caso ainda não esteja ativado(esse processo é automatico pela engine) ele vai pedir para reinciar a Engine, após reiniciar a iluminação global usando Lumen vai estar ativada.
+
+É possivel controlar a qualidade usando Post Process Volumes, mas isso fica para um post mais a fundo sobre o Lumen.
+
+Então é isso, esse é meu primeiro post, espero melhorar na forma de apresentar daqui pra frente. Sinta-se livre para comentar abaixo, sugestões são bem vindas, me sigam nas redes sociais, links no card abaixo.
