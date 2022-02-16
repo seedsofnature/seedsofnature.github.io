@@ -4,8 +4,8 @@ layout: post
 author: sal
 categories: []
 image: assets/images/8.png
-
 ---
+
 Olá, esse é o primeiro post aqui do devblog, meu nome é Kelvin Rosa ('frost'), sou o desenvolvedor por trás da Lightshaft, nesse Blog irei falar do jogo no qual passei anos fazendo protótipos, parando, repensando e começando de novo.
 
 O foco do blog é mostrar o andamento do jogo, as tecnologias aplicadas, talvez uns tutoriais.
@@ -24,9 +24,9 @@ O bunker está equipado com vários equipamentos sobrevivencialistas, livros, re
 
 Como se trata de um bunker eu quis fazer dele um local que não recebe luz externa, como o jogo possui um sistema de iluminação dinâmica, ciclo de dia e noite, estações, climas diferentess, necessitei usar uma skylight (luz emitida pelo céu ou material de céu), isso faz com que todo o mundo do jogo seja iluminado inclusive partes subterrâneas isso fez com que o bunker ficasse iluminado em seu interior, não é o resultado que eu esperava. Deixando apenas uma luz direcional funciona já que a iluminação não é global, mas o ambiente externo fica muito escuro, e sem realismo nos climas.
 
-|![ee](/assets/images/7.png "No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.")|
+|![](/assets/images/7.png "No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.")|
 |:--:| 
-|No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.|
+|*No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.*|
 
 Isso fez eu repensar a iluminação do meu jogo, tentei usar Distance Fields e Ambient Occlusion, funcionou? Nahh, não como eu gostaria, precisei dar Bake, e várias manchas estranhas apareceram dentro do bunker, tinham a ver com o tamanho do distance mesh de cada objeto. Resolvi estudar mais um pouco zerei o valor da SkyLight, ajustei as luzes direcionais do sol e da lua. Deu certo? Sim! funcionou, mas notei que todo o ambiente externo ficou meio sem vida, com cores fracas, eu precisava da skylight. Algumas horas depois eu havia me tocado que estava usando a Unreal Engine 5 e que ela tinha uma nova tecnologia de iluminação chamada Lumen. Dei uma lida na documentação, assisti a alguns tutoriais, e chegou a hora de testar, Project Settings>Rendering>Global Ilumination: Lumen. Reiniciar a UE5, e pronto, lá estava meu bunker, todo escuro, sem luz interna!! Era o resultado que eu esperava.
 
@@ -34,35 +34,44 @@ Agora posso criar interiores, cavernas, mais bunkers, tudo usando uma luz com co
 
 Primeiro teste com o protótipo do bunker e o Lumen:
 
-![](/assets/images/15.png)  
-_(Já aqui temos uma iluminação mais real, a única luz entrando dentro do bunker é a que esta passando pelo porta, vindo do sol.)_
+|![](/assets/images/15.png)|
+|:--:| 
+|*Já aqui temos uma iluminação mais real, a única luz entrando dentro do bunker é a que esta passando pelo porta, vindo do sol.*|
 
 Com alguns ajustes no interior, temos uma boa iluminação interna!  
 Notei que quanto mais luz eu coloco, mais pesado fica o calculo e diminui os frames, mas basta setar para as luzes não afetarem o calculo do ambiente. Mas de qualquer forma optei por usar poucas luzes, pois todos os sistemas do jogos serão dinâmicos, cada luz dessa pode ser definida a um interruptor, e poderão ser criadas dinamicamente pelos jogadores. Mas isso já fica para outro post onde irei explicar o sistema de energia elétrica do jogo.
 
-![](/assets/images/9.png)  
-_(Parte Interna do Bunker (WIP) - Subsolo sala de entrada com luzes internas acesas.)_
+|![](/assets/images/9.png)|
+|:--:| 
+|*Parte Interna do Bunker (WIP) - Subsolo sala de entrada com luzes internas acesas.*|
 
-![](/assets/images/20.png)  
-_(Parte Interna do Bunker (WIP) - Escada do Subsolo para a parte interna da superfície, com as luzes acesas.)_
+|![](/assets/images/20.png)| 
+|:--:| 
+|*Parte Interna do Bunker (WIP) - Escada do Subsolo para a parte interna da superfície, com as luzes acesas.*|
 
-![](/assets/images/8.png)  
-_(Parte Interna do Bunker (WIP) - Nível da superfície com as luzes acesas.)_
+|![](/assets/images/8.png)|
+|:--:| 
+|*Parte Interna do Bunker (WIP) - Nível da superfície com as luzes acesas.*|
 
-![](/assets/images/10.png)  
-_(Parte Interna do Bunker (WIP) - Parte interna do bunker na Superfície, com vista da escada para o subsolo e entrada do bunker com vista exterior, luz interna acesa.)_
+|![](/assets/images/10.png)|
+|:--:| 
+|*Parte Interna do Bunker (WIP) - Parte interna do bunker na Superfície, com vista da escada para o subsolo e entrada do bunker com vista exterior, luz interna acesa.*|
 
-![](/assets/images/11.png)  
-_(Parte Interna do Bunker (WIP) - Parte interna da superfície, com vista para fora, e luz apenas na primeira sala.)_
+|![](/assets/images/11.png)|
+|:--:| 
+|*Parte Interna do Bunker (WIP) - Parte interna da superfície, com vista para fora, e luz apenas na primeira sala.*|
 
-![](/assets/images/12.png)  
-_(Parte Interna do Bunker (WIP) - Vista da primeira sala para fora do bunker com luzes apagadas, aqui ´é possivel ver que a luz ambiente segue normalmente lá fora.)_
+|![](/assets/images/12.png)|
+|:--:| 
+|*Parte Interna do Bunker (WIP) - Vista da primeira sala para fora do bunker com luzes apagadas, aqui é possivel ver que a luz ambiente segue normalmente lá fora.*|
 
-![](/assets/images/13.png)  
-_(Parte Externa do Bunker (WIP) - Da pra ver no meio das sombras a porta do bunker, e toda a escuridão lá dentro pois as luzes estão apagadas.)_
+|![](/assets/images/13.png)|
+|:--:| 
+|*Parte Externa do Bunker (WIP) - Da pra ver no meio das sombras a porta do bunker, e toda a escuridão lá dentro pois as luzes estão apagadas.*|
 
-![](/assets/images/14.png)  
-_(Parte Externa do Bunker (WIP) - Agora com as luzes internas acesas da pra ver que a luz se comporta de forma real, tanto as sombras internas estão mais claras como também da pra ver a sombra e a luz externa passando pela porta do lado de dentro do bunker.)_
+|![](/assets/images/14.png)|
+|:--:| 
+|*Parte Externa do Bunker (WIP) - Agora com as luzes internas acesas da pra ver que a luz se comporta de forma real, tanto as sombras internas estão mais claras como também da pra ver a sombra e a luz externa passando pela porta do lado de dentro do bunker.*|
 
 ## Ativando o Lumen em seu projeto
 
