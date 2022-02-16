@@ -79,4 +79,8 @@ Para usar o Lumen como iluminação padrão em seu projeto, basta navegar até P
 
 É possivel controlar a qualidade usando Post Process Volumes, mas isso fica para um post mais a fundo sobre o Lumen.
 
+## Buraco no Landscape/Terreno.
+
+Em Seeds Of Nature a base do jogo é composta por um ladscape/terreno, como o jogo será de mundo aberto, o foco é ter zero loading, para que o bunker fosse parte do ambiente e estivesse realmente debaixo da terra, foi necessário aplicar uma funcionalidade da Unreal Chamado Landscape Visibility. Irei fazer um post e um tutorial sobre isso. Essa funcionalidade consiste em criar uma camada no material do terreno que é responsável pela visibilidade do terreno, onde essa mascara for aplicada, nada no material do terreno é renderizado e todas as propriedades de colisão são removidas, podendo de fato atravessar o terreno, é uma técnica interessante para se fazer cavernas, buracos no terreno,etc.
+
 Então é isso, esse é meu primeiro post, espero melhorar na forma de apresentar daqui pra frente. Sinta-se livre para comentar abaixo, sugestões são bem vindas, me sigam nas redes sociais, links no card abaixo.
