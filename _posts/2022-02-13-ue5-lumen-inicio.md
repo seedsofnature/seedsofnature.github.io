@@ -25,11 +25,7 @@ O bunker está equipado com vários equipamentos sobrevivencialistas, livros, re
 Como se trata de um bunker eu quis fazer dele um local que não recebe luz externa, como o jogo possui um sistema de iluminação dinâmica, ciclo de dia e noite, estações, climas diferentess, necessitei usar uma skylight (luz emitida pelo céu ou material de céu), isso faz com que todo o mundo do jogo seja iluminado inclusive partes subterrâneas isso fez com que o bunker ficasse iluminado em seu interior, não é o resultado que eu esperava. Deixando apenas uma luz direcional funciona já que a iluminação não é global, mas o ambiente externo fica muito escuro, e sem realismo nos climas.
 
 ![ee](/assets/images/7.png "No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.")
-
-    Testeqweqw sadaseqw eqwe qw
-
-  
-_(No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.)_
+*(No interior é possível ver uma luz constante, proveniente do skylight, mesmo com as sombras corretas.)*
 
 Isso fez eu repensar a iluminação do meu jogo, tentei usar Distance Fields e Ambient Occlusion, funcionou? Nahh, não como eu gostaria, precisei dar Bake, e várias manchas estranhas apareceram dentro do bunker, tinham a ver com o tamanho do distance mesh de cada objeto. Resolvi estudar mais um pouco zerei o valor da SkyLight, ajustei as luzes direcionais do sol e da lua. Deu certo? Sim! funcionou, mas notei que todo o ambiente externo ficou meio sem vida, com cores fracas, eu precisava da skylight. Algumas horas depois eu havia me tocado que estava usando a Unreal Engine 5 e que ela tinha uma nova tecnologia de iluminação chamada Lumen. Dei uma lida na documentação, assisti a alguns tutoriais, e chegou a hora de testar, Project Settings>Rendering>Global Ilumination: Lumen. Reiniciar a UE5, e pronto, lá estava meu bunker, todo escuro, sem luz interna!! Era o resultado que eu esperava.
 
@@ -38,7 +34,7 @@ Agora posso criar interiores, cavernas, mais bunkers, tudo usando uma luz com co
 Primeiro teste com o protótipo do bunker e o Lumen:
 
 ![](/assets/images/15.png)  
-_(Já aqui temos uma iluminação mais real, a única luz entrando dentro do bunker é a que esta passando pelo porta, vindo do sol.)_
+*(Já aqui temos uma iluminação mais real, a única luz entrando dentro do bunker é a que esta passando pelo porta, vindo do sol.)*
 
 Com alguns ajustes no interior, temos uma boa iluminação interna!  
 Notei que quanto mais luz eu coloco, mais pesado fica o calculo e diminui os frames, mas basta setar para as luzes não afetarem o calculo do ambiente. Mas de qualquer forma optei por usar poucas luzes, pois todos os sistemas do jogos serão dinâmicos, cada luz dessa pode ser definida a um interruptor, e poderão ser criadas dinamicamente pelos jogadores. Mas isso já fica para outro post onde irei explicar o sistema de energia elétrica do jogo.
