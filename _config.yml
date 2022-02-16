@@ -6,7 +6,7 @@ email: xknyrgkk
 timezone: UTC
 baseurl: "/"
 permalink: "/:title/"
-logo: 'assets/images/logo.png'
+logo: 'assets/images/sonlogo.png'
 favicon: 'assets/images/favicon.ico'
 author: Frost
 paginate: 30
