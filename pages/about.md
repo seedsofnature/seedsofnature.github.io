@@ -1,5 +1,5 @@
 ---
-title: Sobre
+title: About
 layout: page
 permalink: "/about/"
 image: assets/images/screenshot.png
@@ -8,12 +8,12 @@ image: assets/images/screenshot.png
 <center>
             <div id="google_translate_element"></div>
         </center>
-**Seeds of Nature** é um jogo em desenvolvimento pela Lightshaft Games. 
+**Seeds of Nature** is a game in development by Lightshaft Games. 
 
-Somos um estúdio indie, 100% de nossa renda é proveniente de trabalhos freelance, ou seja fazemos jogos para outras empresas também, caso sua empresa esteja a procura de um grupo responsável, com experiência nas principais Game Engines do mercado (Unity e Unreal Engine), entre em contato.
+We are a indie game studio, 100% of our income came from freelancer jobs, we made games for you too, if your company is looking for a responsible group, with experience on the most used Game Engines (unity, Unreal Engine), get in touch.
 
-Temos experiência em jogos Multiplayer, Realidade aumentada, Realidade Virtual, Blockchain Games e Mobile.
+We have experience with Multiplayer, Augmented Reality, Virtual reality, Blockchain games, Mobile.
 
 
 
-[Entre em contato](/contact)
+[Contact](/contact)
