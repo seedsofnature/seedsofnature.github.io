@@ -6,15 +6,12 @@ categories: []
 image: assets/images/8.png
 ---
 
-Se você é apaixonado por jogos e quer desenvolver seu próprio jogo, este artigo é para você. Neste guia passo a passo, vamos mostrar como iniciar o desenvolvimento de games do zero.
+Hoje em dia muitas pessoas se interessam por desenvolvimento e mercado de jogos, não é atoa, estima-se que no ano de 2021 no Brasil foram movimentados cerca de R$ 6,6 bilhões.
+E ai tem interesse mas não sabe por onde começar, se liga nesse guia rápido para te dar um start.
 
 ## Introdução
 
-Desenvolver um jogo é uma tarefa complexa, mas pode ser uma experiência gratificante e divertida. Você precisa ter uma ideia clara do jogo que deseja criar e aprender as habilidades necessárias para transformar essa ideia em realidade.
-
-|![](/assets/images/7.png "Inside it is possible to see a constant light, coming from the skylight, even with the correct shadows..")|
-|:--:| 
-|*Inside it is possible to see a constant light, coming from the skylight, even with the correct shadows..*|
+Desenvolver um jogo já não é uma tarefa tão complicada como antigamente, mas exige um pouco de paciêcia e bastante estudo, mas pode ser uma experiência gratificante e divertida. Primeiramente você precisa ter uma ideia clara do jogo que deseja criar e aprender as habilidades necessárias para transformar essa ideia em realidade.
 
 
 ## Escolha a Plataforma
@@ -23,19 +20,20 @@ Antes de começar a desenvolver seu jogo, você precisa escolher em qual platafo
 
 ## Escolha a Engine
 
-A escolha da engine é crucial para o sucesso do seu jogo. Existem várias engines de jogos disponíveis, cada uma com suas próprias vantagens e desvantagens. Algumas das engines mais populares são a Unity, a Unreal Engine e a GameMaker Studio. É importante pesquisar e experimentar as diferentes opções antes de escolher a engine certa para o seu jogo.
+A escolha da engine é crucial para o desenvolvimento do seu jogo. Existem várias engines de jogos disponíveis, cada uma com suas próprias vantagens e desvantagens. Dependedo do seu nível de conhecimento você mesmo pode desenvolver uma engine, mas para que tentar re-invetar a roda quando temos grandes engines no mercado. Algumas das engines mais populares são a Unity, Unreal Engine, GameMaker Studio e Godot. É importante pesquisar e experimentar as diferentes opções antes de escolher a engine certa para o seu jogo. A Unity por exemplo é uma game engine recomendada para usuários iniciantes mas também é recomendada para qualquer tipo de jogo.
 
 ## Aprenda a Programar
 
-Para desenvolver um jogo, você precisa aprender a programar. Existem várias linguagens de programação que você pode usar, como C++, C# e Java. É importante escolher a linguagem certa para o seu jogo e aprender as habilidades necessárias para usar essa linguagem.
+Para desenvolver um jogo, você precisa aprender a programar, pelo menos um pouco, ou ter uma noção de lógica de programação, pois além das linguagens de programação hoje em dia a maioria das engines tem o que chamamos de programação visual, possibilitando programar, usando blocos de lógica que acaba sendo mais facil para pessoas com mais conhecimento na area de design por exemplo sair criando mecânicas mais simples, como por exemplo coletar uma moeda. Existem várias linguagens de programação que você pode usar, como C++ e C#, existem varias outras, mas as mais usadas na programação de jogos são elas. É importante escolher a linguagem certa para o seu jogo e aprender as habilidades necessárias para usar essa linguagem.
 
 ## Crie os Gráficos e os Sons
 
-Os gráficos e os sons são uma parte fundamental do seu jogo. Eles criam a atmosfera e a imersão para os jogadores. Você pode criar seus próprios gráficos e sons ou contratar um artista e um compositor para ajudá-lo. Existem também várias bibliotecas e ferramentas disponíveis para criar gráficos e sons.
+Os gráficos e os sons são uma parte fundamental do seu jogo. Eles criam a atmosfera e a imersão para os jogadores. Você pode criar seus próprios gráficos e sons ou contratar um artista e um compositor para ajudá-lo. Existem também várias bibliotecas e ferramentas disponíveis para criar gráficos e sons. Hoje em dia contamos também com a ajuda de assets que podemos adquirir de forma gratuita ou comprar nas lojas das engines.
 
 ## Desenvolva a Jogabilidade
 
-A jogabilidade é a parte mais importante do seu jogo. Ela determina como os jogadores interagem com o jogo e quais são os objetivos. É importante criar uma jogabilidade divertida e desafiadora para manter os jogadores engajados. Você também precisa testar e refinar sua jogabilidade até que ela seja perfeita.
+A jogabilidade é a parte mais importante do seu jogo. Ela determina como os jogadores interagem com o jogo e quais são os objetivos. É importante criar uma jogabilidade divertida e desafiadora para manter os jogadores engajados. Indies costumam a criar jogabilidades inovadoras, não tenha medo de inovar, talves sua ideia pareça muito dificil de reproduzir inicialmente, mas aprender nunca é demais. 
+"A mente que se abre a uma nova ideia jamais voltará ao seu tamanho original." - *Albert Einstein*.
 
 ## Teste e Depure o Seu Jogo
 
@@ -43,8 +41,10 @@ Testar e depurar seu jogo é uma etapa crucial do processo de desenvolvimento. V
 
 ## Lance o Seu Jogo
 
-Depois de concluir o desenvolvimento do seu jogo, é hora de lançá-lo. Você pode lançá-lo em várias plataformas, como a Steam, a App Store e o Google Play. É importante fazer uma boa campanha de marketing para garantir que seu jogo seja visto pelos jogadores.
+Depois de concluir o desenvolvimento do seu jogo, é hora de lançá-lo. Você pode lançá-lo em várias plataformas, como a Steam, a App Store e o Google Play. É importante fazer uma boa campanha de marketing para garantir que seu jogo seja visto pelos jogadores. Hoje em dia é muito comum publishers procurarem jogos para publicar ou desenvovedores procurarem publishers para publicar seu jogo, normalmente elas fazem todo o marketing do seu jogo em troca de uma porcentagem das vendas, varia de cada uma. Existem algumas publishers que alavancam seu projeto até mesmo durante o desenvolvimento, fica a dica: Crytivo é uma delas.
 
 ## Conclusão
 
 Desenvolver um jogo do zero pode ser uma tarefa desafiadora, mas é uma experiência gratificante e divertida. Se você seguir essas etapas, poderá criar seu próprio jogo e compartilhá-lo com o mundo. Lembre-se de ser criativo, perseverante e de se divertir
+
+Irei descrever em posts futuros etapas mais detalhadas, explicando as etapas internas de se lançar um jogo. Se curtiu o texto, comente abaixo. Deixe sua opinião.
