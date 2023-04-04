@@ -7,7 +7,8 @@ image: assets/images/8.png
 ---
 
 Hoje em dia muitas pessoas se interessam por desenvolvimento e mercado de jogos, não é atoa, estima-se que no ano de 2021 no Brasil foram movimentados cerca de R$ 6,6 bilhões.
-E ai tem interesse mas não sabe por onde começar, se liga nesse guia rápido para te dar um start.
+
+E ai tem interesse? mas não sabe por onde começar? se liga nesse guia rápido para te dar um panorama do que fazer.
 
 ## Introdução
 
@@ -21,6 +22,10 @@ Antes de começar a desenvolver seu jogo, você precisa escolher em qual platafo
 ## Escolha a Engine
 
 A escolha da engine é crucial para o desenvolvimento do seu jogo. Existem várias engines de jogos disponíveis, cada uma com suas próprias vantagens e desvantagens. Dependedo do seu nível de conhecimento você mesmo pode desenvolver uma engine, mas para que tentar re-invetar a roda quando temos grandes engines no mercado. Algumas das engines mais populares são a Unity, Unreal Engine, GameMaker Studio e Godot. É importante pesquisar e experimentar as diferentes opções antes de escolher a engine certa para o seu jogo. A Unity por exemplo é uma game engine recomendada para usuários iniciantes mas também é recomendada para qualquer tipo de jogo.
+
+## Aprenda a Engine
+
+Normalmente as próprias empresas por trás das engines criam conteúdos ditáticos ensinando a fazer jogos ou usar a engine, mas hoje em dia no youtube é o melhor lugar de se aprender, seja para começar a fazer um joguinho onde um cubo sai pulando até fazer um jogo completo e publicar. 
 
 ## Aprenda a Programar
 
@@ -47,4 +52,12 @@ Depois de concluir o desenvolvimento do seu jogo, é hora de lançá-lo. Você p
 
 Desenvolver um jogo do zero pode ser uma tarefa desafiadora, mas é uma experiência gratificante e divertida. Se você seguir essas etapas, poderá criar seu próprio jogo e compartilhá-lo com o mundo. Lembre-se de ser criativo, perseverante e de se divertir
 
-Irei descrever em posts futuros etapas mais detalhadas, explicando as etapas internas de se lançar um jogo. Se curtiu o texto, comente abaixo. Deixe sua opinião.
+## Bonus: Chat-GPT
+
+O chatgpt tem sido uma ótima ferramenta para quem de fato a sabe usar. Se você tem uma noção de programação por exemplo você pode criar sistemas completos usando o chatgpt, mas é sempre necessário saber o que está sendo feito, afinal é ela te ajudando e não o contrário. Você provavelmente vai precisar corrir o código gerado e adapta-lo. Mas fazendo bom uso você pode até se tornar um melhor programador.
+
+A ferramenta também ajuda na criação de roteiros e ideias, mas não é algo que eu recomende, a não ser que você esteja mediando todo o roteiro criado, mudando uma coisa aqui e ali pois existe grandes chances de ser criado um roteiro genério e até mesmo 'massante'. Mas usa-la de vez em quando se torna divertido e acaba agregando as suas ideias.
+
+## That's all folks!
+
+Irei descrever em posts futuros etapas mais detalhadas explicando os processos internos de se lançar um jogo. Se curtiu o texto, comente abaixo. Deixe sua opinião.
