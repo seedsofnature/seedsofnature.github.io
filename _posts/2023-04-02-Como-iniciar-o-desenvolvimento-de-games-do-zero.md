@@ -3,7 +3,7 @@ title: Como iniciar o desenvolvimento de games do zero
 layout: post
 author: frost
 categories: []
-image: assets/images/2023-04-02-Como-iniciar-o-desenvolvimento-de-games-do-zero/title.png
+image: assets/images/2023-04-02-Como-iniciar-o-desenvolvimento-de-games-do-zero/title.jpg
 ---
 
 Hoje em dia muitas pessoas se interessam por desenvolvimento e mercado de jogos, não é atoa, estima-se que no ano de 2021 no Brasil foram movimentados cerca de R$ 6,6 bilhões.
