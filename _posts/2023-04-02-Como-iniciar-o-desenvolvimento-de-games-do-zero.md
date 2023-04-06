@@ -3,7 +3,7 @@ title: Como iniciar o desenvolvimento de games do zero
 layout: post
 author: frost
 categories: []
-image: assets/images/8.png
+image: assets/images/2023-04-02-Como-iniciar-o-desenvolvimento-de-games-do-zero/title.png
 ---
 
 Hoje em dia muitas pessoas se interessam por desenvolvimento e mercado de jogos, não é atoa, estima-se que no ano de 2021 no Brasil foram movimentados cerca de R$ 6,6 bilhões.
@@ -37,7 +37,7 @@ Os gráficos e os sons são uma parte fundamental do seu jogo. Eles criam a atmo
 
 ## Desenvolva a Jogabilidade
 
-A jogabilidade é a parte mais importante do seu jogo. Ela determina como os jogadores interagem com o jogo e quais são os objetivos. É importante criar uma jogabilidade divertida e desafiadora para manter os jogadores engajados. Indies costumam a criar jogabilidades inovadoras, não tenha medo de inovar, talves sua ideia pareça muito dificil de reproduzir inicialmente, mas aprender nunca é demais. 
+A jogabilidade é a parte mais importante do seu jogo. Ela determina como os jogadores interagem com o jogo e quais são os objetivos. É importante criar uma jogabilidade divertida e desafiadora para manter os jogadores engajados. Desenvolvedores indies costumam a criar jogabilidades inovadoras, não tenha medo de inovar, talves sua ideia pareça muito dificil de reproduzir inicialmente mas aprender nunca é demais. 
 "A mente que se abre a uma nova ideia jamais voltará ao seu tamanho original." - *Albert Einstein*.
 
 ## Teste e Depure o Seu Jogo
@@ -46,7 +46,7 @@ Testar e depurar seu jogo é uma etapa crucial do processo de desenvolvimento. V
 
 ## Lance o Seu Jogo
 
-Depois de concluir o desenvolvimento do seu jogo, é hora de lançá-lo. Você pode lançá-lo em várias plataformas, como a Steam, a App Store e o Google Play. É importante fazer uma boa campanha de marketing para garantir que seu jogo seja visto pelos jogadores. Hoje em dia é muito comum publishers procurarem jogos para publicar ou desenvovedores procurarem publishers para publicar seu jogo, normalmente elas fazem todo o marketing do seu jogo em troca de uma porcentagem das vendas, varia de cada uma. Existem algumas publishers que alavancam seu projeto até mesmo durante o desenvolvimento, fica a dica: Crytivo é uma delas.
+Depois de concluir o desenvolvimento do seu jogo, é hora de lançá-lo. Você pode lançá-lo em várias plataformas, como a Steam, a App Store e o Google Play. É importante fazer uma boa campanha de marketing para garantir que seu jogo seja visto pelos jogadores. Hoje em dia, é muito comum publishers procurarem jogos para publicar ou desenvolvedores procurarem publishers para publicar seus jogos. Normalmente, elas fazem todo o marketing do seu jogo em troca de uma porcentagem das vendas, que varia de acordo com cada uma. Existem algumas publishers que alavancam seu projeto até mesmo durante o desenvolvimento. Fica a dica: Crytivo é uma delas.
 
 ## Conclusão
 
@@ -54,9 +54,9 @@ Desenvolver um jogo do zero pode ser uma tarefa desafiadora, mas é uma experiê
 
 ## Bonus: Chat-GPT
 
-O chatgpt tem sido uma ótima ferramenta para quem de fato a sabe usar. Se você tem uma noção de programação por exemplo você pode criar sistemas completos usando o chatgpt, mas é sempre necessário saber o que está sendo feito, afinal é ela te ajudando e não o contrário. Você provavelmente vai precisar corrir o código gerado e adapta-lo. Mas fazendo bom uso você pode até se tornar um melhor programador.
+O ChatGPT tem sido uma ótima ferramenta para quem sabe usá-la corretamente. Se você tem noções de programação, por exemplo, pode criar sistemas completos utilizando o ChatGPT. Porém, é necessário ter cuidado e saber o que está sendo feito, já que é o ChatGPT que está ajudando e não o contrário. Provavelmente, você precisará corrigir o código gerado e adaptá-lo, mas, se usar a ferramenta corretamente, poderá até mesmo se tornar um melhor programador.
 
-A ferramenta também ajuda na criação de roteiros e ideias, mas não é algo que eu recomende, a não ser que você esteja mediando todo o roteiro criado, mudando uma coisa aqui e ali pois existe grandes chances de ser criado um roteiro genério e até mesmo 'massante'. Mas usa-la de vez em quando se torna divertido e acaba agregando as suas ideias.
+Além disso, o ChatGPT também ajuda na criação de roteiros e ideias, mas eu não recomendaria utilizá-lo a não ser que você esteja supervisionando todo o processo, fazendo alterações aqui e ali. Caso contrário, há grandes chances de ser criado um roteiro genérico e até mesmo monótono. No entanto, utilizá-lo de vez em quando pode ser divertido e agregar valor às suas ideias.
 
 ## That's all folks!
 
