@@ -1,26 +1,59 @@
-title: Jekyll Serial Programmer
+title: "Seeds of Nature - Game"
+description: "A seeds of nature dev blog."
+domain: seedsofnature.github.io
+url: https://seedsofnature.github.io
+email: kelvinparkour@gmail.com
+timezone: UTC
+baseurl: "/"
+permalink: "/:title/"
+logo: 'assets/images/sonlogo.png'
+favicon: 'assets/images/favicon.ico'
+author: Frost
+paginate: 30
+disqus: 'seedsofnaturegame'
+locale: pt_br
+lang: pt_br
+feed_items: 10
+feed_update_period: daily
+feed_update_frequency: 1
 markdown: kramdown
+highlighter: rouge
+    input: GFM
+sass:
+  sass_dir: _sass
+  style: :compressed
+ganalytics: G-LS1Z3LQQES
+github_username:  kelvinRosa
 
-# for atom feed
-author:
-  name: Sharad Raj Singh Maurya
-  email: dev_sharad@outlook.com
+# Authors
+authors:
+  frost:
+    name: Kelvin Rosa
+    display_name: Frost
+    avatar: 'assets/images/sal.png'
+    email: kelvinparkour@gmail.com
+    web: https://seedsofnature.github.io/
+    twitter: https://twitter.com/ligthshaftdev
+    description: "Kelvin Rosa - 29 Years old. Geek, Indie Game Developer, Working on Seeds of Nature. Father of various animals, Farmer on 'free' time :D"
+  john:
+    name: John
+    display_name: John
+    avatar: 'assets/images/john.png'
+    email: wowthemesnet@gmail.com
+    web: https://www.wowthemes.net/category/jekyll-themes/
+    twitter: https://twitter.com/wowthemesnet
+    description: "This is the author box. Write a short description of the author here. You are currently previewing Affiliates theme demo, a Jekyll template compatible with Github pages."
 
-plugins:
-  - jemoji
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
+# Social
+social:
+  instagram: https://www.instagram.com/kelvinrosadev/
+  facebook: https://www.patreon.com/lightshaft
+  twitter: https://twitter.com/ligthshaftdev
 
-collections_dir: all_collections
-collections:
-  posts:
-    output: true
-
-defaults:
-  - scope:
-      path: "_posts"
-    values:
-      layout: "post"
-      permalink: /posts/:title/
-exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md"]
+# Plugins
+plugins: 
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-archives
