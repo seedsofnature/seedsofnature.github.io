@@ -33,7 +33,7 @@ Por padrão a Unreal ainda não cria a classe Character com os novos inputs, aba
 Caso prefira habilitar o plugin pela sua IDE adicione as seguintes linhas no seu ***.uproject**
 
 
-```c#
+```csharp
 "Plugins": [
 	{
 		"Name": "EnhancedInput",
@@ -50,7 +50,7 @@ Na Engine vá para **Edit>Project Settings>Input** e em Default Classes defina
 
 Agora na sua IDE abra o arquivo 
 ***.Build.cs** e adicione "EnhancedInput" dentro de **PublicDependencyModuleNames**:
-```c#
+```csharp
 PublicDependencyModuleNames.AddRange(new string[]
 	{
 		"Core",
@@ -62,14 +62,14 @@ PublicDependencyModuleNames.AddRange(new string[]
 ```
 
 Vamos para o código, o Input precisa ser adicionado no seu personagem, caso já tenha um script de personagem apenas edite, caso contrário crie um novo script usando a classe **ACharacter** como herança, depois adicione a seguinte linha de código no .h do seu personagem para definirmos no editor depois.
-```C++
+```cpp
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")  
 	class UInputMappingContext* InputMapping;
 ```
 
 Por padrão todos os personagem **ACharacter** possuem uma função chamada **SetupPlayerInputComponent**, precisamos adicionar o novo input no player, para isso remova todo o código que já estiver dentro dessa função no .cpp do personagem e substituia pelo seguinte código:
-```C++
+```cpp
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
 Super::SetupPlayerInputComponent(PlayerInputComponent);  
@@ -89,7 +89,7 @@ UEnhancedInputComponent* PEI = Cast<UEnhancedInputComponent>(PlayerInputComponen
 ```
 
 Adicione também esses headers:
-```C++
+```cpp
 #include "InputMappingContext.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInput/Public/EnhancedInputComponent.h"
@@ -97,7 +97,7 @@ Adicione também esses headers:
 Compile para ver se tudo ocorreu bem.
 
 Novamente no .h do seu personagem adicione uma referencia a classe **UInputAction** no topo para não precisar adicionar os .h da classe, logo abaixo os includes
-```C++
+```cpp
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
 Super::SetupPlayerInputComponent(PlayerInputComponent);  
@@ -116,11 +116,11 @@ UEnhancedInputComponent* PEI = Cast<UEnhancedInputComponent>(PlayerInputComponen
 }
 ```
 
-```C++
+```cpp
 class UInputAction;
 ```
 Na parte publica defina os Inputs que deseja usar, exemplo:
-```C++
+```cpp
 UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")  
 UInputAction* InputMove;  
   
@@ -128,13 +128,13 @@ UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 UInputAction* InputLook;
 ```
 Ainda no .h crie as funções que serão chamadas quando ocorrer a ação:
-```C++
+```cpp
 void Move(const FInputActionValue& Value);  
   
 void Look(const FInputActionValue& Value);
 ```
 Agora no .cpp crie a chamada das funções:
-```C++
+```cpp
 void ASCharacter::Move(const FInputActionValue& Value)  
 {  
 	const FVector2D MoveValue = Value.Get<FVector2D>();  
@@ -161,12 +161,12 @@ void ASCharacter::Look(const FInputActionValue& Value)
 ```
 No exemplo acima criei duas funções, uma para se mover e outra para olhar para os lados.
 No .cpp do seu personagem na função **SetupPlayerInputComponent** adicione essas linhas de código:
-```C++
+```cpp
 PEI->BindAction(InputMove, ETriggerEvent::Triggered, this, &ASCharacter::Move);  
 PEI->BindAction(InputLook, ETriggerEvent::Triggered, this, &ASCharacter::Look);
 ```
 A função vai ficar assim:
-```C++
+```cpp
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
 Super::SetupPlayerInputComponent(PlayerInputComponent);  
