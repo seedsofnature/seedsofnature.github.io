@@ -18,6 +18,7 @@ feed_update_period: daily
 feed_update_frequency: 1
 markdown: kramdown
 highlighter: rouge
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 sass:
   sass_dir: _sass
   style: :compressed
@@ -56,3 +57,4 @@ plugins:
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-archives
+- jekyll-include-cache
