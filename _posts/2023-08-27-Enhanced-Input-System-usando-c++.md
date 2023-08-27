@@ -62,14 +62,14 @@ PublicDependencyModuleNames.AddRange(new string[]
 ```
 
 Vamos para o código, o Input precisa ser adicionado no seu personagem, caso já tenha um script de personagem apenas edite, caso contrário crie um novo script usando a classe **ACharacter** como herança, depois adicione a seguinte linha de código no .h do seu personagem para definirmos no editor depois.
-```c++
+```C++
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")  
 	class UInputMappingContext* InputMapping;
 ```
 
 Por padrão todos os personagem **ACharacter** possuemuma função chamada **SetupPlayerInputComponent**, precisamos adicionar o novo input no player, para isso remova todo o código que já estiver dentro dessa função no .cpp do personagem e substituia pelo seguinte código:
-```c++
+```C++
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
 Super::SetupPlayerInputComponent(PlayerInputComponent);  
@@ -89,7 +89,7 @@ UEnhancedInputComponent* PEI = Cast<UEnhancedInputComponent>(PlayerInputComponen
 ```
 
 Adicione também esses headers:
-```c++
+```C++
 #include "InputMappingContext.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInput/Public/EnhancedInputComponent.h"
@@ -97,7 +97,7 @@ Adicione também esses headers:
 Compile para ver se tudo ocorreu bem.
 
 Novamente no .h do seu personagem adicione uma referencia a classe **UInputAction** no topo para não precisar adicionar os .h da classe, logo abaixo os includes
-```c++
+```C++
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
 Super::SetupPlayerInputComponent(PlayerInputComponent);  
@@ -116,11 +116,11 @@ UEnhancedInputComponent* PEI = Cast<UEnhancedInputComponent>(PlayerInputComponen
 }
 ```
 
-```c++
+```C++
 class UInputAction;
 ```
 Na parte publica defina os Inputs que deseja usar, exemplo:
-```c++
+```C++
 UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")  
 UInputAction* InputMove;  
   
@@ -128,13 +128,13 @@ UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 UInputAction* InputLook;
 ```
 Ainda no .h crie as funções que serão chamadas quando ocorrer a ação:
-```c++
+```C++
 void Move(const FInputActionValue& Value);  
   
 void Look(const FInputActionValue& Value);
 ```
 Agora no .cpp crie a chamada das funções:
-```c++
+```C++
 void ASCharacter::Move(const FInputActionValue& Value)  
 {  
 	const FVector2D MoveValue = Value.Get<FVector2D>();  
@@ -161,12 +161,12 @@ void ASCharacter::Look(const FInputActionValue& Value)
 ```
 No exemplo acima criei duas funções, uma para se mover e outra para olhar para os lados.
 No .cpp do seu personagem na função **SetupPlayerInputComponent** adicione essas linhas de código:
-```c++
+```C++
 PEI->BindAction(InputMove, ETriggerEvent::Triggered, this, &ASCharacter::Move);  
 PEI->BindAction(InputLook, ETriggerEvent::Triggered, this, &ASCharacter::Look);
 ```
 A função vai ficar assim:
-```c++
+```C++
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
 Super::SetupPlayerInputComponent(PlayerInputComponent);  
@@ -195,7 +195,7 @@ Agora é necessário criar um pesonagem baseado na nova classe que criamos(ou ed
 No Blueprint do seu personagem será necessário setar 3 campos (de acordo com o exemplo acima, usando 2 Input Actions). 
 Para isso precisamos criar o **Input Mapping Context** , clique com o botão direito  em alguma de suas pastas no projeto e navegue até Input>Input Mapping Context , nomeie com o nome que achar melhor, e em seguida crie 2 arquivos do tipo **Input Action** (clique direito Input>Input Action), defina o nome que desejar no meu caso usei IA_Look e IA_Move. Abra o arquivo do tipo Input Mapping Context que você criou, e adicione os 2 Input Action que você criou.
 
-![Input Mapping Context](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem5.png)
+![Input Mapping Context](/assets/images/2023-08-27-Enhanced-Input-System-usando-C++/imagem5.png)
 
 No meu caso criei um Input para se mover e outro para olhar, o Enhanced Input System tem muitas funcionalidades interessantes, um exemplo é que é possível criar combos, mas isso fica para um post futuro, vou mostrar como adicionar um movimento básico.
 

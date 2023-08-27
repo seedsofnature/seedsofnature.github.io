@@ -17,6 +17,8 @@ feed_items: 10
 feed_update_period: daily
 feed_update_frequency: 1
 markdown: redcarpet
+redcarpet:
+    extensions: ["no_intra_emphasis", "tables", "autolink", "strikethrough", "fenced_code_blocks"]
 sass:
   sass_dir: _sass
   style: :compressed
