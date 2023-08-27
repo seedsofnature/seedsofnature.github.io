@@ -68,7 +68,7 @@ protected:
 	class UInputMappingContext* InputMapping;
 ```
 
-Por padrão todos os personagem **ACharacter** possuemuma função chamada **SetupPlayerInputComponent**, precisamos adicionar o novo input no player, para isso remova todo o código que já estiver dentro dessa função no .cpp do personagem e substituia pelo seguinte código:
+Por padrão todos os personagem **ACharacter** possuem uma função chamada **SetupPlayerInputComponent**, precisamos adicionar o novo input no player, para isso remova todo o código que já estiver dentro dessa função no .cpp do personagem e substituia pelo seguinte código:
 ```C++
 void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)  
 {  
