@@ -18,7 +18,6 @@ feed_update_period: daily
 feed_update_frequency: 1
 markdown: kramdown
 highlighter: rouge
-    input: GFM
 sass:
   sass_dir: _sass
   style: :compressed
