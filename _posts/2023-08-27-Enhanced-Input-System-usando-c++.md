@@ -18,17 +18,17 @@ O antigo input system era definido no **Project Settings** da Engine , era neces
 ## Exemplos
 
 **Input System Antigo**:
-![Demosmtração de como era o antigo Input System](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png)
+![Demosmtração de como era o antigo Input System](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png)
 
 **Input System Novo**:
-![Demosmtração de como é o novo](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem2.png)
+![Demosmtração de como é o novo](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem2.png)
 
 ## Implementando em C++
 
 Por padrão a Unreal ainda não cria a classe Character com os novos inputs, abaixo irei ensinar como criar a base do seu Character usando o Enhanced Input System:
 
 **Primeiro verifique se o Plugin está habilitado**
-![Verifique se está habilitado](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem3.png)
+![Verifique se está habilitado](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem3.png)
 
 Caso prefira habilitar o plugin pela sua IDE adicione as seguintes linhas no seu ***.uproject**
 
@@ -46,7 +46,7 @@ Caso prefira habilitar o plugin pela sua IDE adicione as seguintes linhas no seu
 Na Engine vá para **Edit>Project Settings>Input** e em Default Classes defina 
 **EnhancedPlayerInput** no *Default Player Input Class* e **EnhancedInputComponent** em *Default Input Component Class*
 
-![Setando Input como default](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem4.png)
+![Setando Input como default](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem4.png)
 
 Agora na sua IDE abra o arquivo 
 ***.Build.cs** e adicione "EnhancedInput" dentro de **PublicDependencyModuleNames**:
@@ -195,15 +195,15 @@ Agora é necessário criar um pesonagem baseado na nova classe que criamos(ou ed
 No Blueprint do seu personagem será necessário setar 3 campos (de acordo com o exemplo acima, usando 2 Input Actions). 
 Para isso precisamos criar o **Input Mapping Context** , clique com o botão direito  em alguma de suas pastas no projeto e navegue até Input>Input Mapping Context , nomeie com o nome que achar melhor, e em seguida crie 2 arquivos do tipo **Input Action** (clique direito Input>Input Action), defina o nome que desejar no meu caso usei IA_Look e IA_Move. Abra o arquivo do tipo Input Mapping Context que você criou, e adicione os 2 Input Action que você criou.
 
-![Input Mapping Context](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem5.png)
+![Input Mapping Context](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem5.png)
 
 No meu caso criei um Input para se mover e outro para olhar, o Enhanced Input System tem muitas funcionalidades interessantes, um exemplo é que é possível criar combos, mas isso fica para um post futuro, vou mostrar como adicionar um movimento básico.
 
 No IA_Move adicionei duas ações, ao apertar W e ao apertar S, é necessário adicionar modificadores, no W apenas adicionei o modificador de movimentação no eixo, já no S antes da movimentação adicionei um **Negate** que serve para o contrário da ação seguinte.
-![IA_Move](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem6.png)
+![IA_Move](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem6.png)
 
 Ja no IA_Look apenas adicionei um **Mouse XY 2D-Axis**, que serve para capturar a posição do mouse.
-![IA_Move](assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem7.png)
+![IA_Move](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem7.png)
 
 Agora abra o Blueprint do seu personagem e em Details procure por Enhanced Input e adicione o arquivo Input Mapping Context e os Input Action que você criou.
 Feito isso só rodar a cena. Você pode adicionar quantas ações desejar e customizar a funcionalidade. Em Blueprint é muito mais simples. Basta definir como variável um InputAction e chamar o evento no Blueprint.
