@@ -198,7 +198,7 @@ Agora é necessário criar um pesonagem baseado na nova classe que criamos(ou ed
 No Blueprint do seu personagem será necessário setar 3 campos (de acordo com o exemplo acima, usando 2 Input Actions). 
 Para isso precisamos criar o **Input Mapping Context** , clique com o botão direito  em alguma de suas pastas no projeto e navegue até Input>Input Mapping Context , nomeie com o nome que achar melhor, e em seguida crie 2 arquivos do tipo **Input Action** (clique direito Input>Input Action), defina o nome que desejar no meu caso usei IA_Look e IA_Move. Abra o arquivo do tipo Input Mapping Context que você criou, e adicione os 2 Input Action que você criou.
 
-![Input Mapping Context](/assets/images/2023-08-27-Enhanced-Input-System-usando-C++/imagem5.png)
+![](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem5.png)
 
 No meu caso criei um Input para se mover e outro para olhar, o Enhanced Input System tem muitas funcionalidades interessantes, um exemplo é que é possível criar combos, mas isso fica para um post futuro, vou mostrar como adicionar um movimento básico.
 
