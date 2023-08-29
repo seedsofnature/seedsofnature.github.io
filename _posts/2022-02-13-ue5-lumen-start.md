@@ -8,6 +8,7 @@ author: frost
 header:
   image: /assets/images/8.png
   og_image: /assets/images/8.png
+classes: wide
 ---
 
 Hi, this is the first post here on the devblog, my name is Kelvin S. Rosa ('frost), I'm the developer behind Lightshaft games, in this blog i will talk about the game I've spent years prototyping, stopping, rethinking, and starting over. The focus of the devblog is to show the progress of the game, the technologies applied, maybe some tutorials…

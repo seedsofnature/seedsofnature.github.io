@@ -3,11 +3,12 @@ title: Implementando o novo Enhanced Input da Unreal Engine usando C++
 categories: 
   - Unreal Engine
 tags:
-  - tutoriak
+  - tutorial
 author: frost
 header:
   image: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
   og_image: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
+classes: wide
 
 ---
 
