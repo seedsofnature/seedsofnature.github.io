@@ -214,3 +214,6 @@ Ja no IA_Look apenas adicionei um **Mouse XY 2D-Axis**, que serve para capturar 
 
 Agora abra o Blueprint do seu personagem e em Details procure por Enhanced Input e adicione o arquivo Input Mapping Context e os Input Action que você criou.
 Feito isso só rodar a cena. Você pode adicionar quantas ações desejar e customizar a funcionalidade. Em Blueprint é muito mais simples. Basta definir como variável um InputAction e chamar o evento no Blueprint.
+
+Source code aqui https://gist.github.com/kelvinRosa/6395e71474fda729ff30f2d8f46aad58 :
+<script src="https://gist.github.com/kelvinRosa/6395e71474fda729ff30f2d8f46aad58.js"></script>
