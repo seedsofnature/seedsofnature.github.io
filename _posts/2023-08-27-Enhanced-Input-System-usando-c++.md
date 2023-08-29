@@ -22,12 +22,10 @@ O antigo input system era definido no **Project Settings** da Engine , era neces
 ## Exemplos
 
 **Input System Antigo**:
-<figure class="half">
+<figure>
 	<a href="/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png"><img src="/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png"></a>
-	<a href="/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png"><img src="/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png"></a>
-	<figcaption>Two images.</figcaption>
+	<figcaption>Demosmtração de como era o antigo Input System.</figcaption>
 </figure>
-![Demosmtração de como era o antigo Input System](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem1.png)
 
 **Input System Novo**:
 ![Demosmtração de como é o novo](/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/imagem2.png)
