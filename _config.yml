@@ -106,13 +106,10 @@ analytics:
 author:
   name             : "Frost"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "I am a **Game Developer** from Brazil."
   location         : "Brazil"
   email            : "kelvinparkour@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:kelvinparkour@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
