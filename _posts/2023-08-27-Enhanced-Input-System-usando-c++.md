@@ -8,7 +8,7 @@ author: frost
 header:
   image: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
   og_image: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
-classes: wide
+
 
 ---
 
