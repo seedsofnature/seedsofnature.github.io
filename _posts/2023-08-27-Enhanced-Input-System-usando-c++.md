@@ -5,7 +5,10 @@ categories:
 tags:
   - tutoriak
 author: frost
-teaser: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
+header:
+  image: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
+  og_image: teaser: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
+
 ---
 
 Olá, a muito tempo não escrevo nada aqui. Desta vez é sem enrolação vou direto ao assunto; Recentemente (não tão recente assim) a **Unreal Engine** colocou o antigo Input System em Obsoleto. Por padrão nas novas versões da Engine  o novo Input System já vem habilitado.
