@@ -6,8 +6,8 @@ tags:
   - tutoriak
 author: frost
 header:
-  image: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
-  og_image: teaser: /assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg
+  image: "/assets/images/2023-08-27-Enhanced-Input-System-usando-c++.jpg"
+  og_image: teaser: "/assets/images/2023-08-27-Enhanced-Input-System-usando-c++/enhanced.jpg"
 
 ---
 
