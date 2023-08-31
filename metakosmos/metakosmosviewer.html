@@ -1,0 +1,1146 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" id="viewport" content="user-scalable=no, initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="Stylesheet" href="include/bootstrap-reboot.min.css" type="text/css" />
+    <meta name="theme-color" content="#fafafa" />
+    <title>Metakosmos Teste Viewer do Sketchfab</title>
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        @font-face {
+          font-family: MitsubishiType;
+          src: url('fonts/BITSUMIS.ttf');
+          font-weight: bold;
+        }
+        html,
+        body {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+        html {
+            font-size: 100%; /*62.5%*/
+        }
+        .iframe-hidden {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+        }
+        body {
+            background: #fafafa;
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            color: #000;
+            overflow: hidden;
+            position: relative;
+            -webkit-transition: background 0.5s ease-out, color 0.5s ease-out;
+            -moz-transition: background 0.5s ease-out, color 0.5s ease-out;
+            -o-transition: background 0.5s ease-out, color 0.5s ease-out;
+            transition: background 0.5s ease-out, color 0.5s ease-out;
+        }
+        body * {
+            box-sizing: border-box;
+        }
+        body svg {
+            fill: black;
+            stroke: black;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        body.light {
+            color: #fff;
+        }
+        body.light svg {
+            stroke: white;
+            fill: white;
+        }
+        h1 {
+            line-height: 36px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        h1 > small {
+            font-weight: 300;
+            font-size: 22px;
+        }
+        h1 > big {
+            font-weight: 900;
+            font-size: 46px;
+        }
+        h3 {
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 32px;
+            letter-spacing: 1px;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .logo {
+          width: 100px;
+        }
+      
+        .iframe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+            *background: red;
+        }
+        #api-frame {
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            border: 0 none;
+            outline: none;
+            background: transparent;
+            z-index: 1;
+        }
+        .iframe-gradient {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMiIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+            background: -moz-linear-gradient(45deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+            background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0)));
+            background: -webkit-linear-gradient(45deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+            background: -o-linear-gradient(45deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+            background: -ms-linear-gradient(45deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+            background: linear-gradient(45deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#00000000',GradientType=1 );
+        }
+        @keyframes loader-animation {
+            0%   {opacity: 1;}
+            50%  {opacity: 0.6;}
+            100% {opacity: 1;}
+        }
+        .iframe-loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+            display: block;
+            color: #000;
+            font-family: MitsubishiType;
+            font-weight: 700;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .iframe-loader > div {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #000;
+        }
+        .iframe-loader.hidden {
+            animation: none;
+            opacity: 0;
+            -webkit-transition: all 0.25s ease-out;
+            -moz-transition: all 0.25s ease-out;
+            -o-transition: all 0.25s ease-out;
+            transition: all 0.25s ease-out;
+        }
+        .iframe-mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #fafafa;
+            opacity: 1;
+            z-index: 10;
+            -webkit-transition: all 1.5s ease-out;
+            -moz-transition: all 1.5s ease-out;
+            -o-transition: all 1.5s ease-out;
+            transition: all 1.5s ease-out;
+        }
+        .iframe-mask.hidden {
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 1.5s ease-out;
+            -moz-transition: all 1.5s ease-out;
+            -o-transition: all 1.5s ease-out;
+            transition: all 1.5s ease-out;
+        }
+        .views {
+            position: absolute;
+            right: 80px;
+            bottom: 5px;
+            z-index: 21;
+            user-select: none;
+            text-align: center;
+        }
+        .views > div {
+            position: relative;
+            user-select: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            display: inline-block;
+            margin-right: 0;
+            margin-left: 5px;
+        }
+        .views > div svg,
+        .views > div img {
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        .colors {
+            position: absolute;
+            background: #fff;
+            padding: 40px 10px 10px 10px;
+            left: 20px;
+            bottom: 20px;
+            z-index: 20;
+            *width: 100%;
+            user-select: none;
+            margin-bottom: -155px;
+            text-align: center;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        .colors div {
+            display: inline-block;
+            margin-left: 5px;
+            margin-right: 5px;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            height: 40px;
+            width: 65px;
+        }
+        .colors div > img {
+            width: 60px;
+            height: auto;
+        }
+        .colors.active {
+            margin-bottom: 0;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        .colors div.active {
+            border: 1px solid #242424;
+        }
+        .colors span {
+            position: absolute;
+            top: 8px;
+            left: 15px;
+            color: #000 !important;
+        }
+        .top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            width: 100%;
+        }
+        .banner {
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 400;
+            border-bottom: 1px solid #000000;
+        }
+        .banner a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .navigation {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+        .navigation__left .rings {
+            width: auto;
+            height: 20px;
+            position: relative;
+            display: inline-block;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        .navigation__right svg {
+            height: 36px;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        #top-right {
+            position: absolute;
+            right: 80px;
+            top: 160px;
+            z-index: 20;
+            width: 22%;
+            min-width: 180px;
+        }
+        #top-right span {
+            display: block;
+            font-family: MitsubishiType;
+            text-align: right;
+        }
+        #top-right .selector-box {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        #top-right span.car-name {
+            font-size: 2.125rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        #top-right span + span.small {
+            max-height: 0;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            -webkit-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+            -moz-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+            -o-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+            transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+        }
+        #top-right span.active + span.small {
+            max-height: 300px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            -webkit-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+            -moz-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+            -o-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+            transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+        }
+        #top-right span.small {
+            font-size: .875rem;
+            line-height: 1.5625rem;
+            transform-origin: top;
+            display: block;
+            overflow: hidden;
+        }
+        #top-right span.car-feature {
+            margin-top: 0;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        #top-right span.car-feature + span.small {
+            font-size: .8125rem;
+            line-height: 1.4375rem;
+            *margin: 20px 0;
+            font-family: MitsubishiType;
+        }
+        #top-right span.car-feature.price {
+            font-size: 1.875rem;
+            letter-spacing: 8px;
+            line-height: 1rem;
+            font-family: MitsubishiType;
+            margin-top: 50px;
+        }
+        @media (max-aspect-ratio: 12/10) {
+            #top-right {
+                top: 50%;
+                width: 100%;
+                right: 40px;
+            }
+            .navigation__right {
+                right: 40px;
+            }
+            .views {
+                right: 40px;
+            }
+            .iframe-container {
+                width: 100%;
+                height: 50vh;
+            }
+            .iframe-loader {
+                top: 25%;
+            }
+            #top-right span.descr {
+                display: none !important;
+            }
+            .colors div > img {
+                width: 40px;
+            }
+            .colors {
+                padding: 10px 3px 0;
+                margin-bottom: -350px;
+            }
+            .colors div {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .colors span.info {
+                display: none !important;
+            }
+        }
+        @media (max-height: 600px) {
+            #top-right span.descr {
+                display: none !important;
+            }
+        }
+        @media (max-height: 700px) {
+            #top-right .selector-box {
+                margin-bottom: 8px;
+            }
+            #top-right span.car-feature.price {
+                margin-top: 30px;
+            }
+        }
+        @media (min-aspect-ratio: 12/10) and (max-height: 600px) {
+            #top-right {
+                top: 20px;
+                right: 40px;
+            }
+            .views {
+                right: 40px;
+            }
+            .navigation__right {
+                display: none;
+            }
+            .colors div > img {
+                width: 40px;
+            }
+        }
+
+        .btn-group button {
+          background-color: #fd3c3c; /* Green background */
+          border: 1px solid rgb(241, 115, 115); /* Green border */
+          color: white; /* White text */
+          padding: 10px 42px; /* Some padding */
+          cursor: pointer; /* Pointer/hand icon */
+          margin-bottom: 25px;
+        }
+
+        .btn-group button:not(:last-child) {
+          border-right: none; /* Prevent double borders */
+        }
+
+        /* Clear floats (clearfix hack) */
+        .btn-group:after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+
+        /* Add a background color on hover */
+        .btn-group button:hover {
+          background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="iframe-gradient"></div>
+    <div class="iframe-mask" id="iframe-mask"></div>
+    <div class="iframe-loader" id="iframe-loader">loading 0%...<div></div></div>
+    <div class="iframe-container">
+        <!-- Insert an empty iframe, hidden by default using a class-->
+        <iframe src="" id="api-frame" allow="autoplay; fullscreen; vr" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    </div>
+
+    <div class="top">
+        <div class="navigation">
+            <div class="navigation__left">
+                <img class="logo" src="logo/metalogo.png"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="top-right" class="text-right">
+        <div class="selector-box">
+            <span class="car-name active">Eclipse Cross</span>
+            
+        </div>
+        <div class="btn-group">
+          
+          <button class="changeColor">Exterior</button>
+          <button class="changeColorInt">Interior</button>
+        </div>
+        <span ></span>
+        <span >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <span >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <div class="selector-box">
+            <span class="car-feature price" id="totalPrice"></span>
+        </div>
+    </div>
+
+    <div class="views" id="cameraPicker">
+        <div>
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="0">
+                <title>
+                    car-large
+                </title>
+                <path d="M2.5,23 L2.5,37 C2.5,37.8284271 3.17157288,38.5 4,38.5 L9,38.5 C9.82842712,38.5 10.5,37.8284271 10.5,37 L10.5,35.5 L37.5,35.5 L37.5,37 C37.5,37.8284271 38.1715729,38.5 39,38.5 L44,38.5 C44.8284271,38.5 45.5,37.8284271 45.5,37 L45.5,23 L41,18.5 C40.0666656,16.6666667 39.2333323,15.1666667 38.5,14 C37.7666677,12.8333333 36.7666677,11.5 35.5,10 C31.7608696,9.66666667 27.9347826,9.5 24.0217391,9.5 C20.1086957,9.5 16.2681159,9.66666667 12.5,10 C11.2333336,11.5 10.2333336,12.8333333 9.5,14 C8.76666641,15.1666667 7.93333308,16.6666667 7,18.5 L2.5,23 Z M15,27 L17,24.5 L31,24.5 L33,27 C31.6666667,30.6666667 30.6666667,32.5 30,32.5 C29,32.5 19,32.5 18,32.5 C17.3333333,32.5 16.3333333,30.6666667 15,27 Z M6.75,18.5 L24,18.5 L41.25,18.5 M43.5,23.5749239 C43.5,24.5459384 43.4166667,25.2053587 43.25,25.5531847 C43,26.0749239 42.5,26.5749239 42,26.5749239 L40,26.5749239 C39.5,26.5749239 35.75,25.5749239 35.25,25.0749239 C34.9166667,24.7415905 34.6666667,24.4082572 34.5,24.0749239 C36.2683726,23.841489 37.7683726,23.6748224 39,23.5749239 C40.2316274,23.4750254 41.7316274,23.4750254 43.5,23.5749239 Z M4.5,23.5749239 C6.26837257,23.4750254 7.76837257,23.4750254 9,23.5749239 C10.2316274,23.6748224 11.7316274,23.841489 13.5,24.0749239 C13.3333333,24.4082572 13.0833333,24.7415905 12.75,25.0749239 C12.25,25.5749239 8.5,26.5749239 8,26.5749239 C7.5,26.5749239 6.5,26.5749239 6,26.5749239 C5.5,26.5749239 5,26.0749239 4.75,25.5531847 C4.58333333,25.2053587 4.5,24.5459384 4.5,23.5749239 Z" stroke-width="1" fill="none" fill-rule="evenodd"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="1">
+                <title>
+                    test-drive-large
+                </title>
+                <path d="M23.5,44.5 C34.545695,44.5 43.5,35.545695 43.5,24.5 C43.5,13.454305 34.545695,4.5 23.5,4.5 C12.454305,4.5 3.5,13.454305 3.5,24.5 C3.5,35.545695 12.454305,44.5 23.5,44.5 Z M23.5,41.5 C27.6881245,41.5 31.5225212,39.9855113 34.4854041,37.4743201 C38.1646435,34.3559808 40.5,29.7007162 40.5,24.5 C40.5,15.1111593 32.8888407,7.5 23.5,7.5 C14.1111593,7.5 6.5,15.1111593 6.5,24.5 C6.5,29.7118989 8.84541031,34.3759979 12.538348,37.494414 C15.4979577,39.9935882 19.3230582,41.5 23.5,41.5 Z M30.0766572,29.0766572 L36.5,35.5 L30.0766572,29.0766572 Z M28.0941322,32.0941322 L34,38 L28.0941322,32.0941322 Z M18.9111915,32.0888085 L13,38 M16.9416504,29.0624695 L10.5,35.5 M16.5,24.5 L6.5,24.5 M40.5,24.5 L30.5,24.5 M7.25431729,19.5 C7.25431729,19.5 10.8362115,19.5 18,19.5 M39.752308,19.5 L29,19.5 L39.752308,19.5 Z M23.5,33.5803114 C27.918278,33.5803114 30.5,30.5803114 30.5,26.0803114 C30.5,23.5803114 30.5,20.5803114 28.5,19.2803122 C26.8974467,18.2386532 20.0987283,18.2411394 18.5,19.2803122 C16.5,20.5803114 16.5,23.5803114 16.5,26.0803114 C16.5,30.5803114 19.081722,33.5803114 23.5,33.5803114 Z"stroke-width="1" fill="none" fill-rule="evenodd"/>
+            </svg>
+        </div>
+        <div>
+            <svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="2">
+                <title>
+                    interior-configuration-large
+                </title>
+                <path d="M24.2,39 L29.1,45.3 L24.2,39 Z M4.5,43 L4.5,39 C4.5,39 4,34.4 9.2,34.4 C14.4,34.4 24.2,39 24.2,39 C24.2,33.2 31.2,10.7 40.2,15 C40.2,15 42,15.6 40.2,19 C38.4,22.4 30.2,45 30.2,45 C30.2,45 29.8,45.6 24.1,45.6 L4.5,43 Z M37.5,2.5 L40.5,2.5 C41.6,2.5 42.5,3.4 42.5,4.5 L42.5,9.5 C42.5,10.6 41.6,11.5 40.5,11.5 L37.5,11.5 C36.4,11.5 35.5,10.6 35.5,9.5 L35.5,4.5 C35.5,3.4 36.4,2.5 37.5,2.5 Z" stroke-width="1" fill="none" fill-rule="evenodd"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animation" id="openDoor">
+                <title>door</title>
+                <path d="M5.5,42.2V22C12.3,10.7,18.6,8.1,18.6,8.1s15.9-1.3,23.7,0v34.1C42.3,42.2,5.5,42.2,5.5,42.2z" stroke-width="1" fill="none" fill-rule="evenodd"/>
+                <line x1="42.3" y1="22" x2="10.9" y2="22" stroke-width="1" fill="none" fill-rule="evenodd"/>
+                <path d="M32.7,24.9c3-0.9,5.9,0,5.9,0v1.6c-3,1.3-5.9,0-5.9,0V24.9z" stroke-width="1" fill="none" fill-rule="evenodd"/>
+                <path d="M39,36.9l-20.6,0.4c-5.1,0-9.4,1.9-9.4,1.9" stroke-width="1" fill="none" fill-rule="evenodd"/>
+                <path d="M7.6,21l2-2.2c2.1-1.5,7.2-2,8.7-0.1c0,0,0.7,1.4,0,3.2h-7.4v1.8H7.6V21z" stroke-width="1" fill="none" fill-rule="evenodd"/>
+                <line x1="7.6" y1="22" x2="5.5" y2="22" stroke-width="1" fill="none" fill-rule="evenodd"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="colors" id="colorPicker">
+        <span class="info"></span>
+        <div class="car-color active" data-color-id="0" data-name="Branco" style="background-color: white;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="2" data-name="Preto" style="background-color: black;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="1" data-name="Verde" style="background-color: green;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="3" data-name="Laranja" style="background-color: orange;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="4" data-name="Cinza" style="background-color: gray;" data-price="0">
+        </div>
+    </div>
+
+    <div class="colors" id="colorPicker2">
+        <span class="info"></span>
+        <div class="int-color active" data-color-id="0" data-name="Bege" style="background-color: beige;" data-price="0">
+        </div>
+        <div class="int-color" data-color-id="1" data-name="Marrom" style="background-color: rgb(68, 49, 23);" data-price="0">
+        </div>
+        <div class="int-color" data-color-id="2" data-name="Cinza Escuro" style="background-color: rgb(17, 17, 17);" data-price="0">
+        </div>
+        <div class="int-color" data-color-id="3" data-name="Prata" style="background-color: rgb(161, 161, 161);" data-price="0">
+        </div>
+        <div class="int-color" data-color-id="4" data-name="Preto" style="background-color: rgb(0, 0, 0);" data-price="0">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        window.addEventListener('resize', () => {
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
+        var iframe = document.getElementById('api-frame');
+        var urlid = '431452b0016f4ae1bc1829d902094efb';
+        var client = null;
+        var loadedApi = null;
+        var paintMaterial = null;
+        var leatherMaterial = null;
+        var intMaterial1 = null;
+        var intMaterial2 = null;
+        var intMaterial3 = null;
+        var intMaterial4 = null;
+        var intMaterial5 = null;
+        var intMaterial6 = null;
+        var intMaterial7 = null;
+        var currentCamera = 0;
+        var cameraPosition = [0, -8, 0];
+        var cameraTarget = [0, 0, 1];
+        var cameraHeadPosition = [-0.2, -0.5, 1.002];
+        var cameraHeadTarget = [0.4, 0.5, 1];
+        var cameraHeadPosition2 = [0, 2.21, 1.002];
+        var cameraHeadTarget2 = [0, 2.2, 1];
+
+        var basePrice = 53000
+        var option1Price = 0;
+        var option2Price = 0;
+        var currentColorText = "";
+        var currentIntText = "";
+
+        var animationInt;
+        var animationRunning = false;
+        var doorOpened = false;
+
+        const GAMMA = 2.4;
+
+        function srgbToLinear1(c) {
+            var v = 0.0;
+            if (c < 0.04045) {
+                if (c >= 0.0) v = c * (1.0 / 12.92);
+            } else {
+                v = Math.pow((c + 0.055) * (1.0 / 1.055), GAMMA);
+            }
+            return v;
+        }
+
+        function srgbToLinear(c, out) {
+            var col = out || new Array(c.length);
+
+            if (c.length > 2 && c.length < 5) {
+                col[0] = srgbToLinear1(c[0]);
+                col[1] = srgbToLinear1(c[1]);
+                col[2] = srgbToLinear1(c[2]);
+                if (col.length > 3 && c.length > 3) col[3] = c[3];
+            } else {
+                throw new Error('Invalid color. Expected 3 or 4 components, but got ' + c.length);
+            }
+            return col;
+        }
+
+        function hexToRgb(hexColor) {
+            var m = hexColor.match(/^#([0-9a-f]{6})$/i);
+            if (m) {
+                return [
+                    parseInt(m[1].substr(0, 2), 16) / 255,
+                    parseInt(m[1].substr(2, 2), 16) / 255,
+                    parseInt(m[1].substr(4, 2), 16) / 255
+                ];
+            } else {
+                throw new Error('Invalid color: ' + hexColor);
+            }
+        }
+
+    function changeCarColor(index) {
+        var carColors = [
+            "#E2EBF7", // white
+            "#07273B", // green
+            "#1F2125", // black
+            "#8C450A", // orange
+            "#383838"  // grey
+        ];
+        var bgColors = [
+            "#FAFAFA", // white
+            "#07273B", // green
+            "#1F2125", // black
+            "#DD7B00", // orange
+            "#868686"  // grey
+        ];
+        var uiLight = [
+            false, // white
+            true, // green
+            true, // black
+            true, // orange
+            true  // grey
+        ];
+        var intensity = [
+            1, // white
+            1, // green
+            0.5, // black
+            1, // orange
+            1  // grey
+        ];
+        var metalness = [
+            0.85, // white
+            0.85, // green
+            1, // black
+            0.6, // orange
+            1  // grey
+        ];
+        if(paintMaterial == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(carColors[index]));
+        paintMaterial.channels.AlbedoPBR.color = linearColor;
+        paintMaterial.channels.AlbedoPBR.factor = intensity[index];
+        paintMaterial.channels.MetalnessPBR.factor = metalness[index];
+        loadedApi.setMaterial(paintMaterial, function(){
+            $("body").css({"background": bgColors[index]});
+            if(uiLight[index]){
+                if(!$("body").hasClass("light"))
+                    $("body").addClass("light");
+            } else {
+                if($("body").hasClass("light"))
+                    $("body").removeClass("light");
+            }
+        });
+    }
+    function changeLeatherColor(index) {
+        var colors = [
+            "#8b7d70",
+            "#3c2d25",
+            "#1c1c1c",
+            "#5a5a5a",
+            "#1c1c1c"
+        ];
+        if(leatherMaterial == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        leatherMaterial.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(leatherMaterial, function(){
+        });
+    }
+    function changeIntColor1(index) {
+        var colors = [
+            "#8b7d70",
+            "#a3a3a3",
+            "#a3a3a3",
+            "#a3a3a3",
+            "#1c1c1c"
+        ];
+        if(intMaterial1 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial1.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial1, function(){
+        });
+    }
+    function changeIntColor2(index) {
+        var colors = [
+            "#8b7d70",
+            "#1c1c1c",
+            "#1c1c1c",
+            "#606060",
+            "#1c1c1c"
+        ];
+        if(intMaterial2 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial2.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial2, function(){
+        });
+    }
+    function changeIntColor3(index) {
+        var colors = [
+            "#8b7d70",
+            "#1c1c1c",
+            "#1c1c1c",
+            "#606060",
+            "#1c1c1c"
+        ];
+        if(intMaterial3 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial3.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial3, function(){
+        });
+    }
+    function changeIntColor4(index) {
+        var colors = [
+            "#9d9d9d",
+            "#aaaaaa",
+            "#aaaaaa",
+            "#aaaaaa",
+            "#1c1c1c"
+        ];
+        if(intMaterial4 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial4.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial4, function(){
+        });
+    }
+    function changeIntColor5(index) {
+        var colors = [
+            "#3c3c3c",
+            "#3c3c3c",
+            "#3c3c3c",
+            "#3c3c3c",
+            "#3c3c3c"
+        ];
+        if(intMaterial5 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial5.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial5, function(){
+        });
+    }
+    function changeIntColor6(index) {
+        var colors = [
+            "#382f2b", // beige
+            "#1c1c1c",
+            "#1c1c1c",
+            "#434343",
+            "#1c1c1c"
+        ];
+        if(intMaterial6 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial6.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial6, function(){
+        });
+    }
+    function changeIntColor7(index) {
+        var colors = [
+            "#8b7d70",
+            "#1c1c1c",
+            "#1c1c1c",
+            "#606060",
+            "#1c1c1c"
+        ];
+        if(intMaterial7 == null || loadedApi == null){
+            console.log("Api not loaded yet or failed.");
+            return;
+        }
+        const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        intMaterial7.channels.AlbedoPBR.color = linearColor;
+        loadedApi.setMaterial(intMaterial7, function(){
+        });
+    }
+        function changeInterior(index) {
+            changeLeatherColor(index);
+            changeIntColor1(index); // podsufitka
+            changeIntColor2(index); // przyciski
+            changeIntColor3(index); // podłoga
+            changeIntColor4(index); // deska wykończenie
+            changeIntColor5(index); // deska czarny
+            changeIntColor6(index); // deska góra
+            changeIntColor7(index); // deska dół
+        }
+      function changeCamera(index, animate = false){
+          if(loadedApi == null){
+              console.log("Api not loaded yet or failed.");
+              return;
+          }
+          loadedApi.setCameraEasing('easeLinear');
+          if(index == 0){
+              loadedApi.lookat(
+                cameraPosition,
+                cameraTarget,
+                animate ? 1 : 0
+              );
+              loadedApi.setFov(40);
+              if($("#api-frame").hasClass("interior"))
+                  $("#api-frame").removeClass("interior");
+          } else if(index == 1){
+              loadedApi.lookat(
+                cameraHeadPosition,
+                cameraHeadTarget,
+                animate ? 1 : 0
+              );
+              loadedApi.setFov(60);
+              if(!$("#api-frame").hasClass("interior"))
+                  $("#api-frame").addClass("interior");
+          } else if(index == 2){
+              loadedApi.lookat(
+                cameraHeadPosition2,
+                cameraHeadTarget2,
+                animate ? 1 : 0
+              );
+              loadedApi.setFov(60);
+              if(!$("#api-frame").hasClass("interior"))
+                  $("#api-frame").addClass("interior");
+          }
+      }
+        var prcValue = 0;
+        var nextprc = 10;
+        setInterval(function(){
+            if(prcValue < nextprc && prcValue < 100)
+                prcValue += 1;
+            document.getElementById("iframe-loader").innerHTML = "loading " + prcValue + "%<div style='width: " + prcValue + "%'></div>";
+        }, 150);
+        function loadmodel(){
+            nextprc = 20;
+            document.addEventListener('load', () => console.log('viewerready'));
+            var client = new Sketchfab( iframe );
+
+            client.init( urlid, {
+                success: function onSuccess( api ){
+                    console.log( 'Success' );
+                    loadedApi = api;
+                    nextprc = 30;
+                    api.load();
+                    api.start();
+                    nextprc = 80;
+
+                    api.addEventListener( 'viewerready', function() {
+                        nextprc = 99;
+                        console.log( 'Viewer is ready');
+                        let $apiFrame = document.getElementById("api-frame");
+                        var frameMask = document.getElementById("iframe-mask");
+                        var loader = document.getElementById("iframe-loader");
+                        $apiFrame.classList.remove("iframe-hidden");
+
+                        api.getAnimations(function(err, animations){
+                            console.log(animations);
+                            api.setCurrentAnimationByUID(animations[0][0]);
+                            api.setCycleMode('none');
+                            api.pause();
+                            api.seekTo(0);
+                        });
+
+                        api.setPostProcessing({
+                            vignetteEnable: false
+                        });
+
+                        api.addEventListener('camerastop', function(){
+                            api.getCameraLookAt(function(err, camera) {
+                                var camTarget = camera.target;
+                                switch(currentCamera){
+                                    case 0:
+                                        if(camTarget[0] != cameraTarget[0] || camTarget[1] != cameraTarget[1] || camTarget[2] != cameraTarget[2])
+                                            changeCamera(0, true);
+                                        break;
+                                    case 1:
+                                        if(camTarget[0] != cameraHeadTarget[0] || camTarget[1] != cameraHeadTarget[1] || camTarget[2] != cameraHeadTarget[2])
+                                            changeCamera(1, true);
+                                        break;
+                                    case 2:
+                                        if(camTarget[0] != cameraHeadTarget2[0] || camTarget[1] != cameraHeadTarget2[1] || camTarget[2] != cameraHeadTarget2[2])
+                                            changeCamera(2, true);
+                                        break;
+                                    default:
+                                        console.log("Wrong camera index!");
+                                        break;
+                                }
+                            });
+                        });
+
+                        api.getMaterialList(function(err, materials){
+                            console.log(materials);
+                            for(var i=0;i<materials.length;i++){
+                                if (materials[i].name == "carpaint_metalic_brown") {
+                                    paintMaterial = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    leatherMaterial = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    intMaterial1 = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    intMaterial3 = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    intMaterial4 = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    intMaterial5 = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    intMaterial6 = materials[i];
+                                } else if(materials[i].name == "int_brown"){
+                                    intMaterial7 = materials[i];
+                                }
+                            }
+
+                            api.getCameraLookAt(function(err, camera) {
+                                changeCamera(0);
+                                setTimeout(function(){
+                                    nextprc = 100;
+                                    changeCarColor(0);
+                                    changeInterior(0);
+                                    setTimeout(function(){
+                                        prcValue = 100;
+                                        document.getElementById("iframe-loader").innerHTML = "loading 100%<div style='width: 100%'></div>";
+                                        frameMask.classList.add("hidden");
+                                        loader.classList.add("hidden");
+                                    }, 1000);
+                                }, 1100);
+                            });
+                        });
+                    });
+                },
+                error: function onError(callback){
+                    console.log(this.error);
+                },
+                graph_optimizer: 1,
+                ui_animations: 0,
+                ui_annotations: 0,
+                ui_general_controls: 0,
+                ui_watermark_link: 0,
+                ui_watermark: 0,
+                ui_infos: 0,
+                ui_stop: 0,
+                transparent: 1,
+                camera: 0,
+                scrollwheel: 1,
+                preload: 1,
+                double_click: 0,
+                orbit_constraint_pitch_down: 0,
+                orbit_constraint_pitch_up: 0.65,
+                orbit_constraint_pan: 1,
+                orbit_constraint_zoom_out: 20
+            });
+        }
+
+        $(document).ready(function(){
+            loadmodel();
+            currentColorText = $("#colorPicker .car-color.active").data("name");
+            if(parseInt($("#colorPicker .car-color.active").data("price")) != 0)
+                currentColorText += " £" + $("#colorPicker .car-color.active").data("price");
+            currentIntText = $("#colorPicker2 .int-color.active").data("name");
+            if(parseInt($("#colorPicker2 .int-color.active").data("price")) != 0)
+                currentIntText += " £" + $("#colorPicker2 .int-color.active").data("price");
+            $("#colorPicker span.info").text(currentColorText);
+            $("#colorPicker2 span.info").text(currentIntText);
+            $("#totalPrice").text(writePrice(basePrice + option1Price + option2Price));
+            $(".car-color").click(function(){
+                var carColorIndex = $(this).data("color-id");
+                $(".car-color").removeClass("active");
+                $(this).addClass("active");
+                currentColorText = $(this).data("name");
+                if(parseInt($(this).data("price")) != 0)
+                    currentColorText += " £" + $(this).data("price");
+                option1Price = parseInt($(this).data("price"));
+                $("#totalPrice").text(writePrice(basePrice + option1Price + option2Price));
+                changeCarColor(carColorIndex);
+            });
+            $(".car-color").hover(function(){
+                var newText = $(this).data("name");
+                if(parseInt($(this).data("price")) != 0)
+                    newText += " £" + $(this).data("price");
+                $("#colorPicker span.info").text(newText);
+            }, function(){
+                $("#colorPicker span.info").text(currentColorText);
+            });
+            $(".int-color").click(function(){
+                var intColorIndex = $(this).data("color-id");
+                $(".int-color").removeClass("active");
+                $(this).addClass("active");
+                currentIntText = $(this).data("name");
+                if(parseInt($(this).data("price")) != 0)
+                    currentIntText += " £" + $(this).data("price");
+                option2Price = parseInt($(this).data("price"));
+                $("#totalPrice").text(writePrice(basePrice + option1Price + option2Price));
+                changeInterior(intColorIndex);
+            });
+            $(".int-color").hover(function(){
+                var newText = $(this).data("name");
+                if(parseInt($(this).data("price")) != 0)
+                    newText += " £" + $(this).data("price");
+                $("#colorPicker2 span.info").text(newText);
+            }, function(){
+                $("#colorPicker2 span.info").text(currentIntText);
+            });
+            $(".camera").click(function(){
+                currentCamera = $(this).data("cam-id");
+                console.log("Change camera " + currentCamera);
+                changeCamera(currentCamera);
+            });
+
+            $(".changeColor").click(function(){
+              currentCamera = 0;
+              changeCamera(currentCamera);
+              $("#colorPicker2").removeClass("active");
+              $("#colorPicker").addClass("active");
+            });
+
+            $(".changeColorInt").click(function(){
+              currentCamera = 1;
+              changeCamera(currentCamera);
+              $("#colorPicker").removeClass("active");
+              $("#colorPicker2").addClass("active");
+            });
+
+
+            $(".selector-box span:first-child").click(function(){
+                var btn = $(this);
+                $(".selector-box .active").removeClass("active");
+                setTimeout(function(){
+                    btn.addClass("active");
+                    if(btn.attr("id") == "colors" && !$("#colorPicker").hasClass("active")){
+                        currentCamera = 0;
+                        changeCamera(currentCamera);
+                        $("#colorPicker").addClass("active");
+                    } else if(btn.attr("id") != "colors" && $("#colorPicker").hasClass("active"))
+                        $("#colorPicker").removeClass("active");
+                    if(btn.attr("id") == "intColors" && !$("#colorPicker2").hasClass("active")){
+                        currentCamera = 1;
+                        changeCamera(currentCamera);
+                        $("#colorPicker2").addClass("active");
+                    } else if(btn.attr("id") != "intColors" && $("#colorPicker2").hasClass("active"))
+                        $("#colorPicker2").removeClass("active");
+                }, 300);
+            });
+            $("#openDoor").click(function(){
+                if(animationRunning)
+                    return;
+                if(doorOpened){
+                    loadedApi.play();
+                    doorOpened = false;
+                    animationRunning = true;
+                    animationInt = setInterval(function(){
+                        loadedApi.getCurrentTime(function(err, time) {
+                            if(time >= 5){
+                                loadedApi.pause();
+                                clearInterval(animationInt);
+                                animationRunning = false;
+                            }
+                        });
+                    }, 10);
+                } else {
+                    loadedApi.seekTo(0);
+                    loadedApi.play();
+                    doorOpened = true;
+                    animationRunning = true;
+                    animationInt = setInterval(function(){
+                        loadedApi.getCurrentTime(function(err, time) {
+                            if(time > 3.88){
+                                loadedApi.pause();
+                                clearInterval(animationInt);
+                                animationRunning = false;
+                            }
+                        });
+                    }, 10);
+                }
+            });
+        });
+        function writePrice(price) {
+            var price = price.toString().split("");
+            return "R$" + price[0] + price[1] + "," + price[2] + price[3] + price[4];
+        }
+    </script>
+</body>
+
+</html>
