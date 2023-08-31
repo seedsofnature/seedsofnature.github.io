@@ -1064,6 +1064,8 @@
                 $("#colorPicker2 span.info").text(currentIntText);
             });
             $(".camera").click(function(){
+                $("#colorPicker2").removeClass("active");
+                $("#colorPicker").removeClass("active");
                 currentCamera = $(this).data("cam-id");
                 console.log("Change camera " + currentCamera);
                 changeCamera(currentCamera);
