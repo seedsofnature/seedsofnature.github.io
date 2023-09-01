@@ -695,7 +695,7 @@
         const linearColor = srgbToLinear(hexToRgb(carColors[index]));
         paintMaterial.channels.AlbedoPBR.color = linearColor;
         paintMaterial.channels.AlbedoPBR.factor = intensity[index];
-        paintMaterial.channels.MetalnessPBR.factor = metalness[index];
+        //paintMaterial.channels.MetalnessPBR.factor = metalness[index];
         loadedApi.setMaterial(paintMaterial, function(){
             $("body").css({"background": bgColors[index]});
             if(uiLight[index]){
