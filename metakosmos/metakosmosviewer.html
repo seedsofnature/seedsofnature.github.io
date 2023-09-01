@@ -594,12 +594,12 @@
         var intMaterial6 = null;
         var intMaterial7 = null;
         var currentCamera = 0;
-        var cameraPosition = [0, -10, 0];
+        var cameraPosition = [-5, 0, 0];
         var cameraTarget = [0, 0, 1];
-        var cameraHeadPosition = [-0.2, -0.5, 1.002];
-        var cameraHeadTarget = [0.4, 0.5, 1];
-        var cameraHeadPosition2 = [0, 2.21, 1.002];
-        var cameraHeadTarget2 = [0, 2.2, 1];
+        var cameraHeadPosition = [0.5, 0.2, 1.002];
+        var cameraHeadTarget = [0.4, 0, 1];
+        var cameraHeadPosition2 = [-5, 0, 0];
+        var cameraHeadTarget2 = [0, 0, 1];
 
         var basePrice = 53000
         var option1Price = 0;
@@ -690,8 +690,10 @@
             return;
         }
         const linearColor = srgbToLinear(hexToRgb(carColors[index]));
-        paintMaterial.channels.AlbedoPBR.color = linearColor;
-        paintMaterial.channels.AlbedoPBR.factor = intensity[index];
+        //paintMaterial.channels.Albedo.enable = true;
+        paintMaterial.channels.SpecularPBR.color = linearColor;
+        //paintMaterial.channels.
+        paintMaterial.channels.SpecularPBR.factor = intensity[index];
         //paintMaterial.channels.MetalnessPBR.factor = metalness[index];
         loadedApi.setMaterial(paintMaterial, function(){
             $("body").css({"background": bgColors[index]});
