@@ -54,6 +54,8 @@
           <button style="float: left; margin-left: 15px;" class="changeColor active">Exterior</button>
           <button style="float: right; margin-right: 15px;" class="changeColorInt">Interior</button>
         </div>
+
+
         <div class="exterior-items active">
             <span >-Acabamento Black Piano;</span>
             <span >-Design com esportividade e conforto;</span>
@@ -79,7 +81,19 @@
         </div>
     </div>
 
+    <div style="position: fixed;
+    left: 50%;
+    bottom: -35px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    z-index: 1;">
+        <div class="btn-group">
+          <button style="float: left; margin-left: 15px;" class="dia active">Dia</button>
+          <button style="float: right; margin-right: 15px;" class="noite">Noite</button>
+        </div>
+        </div>
     <div class="views" id="cameraPicker">
+        
         <div>
             <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="0" style="height: 50px;">
                 <title>
@@ -475,6 +489,7 @@
             client.init( urlid, {
                 success: function onSuccess( api ){
                     console.log( 'Success' );
+                    $(".changeColor").click();
                     loadedApi = api;
                     nextprc = 30;
                     api.load();
@@ -491,10 +506,13 @@
 
                         api.getAnimations(function(err, animations){
                             console.log(animations);
-                            api.setCurrentAnimationByUID(animations[0][0]);
-                            api.setCycleMode('none');
-                            api.pause();
-                            api.seekTo(0);
+                            if(animations.length > 0){
+                                api.setCurrentAnimationByUID(animations[0][0]);
+                                api.setCycleMode('none');
+                                api.pause();
+                                api.seekTo(0);
+                            }
+                            
                         });
 
                         api.setPostProcessing({
@@ -642,6 +660,17 @@
                 console.log("Change camera " + currentCamera);
                 changeCamera(currentCamera);
             });
+
+            $(".dia").click(function(){
+                $(".dia").addClass("active");
+                $(".noite").removeClass("active");
+            });
+
+            $(".noite").click(function(){
+                $(".dia").removeClass("active");
+                $(".noite").addClass("active");
+            });
+
 
             $(".changeColor").click(function(){
               currentCamera = 0;

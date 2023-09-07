@@ -210,7 +210,7 @@
             background: #fff;
             padding: 40px 10px 10px 10px;
             left: 20px;
-            bottom: 20px;
+            bottom: 0px;
             z-index: 20;
             *width: 100%;
             user-select: none;
