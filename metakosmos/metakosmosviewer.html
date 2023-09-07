@@ -35,30 +35,61 @@
             <span class="car-name active">Eclipse Cross</span>
             
         </div>
-        <div class="btn-group">
-          
-          <button class="changeColor">Exterior</button>
-          <button class="changeColorInt">Interior</button>
+
+        <span style="font-size: 12px; text-align: left;padding-bottom: 10px;">O Mitsubishi Eclipse Cross é a combinação do 4x4 com o high-tech, perfeito para quem gosta de tecnologia e prazer ao dirigir. Sofisticação e dirigibilidade unido à segurança, eficiência e muito conforto.</span>
+        <div class="car-info">
+            <div class="potencia">
+                <span style="text-align: center; font-weight: bolder;" >1.5 16 v</span>
+                <span style="font-size: 8px; text-align: center;font-weight: bolder">POTÊNCIA</span>
+            </div>
+            <div class="km">
+                <span style="text-align: center; font-weight: bolder;" >10 km/L</span>
+                <span style="font-size: 8px; text-align: center;font-weight: bolder">CONSUMO MÉDIO</span>
+            </div>
         </div>
-        <span ></span>
-        <span >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-        <span >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        
+        
+
+        <div class="btn-group">
+          <button style="float: left; margin-left: 15px;" class="changeColor active">Exterior</button>
+          <button style="float: right; margin-right: 15px;" class="changeColorInt">Interior</button>
+        </div>
+        <div class="exterior-items active">
+            <span >-Acabamento Black Piano;</span>
+            <span >-Design com esportividade e conforto;</span>
+            <span >-Dynamic Shield;</span>
+            <span >-Novo design traseiro;</span>
+            <span >-Luz de condução diurna (DRL);</span>
+            <span >-Rodas com acabamento diamantado;</span>
+            <span >-Teto solar duplo.</span>
+        </div>
+        <div class="interior-items">
+            <span >-Ajuste interno do banco;</span>
+            <span >-Amplo espaço interno;</span>
+            <span >-Amplo porta-malas;</span>
+            <span >-Ar-condicionado automático;</span>
+            <span >-Bancos em couro;</span>
+            <span >-Espelho retrovisor interno eletrcrômico;</span>
+            <span >-Câmera de ré.</span>
+        </div>
+        
         <div class="selector-box">
-            <span class="car-feature price" id="totalPrice"></span>
+            <span style="padding-left: 70px;">A partir de</span>
+            <span style="padding-left: 70px;margin-top: 6px;font-size: 32px; letter-spacing: 1px;" class="car-feature price" id="totalPrice"></span>
         </div>
     </div>
 
     <div class="views" id="cameraPicker">
         <div>
-            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="0">
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="0" style="height: 50px;">
                 <title>
                     car-large
                 </title>
                 <path d="M2.5,23 L2.5,37 C2.5,37.8284271 3.17157288,38.5 4,38.5 L9,38.5 C9.82842712,38.5 10.5,37.8284271 10.5,37 L10.5,35.5 L37.5,35.5 L37.5,37 C37.5,37.8284271 38.1715729,38.5 39,38.5 L44,38.5 C44.8284271,38.5 45.5,37.8284271 45.5,37 L45.5,23 L41,18.5 C40.0666656,16.6666667 39.2333323,15.1666667 38.5,14 C37.7666677,12.8333333 36.7666677,11.5 35.5,10 C31.7608696,9.66666667 27.9347826,9.5 24.0217391,9.5 C20.1086957,9.5 16.2681159,9.66666667 12.5,10 C11.2333336,11.5 10.2333336,12.8333333 9.5,14 C8.76666641,15.1666667 7.93333308,16.6666667 7,18.5 L2.5,23 Z M15,27 L17,24.5 L31,24.5 L33,27 C31.6666667,30.6666667 30.6666667,32.5 30,32.5 C29,32.5 19,32.5 18,32.5 C17.3333333,32.5 16.3333333,30.6666667 15,27 Z M6.75,18.5 L24,18.5 L41.25,18.5 M43.5,23.5749239 C43.5,24.5459384 43.4166667,25.2053587 43.25,25.5531847 C43,26.0749239 42.5,26.5749239 42,26.5749239 L40,26.5749239 C39.5,26.5749239 35.75,25.5749239 35.25,25.0749239 C34.9166667,24.7415905 34.6666667,24.4082572 34.5,24.0749239 C36.2683726,23.841489 37.7683726,23.6748224 39,23.5749239 C40.2316274,23.4750254 41.7316274,23.4750254 43.5,23.5749239 Z M4.5,23.5749239 C6.26837257,23.4750254 7.76837257,23.4750254 9,23.5749239 C10.2316274,23.6748224 11.7316274,23.841489 13.5,24.0749239 C13.3333333,24.4082572 13.0833333,24.7415905 12.75,25.0749239 C12.25,25.5749239 8.5,26.5749239 8,26.5749239 C7.5,26.5749239 6.5,26.5749239 6,26.5749239 C5.5,26.5749239 5,26.0749239 4.75,25.5531847 C4.58333333,25.2053587 4.5,24.5459384 4.5,23.5749239 Z" stroke-width="1" fill="none" fill-rule="evenodd"/>
             </svg>
         </div>
-        <div>
-            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="1">
+        <div style="margin-left: 14px;">
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="1" style="height: 35px;">
                 <title>
                     test-drive-large
                 </title>
@@ -66,7 +97,7 @@
             </svg>
         </div>
         <div>
-            <svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="2">
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="2" style="height: 35px;">
                 <title>
                     interior-configuration-large
                 </title>
@@ -74,7 +105,7 @@
             </svg>
         </div>
         <div>
-            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animation" id="openDoor">
+            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animation" id="openDoor" style="height: 35px;">
                 <title>door</title>
                 <path d="M5.5,42.2V22C12.3,10.7,18.6,8.1,18.6,8.1s15.9-1.3,23.7,0v34.1C42.3,42.2,5.5,42.2,5.5,42.2z" stroke-width="1" fill="none" fill-rule="evenodd"/>
                 <line x1="42.3" y1="22" x2="10.9" y2="22" stroke-width="1" fill="none" fill-rule="evenodd"/>
@@ -86,15 +117,17 @@
         </div>
     </div>
 
-    <div class="colors" id="colorPicker">
-        <span class="info"></span>
-        <div class="car-color active" data-color-id="0" data-name="Branco" style="background-color: white;" data-price="0">
+    <div class="colors" id="colorPicker" style="background: none;">
+        <span class="info" style="font-weight: bolder;"></span>
+        <div class="car-color active" data-color-id="0" data-name="Branco Fuji" style="background-color: #ffffff; border: 1px solid black;" data-price="0">
         </div>
-        <div class="car-color" data-color-id="2" data-name="Preto" style="background-color: black;" data-price="0">
+        <div class="car-color" data-color-id="2" data-name="Preto Onix Pearl" style="background-color: #343434;" data-price="0">
         </div>
-        <div class="car-color" data-color-id="1" data-name="Azul" style="background-color: rgb(2, 9, 156);" data-price="0">
+        <div class="car-color" data-color-id="1" data-name="Azul Baikal" style="background-color: #1f478f;" data-price="0">
         </div>
-        <div class="car-color" data-color-id="3" data-name="Vermelho" style="background-color: rgb(252, 48, 48);" data-price="0">
+        <div class="car-color" data-color-id="3" data-name="Prata Lítio" style="background-color: #c8bbb3;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="4" data-name="Vermelho Lucid" style="background-color: #aa0e1e;" data-price="0">
         </div>
     </div>
 
@@ -140,7 +173,7 @@
         var cameraHeadPosition2 = [-5, 0, 0];
         var cameraHeadTarget2 = [0, 0, 1];
 
-        var basePrice = 53000
+        var basePrice = 242990;
         var option1Price = 0;
         var option2Price = 0;
         var currentColorText = "";
@@ -191,23 +224,24 @@
 
     function changeCarColor(index) {
         var carColors = [
-            "#E2EBF7", // white
-            "#02099c", // blue
-            "#1F2125", // black
-            "#fc3030", // red
+            "#FFFFFF",
+            "#1f478f",
+            "#343434", 
+            "#c8bbb3", 
+            "#aa0e1e",
         ];
         var bgColors = [
-            "#FFFFFF", // white
-            "#07273B", // green
-            "#1F2125", // black
-            "#DD7B00", // orange
-            "#868686"  // grey
+            "#FFFFFF", 
+            "#1f478f",
+            "#343434", 
+            "#c8bbb3", 
+            "#aa0e1e",
         ];
         var uiLight = [
             false, // white
             true, // green
             true, // black
-            true, // orange
+            false, // orange
             true  // grey
         ];
         var intensity = [
@@ -612,6 +646,10 @@
             $(".changeColor").click(function(){
               currentCamera = 0;
               changeCamera(currentCamera);
+              $(".changeColor").addClass("active");
+              $(".changeColorInt").removeClass("active");
+              $(".exterior-items").addClass("active");
+              $(".interior-items").removeClass("active");
               $("#colorPicker2").removeClass("active");
               $("#colorPicker").addClass("active");
             });
@@ -619,6 +657,10 @@
             $(".changeColorInt").click(function(){
               currentCamera = 1;
               changeCamera(currentCamera);
+              $(".changeColor").removeClass("active");
+              $(".changeColorInt").addClass("active");
+              $(".exterior-items").removeClass("active");
+              $(".interior-items").addClass("active");
               $("#colorPicker").removeClass("active");
               $("#colorPicker2").addClass("active");
             });
@@ -678,7 +720,7 @@
         });
         function writePrice(price) {
             var price = price.toString().split("");
-            return "R$" + price[0] + price[1] + "," + price[2] + price[3] + price[4];
+            return "R$" + price[0] + price[1] + price[2] + "." + price[3] + price[4] + price[5];
         }
     </script>
 </body>
