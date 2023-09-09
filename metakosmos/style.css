@@ -1,10 +1,10 @@
 
         @font-face {
           font-family: MitsubishiType;
-          src: url('/MMCRegular.ttf') format('truetype');
+          src: url('../MMCRegular.ttf') format('truetype');
           font-weight: bold;
         }
-        
+
         html,
         body {
             overflow: hidden;
