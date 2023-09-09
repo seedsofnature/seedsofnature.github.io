@@ -170,6 +170,7 @@
         var urlid = '33bd9534879a4f8d9491c96691be117f';
         var client = null;
         var loadedApi = null;
+        var myAnimations = null;
         var paintMaterial = null;
         var leatherMaterial = null;
         var intMaterial1 = null;
@@ -237,6 +238,7 @@
         }
 
     function changeCarColor(index) {
+        
         var carColors = [
             "#FFFFFF",
             "#1f478f",
@@ -278,9 +280,9 @@
         }
         const linearColor = srgbToLinear(hexToRgb(carColors[index]));
         //paintMaterial.channels.Albedo.enable = true;
-        paintMaterial.channels.SpecularPBR.color = linearColor;
+        //paintMaterial.channels.SpecularPBR.color = linearColor;
         //paintMaterial.channels.
-        paintMaterial.channels.SpecularPBR.factor = intensity[index];
+        //paintMaterial.channels.SpecularPBR.factor = intensity[index];
         //paintMaterial.channels.MetalnessPBR.factor = metalness[index];
         loadedApi.setMaterial(paintMaterial, function(){
             $("body").css({"background": bgColors[index]});
@@ -506,8 +508,9 @@
 
                         api.getAnimations(function(err, animations){
                             console.log(animations);
+                            myAnimations = animations;
                             if(animations.length > 0){
-                                api.setCurrentAnimationByUID(animations[0][0]);
+                                api.setCurrentAnimationByUID(animations[30][0]); //0 8 18 30
                                 api.setCycleMode('none');
                                 api.pause();
                                 api.seekTo(0);
@@ -545,7 +548,7 @@
                         api.getMaterialList(function(err, materials){
                             console.log(materials);
                             for(var i=0;i<materials.length;i++){
-                                if (materials[i].name == "Eclipse_Body") {
+                                if (materials[i].name == "Eclipse_Body_Textures") {
                                     paintMaterial = materials[i];
                                 } else if(materials[i].name == "int_brown"){
                                     leatherMaterial = materials[i];
@@ -731,8 +734,33 @@
                         });
                     }, 10);
                 } else {
+
+
+                    //ANIMATIONS
                     loadedApi.seekTo(0);
                     loadedApi.play();
+                    loadedApi.setCurrentAnimationByUID(myAnimations[8][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.pause();
+                    loadedApi.seekTo(0);
+                    loadedApi.play();
+                    loadedApi.setCurrentAnimationByUID(myAnimations[30][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.pause();
+                    loadedApi.seekTo(0);
+                    loadedApi.play();
+                    loadedApi.setCurrentAnimationByUID(myAnimations[0][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.pause();
+                    loadedApi.seekTo(0);
+                    loadedApi.play();
+                    loadedApi.setCurrentAnimationByUID(myAnimations[18][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.pause();
+                    loadedApi.seekTo(0);
+                    loadedApi.play();
+
+
                     doorOpened = true;
                     animationRunning = true;
                     animationInt = setInterval(function(){
