@@ -735,21 +735,21 @@
                     return;
                 if(doorOpened){
                     loadedApi.setCurrentAnimationByUID(myAnimations[0][0]); //0 8 18 30
-                    loadedApi.setSpeed(-1);
-                    loadedApi.setCycleMode('one');
-                    loadedApi.play();
+                    loadedApi.setSpeed(-1, (err) => {
+                        loadedApi.play();
+                    });
                     loadedApi.setCurrentAnimationByUID(myAnimations[1][0]); //0 8 18 30
-                    loadedApi.setSpeed(-1);
-                    loadedApi.setCycleMode('one');
-                    loadedApi.play();
+                    loadedApi.setSpeed(-1, (err) => {
+                        loadedApi.play();
+                    });
                     loadedApi.setCurrentAnimationByUID(myAnimations[2][0]); //0 8 18 30
-                    loadedApi.setSpeed(-1);
-                    loadedApi.setCycleMode('one');
-                    loadedApi.play();
+                    loadedApi.setSpeed(-1, (err) => {
+                        loadedApi.play();
+                    });
                     loadedApi.setCurrentAnimationByUID(myAnimations[3][0]); //0 8 18 30
-                    loadedApi.setSpeed(-1);
-                    loadedApi.setCycleMode('one');
-                    loadedApi.play();
+                    loadedApi.setSpeed(-1, (err) => {
+                        loadedApi.play();
+                    });
 
                     doorOpened = false;
                     animationRunning = true;
