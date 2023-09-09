@@ -1,7 +1,7 @@
 
         @font-face {
           font-family: MitsubishiType;
-          src: url('../../fonts/MMCRegular.ttf');
+          src: url('/fonts/MMCRegular.ttf') format('truetype');
           font-weight: bold;
         }
         html,
