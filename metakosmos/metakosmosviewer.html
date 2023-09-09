@@ -167,7 +167,7 @@
           document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
         var iframe = document.getElementById('api-frame');
-        var urlid = '33bd9534879a4f8d9491c96691be117f';
+        var urlid = 'b3a5e6a4770a4388bfdf3b1a0d82a3f9';
         var client = null;
         var loadedApi = null;
         var myAnimations = null;
@@ -514,6 +514,19 @@
                                 api.setCycleMode('none');
                                 api.pause();
                                 api.seekTo(0);
+                                api.setCurrentAnimationByUID(animations[1][0]); //0 8 18 30
+                                api.setCycleMode('none');
+                                api.pause();
+                                api.seekTo(0);
+                                api.setCurrentAnimationByUID(animations[2][0]); //0 8 18 30
+                                api.setCycleMode('none');
+                                api.pause();
+                                api.seekTo(0);
+                                api.setCurrentAnimationByUID(animations[3][0]); //0 8 18 30
+                                api.setCycleMode('none');
+                                api.pause();
+                                api.seekTo(0);
+
                             }
                             
                         });
@@ -721,12 +734,27 @@
                 if(animationRunning)
                     return;
                 if(doorOpened){
+                    loadedApi.setSpeed(-1);
+                    loadedApi.setCurrentAnimationByUID(myAnimations[0][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.play();
+                    loadedApi.setSpeed(-1);
+                    loadedApi.setCurrentAnimationByUID(myAnimations[1][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.play();
+                    loadedApi.setSpeed(-1);
+                    loadedApi.setCurrentAnimationByUID(myAnimations[2][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
+                    loadedApi.play();
+                    loadedApi.setSpeed(-1);
+                    loadedApi.setCurrentAnimationByUID(myAnimations[3][0]); //0 8 18 30
+                    loadedApi.setCycleMode('none');
                     loadedApi.play();
                     doorOpened = false;
                     animationRunning = true;
                     animationInt = setInterval(function(){
                         loadedApi.getCurrentTime(function(err, time) {
-                            if(time >= 5){
+                            if(time >= 2.5){
                                 loadedApi.pause();
                                 clearInterval(animationInt);
                                 animationRunning = false;
@@ -737,24 +765,25 @@
 
 
                     //ANIMATIONS
-                    loadedApi.seekTo(0);
-                    loadedApi.play();
+                    /*loadedApi.seekTo(0);
+                    loadedApi.play();*/
                     loadedApi.setCurrentAnimationByUID(myAnimations[0][0]); //0 8 18 30
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
-                    loadedApi.setCurrentAnimationByUID(myAnimations[4][0]); //0 8 18 30
+                    loadedApi.setCurrentAnimationByUID(myAnimations[1][0]); //0 8 18 30
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
-                    loadedApi.setCurrentAnimationByUID(myAnimations[8][0]); //0 8 18 30
+                    
+                    loadedApi.setCurrentAnimationByUID(myAnimations[2][0]); //0 8 18 30
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
-                    loadedApi.setCurrentAnimationByUID(myAnimations[12][0]); //0 8 18 30
+                    loadedApi.setCurrentAnimationByUID(myAnimations[3][0]); //0 8 18 30
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
@@ -765,7 +794,7 @@
                     animationRunning = true;
                     animationInt = setInterval(function(){
                         loadedApi.getCurrentTime(function(err, time) {
-                            if(time > 3.88){
+                            if(time > 2.5){
                                 loadedApi.pause();
                                 clearInterval(animationInt);
                                 animationRunning = false;
