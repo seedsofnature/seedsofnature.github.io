@@ -734,27 +734,28 @@
                 if(animationRunning)
                     return;
                 if(doorOpened){
-                    loadedApi.setSpeed(-1);
                     loadedApi.setCurrentAnimationByUID(myAnimations[0][0]); //0 8 18 30
-                    loadedApi.setCycleMode('none');
-                    loadedApi.play();
                     loadedApi.setSpeed(-1);
+                    loadedApi.setCycleMode('one');
+                    loadedApi.play();
                     loadedApi.setCurrentAnimationByUID(myAnimations[1][0]); //0 8 18 30
-                    loadedApi.setCycleMode('none');
-                    loadedApi.play();
                     loadedApi.setSpeed(-1);
+                    loadedApi.setCycleMode('one');
+                    loadedApi.play();
                     loadedApi.setCurrentAnimationByUID(myAnimations[2][0]); //0 8 18 30
-                    loadedApi.setCycleMode('none');
-                    loadedApi.play();
                     loadedApi.setSpeed(-1);
-                    loadedApi.setCurrentAnimationByUID(myAnimations[3][0]); //0 8 18 30
-                    loadedApi.setCycleMode('none');
+                    loadedApi.setCycleMode('one');
                     loadedApi.play();
+                    loadedApi.setCurrentAnimationByUID(myAnimations[3][0]); //0 8 18 30
+                    loadedApi.setSpeed(-1);
+                    loadedApi.setCycleMode('one');
+                    loadedApi.play();
+
                     doorOpened = false;
                     animationRunning = true;
                     animationInt = setInterval(function(){
                         loadedApi.getCurrentTime(function(err, time) {
-                            if(time >= 2.5){
+                            if(time <= 0){
                                 loadedApi.pause();
                                 clearInterval(animationInt);
                                 animationRunning = false;
@@ -762,39 +763,42 @@
                         });
                     }, 10);
                 } else {
-
-
                     //ANIMATIONS
                     /*loadedApi.seekTo(0);
                     loadedApi.play();*/
+                    loadedApi.seekTo(0);
+                    loadedApi.setSpeed(1);
                     loadedApi.setCurrentAnimationByUID(myAnimations[0][0]); //0 8 18 30
+                    loadedApi.setSpeed(1);
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
                     loadedApi.setCurrentAnimationByUID(myAnimations[1][0]); //0 8 18 30
+                    loadedApi.setSpeed(1);
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
                     
                     loadedApi.setCurrentAnimationByUID(myAnimations[2][0]); //0 8 18 30
+                    loadedApi.setSpeed(1);
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
                     loadedApi.setCurrentAnimationByUID(myAnimations[3][0]); //0 8 18 30
+                    loadedApi.setSpeed(1);
                     loadedApi.setCycleMode('none');
                     loadedApi.pause();
                     loadedApi.seekTo(0);
                     loadedApi.play();
 
-
                     doorOpened = true;
                     animationRunning = true;
                     animationInt = setInterval(function(){
                         loadedApi.getCurrentTime(function(err, time) {
-                            if(time > 2.5){
+                            if(time >= 2.48){
                                 loadedApi.pause();
                                 clearInterval(animationInt);
                                 animationRunning = false;
