@@ -1,7 +1,7 @@
 
         @font-face {
           font-family: MitsubishiType;
-          src: url('./MMCRegular.ttf') format('truetype');
+          src: url('https://seedsofnature.github.io/metakosmos/MMCRegular.ttf') format('truetype');
           font-weight: bold;
         }
 
