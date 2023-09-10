@@ -16,7 +16,7 @@
 <body>
     <div class="iframe-gradient"></div>
     <div class="iframe-mask" id="iframe-mask"></div>
-    <div class="iframe-loader" id="iframe-loader">loading 0%...<div></div></div>
+    <div class="iframe-loader" id="iframe-loader">carregando 0%...<div></div></div>
     <div class="iframe-container">
         <!-- Insert an empty iframe, hidden by default using a class-->
         <iframe src="" id="api-frame" allow="autoplay; fullscreen; vr" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -91,7 +91,20 @@
           <button style="float: left; margin-left: 15px;" class="dia active">Dia</button>
           <button style="float: right; margin-right: 15px;" class="noite">Noite</button>
         </div>
+    </div>
+    <div style="position: fixed;
+        left: 75%;
+        bottom: -35px;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        z-index: 1;">
+        <div class="btn-group">
+            <button style="float: left; margin-left: 15px;" class="gls active">GLS</button>
+            <button style="float: right; margin-right: 15px;" class="hpe">HPE</button>
+            <button style="float: right; margin-right: 15px;" class="hpes">HPE-S</button>
         </div>
+    </div>
+
     <div class="views" id="cameraPicker">
         
         <div>
@@ -133,15 +146,19 @@
 
     <div class="colors" id="colorPicker" style="background: none;">
         <span class="info" style="font-weight: bolder;"></span>
-        <div class="car-color active" data-color-id="0" data-name="Branco Fuji" style="background-color: #ffffff; border: 1px solid black;" data-price="0">
+        <div class="car-color active" data-color-id="0" data-name="Branco Alpino" style="background-color: #ffffff; border: 1px solid black;" data-price="0">
         </div>
         <div class="car-color" data-color-id="2" data-name="Preto Onix Pearl" style="background-color: #343434;" data-price="0">
         </div>
         <div class="car-color" data-color-id="1" data-name="Azul Baikal" style="background-color: #1f478f;" data-price="0">
         </div>
-        <div class="car-color" data-color-id="3" data-name="Prata Lítio" style="background-color: #c8bbb3;" data-price="0">
-        </div>
         <div class="car-color" data-color-id="4" data-name="Vermelho Lucid" style="background-color: #aa0e1e;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="5" data-name="Prata Cool" style="background-color: #6d7170;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="6" data-name="Cinza Londrino" style="background-color: #4a494f;" data-price="0">
+        </div>
+        <div class="car-color" data-color-id="3" data-name="Prata Lítio" style="background-color: #8d9391;" data-price="0">
         </div>
     </div>
 
@@ -187,6 +204,7 @@
         var cameraHeadTarget = [0.4, 0, 1];
         var cameraHeadPosition2 = [-5, 0, 0];
         var cameraHeadTarget2 = [0, 0, 1];
+        var bodyTextureUID = "cf2878f436484174b31ff689a0a9dda3";
 
         var basePrice = 242990;
         var option1Price = 0;
@@ -243,15 +261,19 @@
             "#FFFFFF",
             "#1f478f",
             "#343434", 
-            "#c8bbb3", 
+            "#8d9391", 
             "#aa0e1e",
+            "#6d7170",
+            "#4a494f",
         ];
         var bgColors = [
             "#FFFFFF", 
-            "#1f478f",
-            "#343434", 
-            "#c8bbb3", 
-            "#aa0e1e",
+            "#FFFFFF",
+            "#FFFFFF", 
+            "#FFFFFF", 
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
         ];
         var uiLight = [
             false, // white
@@ -279,6 +301,62 @@
             return;
         }
         const linearColor = srgbToLinear(hexToRgb(carColors[index]));
+
+        loadedApi.getTextureList(function(err, textures) {
+            if (!err) {
+                console.log(textures);
+            }
+        });
+
+
+        if(index == 0){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 2){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 1){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 3){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 4){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 5){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 6){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }
+
+        
+
+
+        //GLS_Body_Branco_Alpino.png
         //paintMaterial.channels.Albedo.enable = true;
         //paintMaterial.channels.SpecularPBR.color = linearColor;
         //paintMaterial.channels.
@@ -481,7 +559,7 @@
         setInterval(function(){
             if(prcValue < nextprc && prcValue < 100)
                 prcValue += 1;
-            document.getElementById("iframe-loader").innerHTML = "loading " + prcValue + "%<div style='width: " + prcValue + "%'></div>";
+            document.getElementById("iframe-loader").innerHTML = "carregando " + prcValue + "%<div style='width: " + prcValue + "%'></div>";
         }, 150);
         function loadmodel(){
             nextprc = 20;
@@ -588,7 +666,7 @@
                                     changeInterior(0);
                                     setTimeout(function(){
                                         prcValue = 100;
-                                        document.getElementById("iframe-loader").innerHTML = "loading 100%<div style='width: 100%'></div>";
+                                        document.getElementById("iframe-loader").innerHTML = "carregando 100%<div style='width: 100%'></div>";
                                         frameMask.classList.add("hidden");
                                         loader.classList.add("hidden");
                                     }, 1000);
