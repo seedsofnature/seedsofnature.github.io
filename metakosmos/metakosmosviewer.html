@@ -7,13 +7,15 @@
     <meta name="viewport" id="viewport" content="user-scalable=no, initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
     <link rel="Stylesheet" href="bootstrap-reboot.min.css" type="text/css" />
     <meta name="theme-color" content="#fafafa" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Metakosmos Teste Viewer do Sketchfab</title>
     <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.0.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body >
     <div class="iframe-gradient"></div>
     <div class="iframe-mask" id="iframe-mask"></div>
     <div class="iframe-loader" id="iframe-loader">carregando 0%...<div></div></div>
@@ -59,7 +61,7 @@
         <div class="exterior-items active">
             <span >-Acabamento Black Piano;</span>
             <span >-Design com esportividade e conforto;</span>
-            <span >-Dynamic Shield;</span>
+            <span >-Dynamic Shield;          &nbsp;</span>
             <span >-Novo design traseiro;</span>
             <span >-Luz de condução diurna (DRL);</span>
             <span >-Rodas com acabamento diamantado;</span>
@@ -71,13 +73,13 @@
             <span >-Amplo porta-malas;</span>
             <span >-Ar-condicionado automático;</span>
             <span >-Bancos em couro;</span>
-            <span >-Espelho retrovisor interno eletrcrômico;</span>
+            <span >-Espelho retrovisor interno eletrocrômico;</span>
             <span >-Câmera de ré.</span>
         </div>
         
         <div class="selector-box">
-            <span style="padding-left: 70px;">A partir de</span>
-            <span style="padding-left: 70px;margin-top: 6px;font-size: 32px; letter-spacing: 1px;" class="car-feature price" id="totalPrice"></span>
+            <span style="padding-left: 50px;">A partir de</span>
+            <span style="padding-left: 50px;margin-top: 6px;font-size: 32px; letter-spacing: 1px;" class="car-feature price" id="totalPrice"></span>
         </div>
     </div>
 
@@ -100,8 +102,9 @@
         z-index: 1;">
         <div class="btn-group">
             <button style="float: left; margin-left: 15px;" class="gls active">GLS</button>
-            <button style="float: right; margin-right: 15px;" class="hpe">HPE</button>
             <button style="float: right; margin-right: 15px;" class="hpes">HPE-S</button>
+            <button style="float: right; margin-right: 15px;" class="hpe">HPE</button>
+            
         </div>
     </div>
 
@@ -164,15 +167,9 @@
 
     <div class="colors" id="colorPicker2">
         <span class="info"></span>
-        <div class="int-color active" data-color-id="0" data-name="Bege" style="background-color: beige;" data-price="0">
+        <div class="int-color active" data-color-id="0" data-name="Couro Branco" style="background-color: #FFFFFF;" data-price="0">
         </div>
-        <div class="int-color" data-color-id="1" data-name="Marrom" style="background-color: rgb(68, 49, 23);" data-price="0">
-        </div>
-        <div class="int-color" data-color-id="2" data-name="Cinza Escuro" style="background-color: rgb(17, 17, 17);" data-price="0">
-        </div>
-        <div class="int-color" data-color-id="3" data-name="Prata" style="background-color: rgb(161, 161, 161);" data-price="0">
-        </div>
-        <div class="int-color" data-color-id="4" data-name="Preto" style="background-color: rgb(0, 0, 0);" data-price="0">
+        <div class="int-color" data-color-id="1" data-name="Couro Preto" style="background-color: #000000;" data-price="0">
         </div>
     </div>
 
@@ -200,11 +197,19 @@
         var currentCamera = 0;
         var cameraPosition = [-5, 0, 0];
         var cameraTarget = [0, 0, 1];
-        var cameraHeadPosition = [0.5, 0.2, 1.002];
-        var cameraHeadTarget = [0.4, 0, 1];
-        var cameraHeadPosition2 = [-5, 0, 0];
-        var cameraHeadTarget2 = [0, 0, 1];
+        var cameraHeadPosition = [0.2, 0.2, 1.5];
+        var cameraHeadTarget = [0.2, 0, 1.3];
+        var cameraHeadPosition2 = [0.5, -0.4, 1.4];
+        var cameraHeadTarget2 = [0, 0.5, 1];
+        var selectedModel = 0; //0 GLS 1 HPE 2 HPE-S
         var bodyTextureUID = "cf2878f436484174b31ff689a0a9dda3";
+        var bodyRoghnessTextureUID = "dbe4df2866564086a7c7965721ccadf7";
+        var detailsColorTextureUID = "aed5bb2825f04c79abf530243315cbed";
+        var detailsRoughnessTextureUID = "638b50c626144605bac3955c2f982f78";
+        var leatherAlbedoTextureUID = "6bfe686c033441f396db5fac40b7a18e";
+        var leatherAOTextureUID = "791d8a36b7fe4d49a6878b4c4917f21c";
+        var leatherAOTextureUID = "791d8a36b7fe4d49a6878b4c4917f21c";
+        var lastestModelSelected = 0;
 
         var basePrice = 242990;
         var option1Price = 0;
@@ -277,10 +282,10 @@
         ];
         var uiLight = [
             false, // white
-            true, // green
-            true, // black
+            false, // green
+            false, // black
             false, // orange
-            true  // grey
+            false  // grey
         ];
         var intensity = [
             1, // white
@@ -300,7 +305,7 @@
             console.log("Api not loaded yet or failed.");
             return;
         }
-        const linearColor = srgbToLinear(hexToRgb(carColors[index]));
+        //const linearColor = srgbToLinear(hexToRgb(carColors[index]));
 
         loadedApi.getTextureList(function(err, textures) {
             if (!err) {
@@ -308,50 +313,216 @@
             }
         });
 
+        if(selectedModel == 0){
 
-        if(index == 0){
+            if(lastestModelSelected != selectedModel){
+                 //roughness 
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                    }
+                });
+
+                //Details
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Dets%20Color/GLS_Dets_Color.png', detailsColorTextureUID, function(err, detailsColorTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', detailsColorTextureUID);
+                    }
+                });
+
+                //Details Roughtness
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Dets%20Color/GLS_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                    }
+                });
+            }
+            
+
+
+            if(index == 0){
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
                     console.log('Replaced texture with UID', bodyTextureUID);
                 }
-            });
-        }else if(index == 2){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
+                });
+            }else if(index == 2){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 1){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 3){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 4){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 5){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 6){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }
+        }else if(selectedModel == 1){
+
+            if(lastestModelSelected != selectedModel){
+                //roughness 
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                    }
+                });
+
+                //Details
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Dets%20Color/HPE_Dets_Color.png', detailsColorTextureUID, function(err, detailsColorTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', detailsColorTextureUID);
+                    }
+                });
+
+                //Details Roughtness
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Dets%20Color/HPE_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                    }
+                });
+            }
+
+            if(index == 0){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
                     console.log('Replaced texture with UID', bodyTextureUID);
                 }
-            });
-        }else if(index == 1){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
+                });
+            }else if(index == 2){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 1){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 3){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 4){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 5){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 6){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }
+        }else if(selectedModel == 2){
+
+            if(lastestModelSelected != selectedModel){
+                //roughness 
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                    }
+                });
+
+                //Details
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Dets_Color.png', detailsColorTextureUID, function(err, detailsColorTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', detailsColorTextureUID);
+                    }
+                });
+
+                //Details Roughtness
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                    }
+                });
+            }
+            
+
+            if(index == 0){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_BrancoAlpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
                     console.log('Replaced texture with UID', bodyTextureUID);
                 }
-            });
-        }else if(index == 3){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
-                if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
-                }
-            });
-        }else if(index == 4){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
-                if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
-                }
-            });
-        }else if(index == 5){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
-                if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
-                }
-            });
-        }else if(index == 6){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
-                if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
-                }
-            });
+                });
+            }else if(index == 2){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PretoOnix.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 1){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_AzulBaikal.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 3){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PrataLitio.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 4){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_VermelhoLucid.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 5){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PrataCool.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }else if(index == 6){
+                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_CinzaLondrino.png', bodyTextureUID, function(err, bodyTextureUID) {
+                    if (!err) {
+                        console.log('Replaced texture with UID', bodyTextureUID);
+                    }
+                });
+            }
         }
+
+        
 
         
 
@@ -362,34 +533,59 @@
         //paintMaterial.channels.
         //paintMaterial.channels.SpecularPBR.factor = intensity[index];
         //paintMaterial.channels.MetalnessPBR.factor = metalness[index];
-        loadedApi.setMaterial(paintMaterial, function(){
-            $("body").css({"background": bgColors[index]});
-            if(uiLight[index]){
-                if(!$("body").hasClass("light"))
-                    $("body").addClass("light");
-            } else {
-                if($("body").hasClass("light"))
-                    $("body").removeClass("light");
-            }
-        });
+        //loadedApi.setMaterial(paintMaterial, function(){
+            //$("body").css({"background": bgColors[index]});
+            //if(uiLight[index]){
+            //    if(!$("body").hasClass("light"))
+            //        $("body").addClass("light");
+            //} else {
+            //    if($("body").hasClass("light"))
+            //        $("body").removeClass("light");
+            //}
+        //});
     }
+
+
     function changeLeatherColor(index) {
         var colors = [
-            "#8b7d70",
-            "#3c2d25",
-            "#1c1c1c",
-            "#5a5a5a",
-            "#1c1c1c"
+            "#FFFFFF",
+            "#000000",
         ];
-        if(leatherMaterial == null || loadedApi == null){
+        if(loadedApi == null){
             console.log("Api not loaded yet or failed.");
             return;
         }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        leatherMaterial.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(leatherMaterial, function(){
-        });
+
+        //Trocar cor do banco
+        /*
+        if(index == 0){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_BrancoAlpino.png', bodyTextureUID, function(err, bodyTextureUID) {
+            if (!err) {
+                console.log('Replaced texture with UID', bodyTextureUID);
+            }
+            });
+        }else if(index == 2){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PretoOnix.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }else if(index == 1){
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_AzulBaikal.png', bodyTextureUID, function(err, bodyTextureUID) {
+                if (!err) {
+                    console.log('Replaced texture with UID', bodyTextureUID);
+                }
+            });
+        }*/
+
+
+        //const linearColor = srgbToLinear(hexToRgb(colors[index]));
+        //leatherMaterial.channels.AlbedoPBR.color = linearColor;
+        //loadedApi.setMaterial(leatherMaterial, function(){
+        //});
     }
+
+
     function changeIntColor1(index) {
         var colors = [
             "#8b7d70",
@@ -509,16 +705,11 @@
         loadedApi.setMaterial(intMaterial7, function(){
         });
     }
+
         function changeInterior(index) {
             changeLeatherColor(index);
-            changeIntColor1(index); // podsufitka
-            changeIntColor2(index); // przyciski
-            changeIntColor3(index); // podłoga
-            changeIntColor4(index); // deska wykończenie
-            changeIntColor5(index); // deska czarny
-            changeIntColor6(index); // deska góra
-            changeIntColor7(index); // deska dół
         }
+
       function changeCamera(index, animate = false){
           if(loadedApi == null){
               console.log("Api not loaded yet or failed.");
@@ -748,22 +939,110 @@
                 $("#colorPicker2 span.info").text(currentIntText);
             });
             $(".camera").click(function(){
-                $("#colorPicker2").removeClass("active");
-                $("#colorPicker").removeClass("active");
+                
                 currentCamera = $(this).data("cam-id");
+                if(currentCamera != 0){
+                    $("#colorPicker2").removeClass("active");
+                    $("#colorPicker").removeClass("active");
+                    $(".changeColor").removeClass("active");
+                    $(".changeColorInt").addClass("active");
+                    $(".exterior-items").removeClass("active");
+                    $(".interior-items").addClass("active");
+                }else{
+                    $("#colorPicker").addClass("active");
+                    $(".changeColor").addClass("active");
+                    $(".changeColorInt").removeClass("active");
+                    $(".exterior-items").addClass("active");
+                    $(".interior-items").removeClass("active");
+                }
                 console.log("Change camera " + currentCamera);
                 changeCamera(currentCamera);
             });
 
             $(".dia").click(function(){
+                
                 $(".dia").addClass("active");
                 $(".noite").removeClass("active");
+
+                $(".logo").attr("src","logo/mitsubishi.png");
+
+                $("body").css({"background-color": "#FFFFFF"});
+                if($("body").hasClass("light"))
+                    $("body").removeClass("light");
+
+                loadedApi.setLight(0, {color: [0.78, 0.79, 1], intensity: 0.42}, function(err) {
+                    if (!err) {
+                    }
+                });
+                loadedApi.setLight(1, {color: [1, 0.87, 0.70], intensity: 1.88}, function(err) {
+                    if (!err) {
+                    }
+                });
+                loadedApi.setLight(2, {color: [0.42, 0.73, 1], intensity: 0.26}, function(err) {
+                    if (!err) {
+                    }
+                });
+                
             });
 
             $(".noite").click(function(){
+
                 $(".dia").removeClass("active");
                 $(".noite").addClass("active");
+
+                $(".logo").attr("src","logo/mitsubishi-white.png");
+
+                $("body").css({"background-color": "#121212"});
+
+                if(!$("body").hasClass("light"))
+                    $("body").addClass("light");
+
+                loadedApi.setLight(0, {color: [1, 0.9, 0.1], intensity: 0.1}, function(err) {
+                    if (!err) {
+                    }
+                });
+                loadedApi.setLight(1, {color: [1, 0.9, 0.2], intensity: 0.2}, function(err) {
+                    if (!err) {
+                    }
+                });
+                loadedApi.setLight(2, {color: [1, 0.9, 0.2], intensity: 0.05}, function(err) {
+                    if (!err) {
+                    }
+                });
             });
+
+            $(".gls").click(function(){
+                selectedModel = 0;
+                var carColorIndex = $(".car-color").data("color-id");
+                changeCarColor(carColorIndex);
+                lastestModelSelected = 0;
+                $(".gls").addClass("active");
+                $(".hpe").removeClass("active");
+                $(".hpes").removeClass("active");
+            });
+
+            $(".hpe").click(function(){
+                selectedModel = 1;
+                var carColorIndex = $(".car-color").data("color-id");
+                changeCarColor(carColorIndex);
+                lastestModelSelected = 1;
+                $(".hpe").addClass("active");
+                $(".gls").removeClass("active");
+                $(".hpes").removeClass("active");
+            });
+
+            $(".hpes").click(function(){
+                selectedModel = 2;
+                var carColorIndex = $(".car-color").data("color-id");
+                changeCarColor(carColorIndex);
+                lastestModelSelected = 2;
+                $(".hpes").addClass("active");
+                $(".gls").removeClass("active");
+                $(".hpe").removeClass("active");
+            });
+
+
+            
 
 
             $(".changeColor").click(function(){
@@ -785,7 +1064,7 @@
               $(".exterior-items").removeClass("active");
               $(".interior-items").addClass("active");
               $("#colorPicker").removeClass("active");
-              $("#colorPicker2").addClass("active");
+              //$("#colorPicker2").addClass("active");
             });
 
 
@@ -794,7 +1073,7 @@
                 $(".selector-box .active").removeClass("active");
                 setTimeout(function(){
                     btn.addClass("active");
-                    if(btn.attr("id") == "colors" && !$("#colorPicker").hasClass("active")){
+                    /*if(btn.attr("id") == "colors" && !$("#colorPicker").hasClass("active")){
                         currentCamera = 0;
                         changeCamera(currentCamera);
                         $("#colorPicker").addClass("active");
@@ -805,7 +1084,7 @@
                         changeCamera(currentCamera);
                         $("#colorPicker2").addClass("active");
                     } else if(btn.attr("id") != "intColors" && $("#colorPicker2").hasClass("active"))
-                        $("#colorPicker2").removeClass("active");
+                        $("#colorPicker2").removeClass("active");*/
                 }, 300);
             });
             $("#openDoor").click(function(){
