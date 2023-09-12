@@ -87,7 +87,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 84%;
+            width: 80%;
             height: 100vh;
             margin: 0;
             padding: 0;
@@ -363,12 +363,44 @@
             font-family: MitsubishiType;
             margin-top: 50px;
         }
+
+        .timeSelector{
+            position: fixed;
+            left: 50%;
+            bottom: -35px;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+
         @media (max-aspect-ratio: 12/10) {
+
+            .timeSelector{
+                top: 43% !important;
+                bottom: unset !important;
+            }
+            
+            .colors div{
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .btn-group button{
+                width: 67px;
+            }
+
             #top-right {
                 top: 50%;
-                width: 100%;
+                width: 65%;
                 right: 40px;
             }
+
+            .info-area {
+                height: 183px;
+                overflow: scroll;
+            }
+
             .navigation__right {
                 right: 40px;
             }
@@ -376,7 +408,7 @@
                 right: 40px;
             }
             .iframe-container {
-                width: 100%;
+                width: 100% !important;
                 height: 50vh;
             }
             .iframe-loader {
@@ -404,6 +436,50 @@
             #top-right span.descr {
                 display: none !important;
             }
+
+            #top-right {
+                top: 20px;
+                right: 0px;
+                width: 30%;
+            }
+
+            .iframe-container{
+                width: 69% !important;
+            }
+
+            .modelButtons{
+                left: 50% !important;
+                top: 35px !important;
+                bottom: unset !important;
+                
+            }
+
+            .btn-group button.gls{
+                width: 60px;
+            }
+
+            .btn-group button.hpe{
+                width: 60px;
+            }
+
+            .btn-group button.hpes{
+                width: 60px;
+            }
+
+            .btn-group.day{
+                height: 36px;
+            }
+            .btn-group button.dia{
+                width: 64px;
+            }
+            .btn-group button.noite{
+                width: 64px;
+            }
+
+            .colors div{
+                width: 20px;
+                height: 20px;
+            }
         }
         @media (max-height: 700px) {
             #top-right .selector-box {
@@ -412,12 +488,150 @@
             #top-right span.car-feature.price {
                 margin-top: 30px;
             }
+
+            #top-right {
+                top: 20px;
+                right: 0px;
+                width: 30%;
+            }
+
+            .iframe-container{
+                width: 69% !important;
+            }
+
+            .modelButtons{
+                left: 50% !important;
+                top: 35px !important;
+                bottom: unset !important;
+                
+            }
+
+            .btn-group button.gls{
+                width: 60px;
+            }
+
+            .btn-group button.hpe{
+                width: 60px;
+            }
+
+            .btn-group button.hpes{
+                width: 60px;
+            }
+
+            .btn-group.day{
+                height: 36px;
+            }
+            .btn-group button.dia{
+                width: 64px;
+            }
+            .btn-group button.noite{
+                width: 64px;
+            }
+
+            .colors div{
+                width: 20px;
+                height: 20px;
+            }
         }
+        @media (max-width: 1461px) {
+            .iframe-container{
+                width: 75%;
+            }
+        }
+        @media (max-width: 1200px) {
+            .iframe-container{
+                width: 70%;
+            }
+
+            .modelButtons{
+                left: 50% !important;
+                top: 35px !important;
+                bottom: unset !important;
+                
+            }
+
+            .btn-group button.gls{
+                width: 60px;
+            }
+
+            .btn-group button.hpe{
+                width: 60px;
+            }
+
+            .btn-group button.hpes{
+                width: 60px;
+            }
+
+            .btn-group.day{
+                height: 36px;
+            }
+            .btn-group button.dia{
+                width: 64px;
+            }
+            .btn-group button.noite{
+                width: 64px;
+            }
+
+            .colors div{
+                width: 20px;
+                height: 20px;
+            }
+        }
+        
+
         @media (min-aspect-ratio: 12/10) and (max-height: 600px) {
             #top-right {
                 top: 20px;
-                right: 40px;
+                right: 0px;
+                width: 30%;
             }
+
+            
+
+            .iframe-container{
+                width: 69% !important;
+            }
+
+            .btn-group button.gls{
+                width: 60px;
+            }
+
+            .btn-group button.hpe{
+                width: 60px;
+            }
+
+            .btn-group button.hpes{
+                width: 60px;
+            }
+
+            .modelButtons{
+                left: 50% !important;
+                top: 35px !important;
+                bottom: unset !important;
+                
+            }
+
+            .btn-group.day{
+                height: 36px;
+            }
+            .btn-group button.dia{
+                width: 64px;
+            }
+            .btn-group button.noite{
+                width: 64px;
+            }
+
+            .colors div{
+                width: 20px;
+                height: 20px;
+            }
+
+            .info-area {
+                height: 250px;
+                overflow: scroll;
+                padding-right: 20px;
+            }
+
             .views {
                 right: 40px;
             }
@@ -467,6 +681,27 @@
           content: "";
           clear: both;
           display: table;
+        }
+
+        .modelButtons{
+            position: fixed;
+            left: 68%;
+            bottom: -35px;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+            z-index: 32;
+        }
+
+        .btn-group button.gls{
+            width: 60px;
+        }
+
+        .btn-group button.hpe{
+            width: 60px;
+        }
+
+        .btn-group button.hpes{
+            width: 60px;
         }
 
         /* Add a background color on hover */
