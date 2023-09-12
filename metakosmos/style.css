@@ -545,21 +545,21 @@
 
             .modelButtons{
                 left: 50% !important;
-                top: 35px !important;
+                top: 66px !important;
                 bottom: unset !important;
                 
             }
 
             .btn-group button.gls{
-                width: 60px;
+                width: 40px !important;
             }
 
             .btn-group button.hpe{
-                width: 60px;
+                width: 40px !important;
             }
 
             .btn-group button.hpes{
-                width: 60px;
+                width: 40px !important;
             }
 
             .btn-group.day{
