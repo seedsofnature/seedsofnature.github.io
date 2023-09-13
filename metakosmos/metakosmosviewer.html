@@ -958,8 +958,9 @@
             $(".camera").click(function(){
                 
                 currentCamera = $(this).data("cam-id");
+
                 if(currentCamera != 0){
-                    $("#colorPicker2").removeClass("active");
+                    $("#colorPicker2").addClass("active");
                     $("#colorPicker").removeClass("active");
                     $(".changeColor").removeClass("active");
                     $(".changeColorInt").addClass("active");
@@ -967,6 +968,7 @@
                     $(".interior-items").addClass("active");
                 }else{
                     $("#colorPicker").addClass("active");
+                    $("#colorPicker2").removeClass("active");
                     $(".changeColor").addClass("active");
                     $(".changeColorInt").removeClass("active");
                     $(".exterior-items").addClass("active");
@@ -1030,7 +1032,7 @@
 
             $(".gls").click(function(){
                 selectedModel = 0;
-                var carColorIndex = $(".car-color").data("color-id");
+                var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 0;
                 $(".gls").addClass("active");
@@ -1040,7 +1042,7 @@
 
             $(".hpe").click(function(){
                 selectedModel = 1;
-                var carColorIndex = $(".car-color").data("color-id");
+                var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 1;
                 $(".hpe").addClass("active");
@@ -1050,7 +1052,7 @@
 
             $(".hpes").click(function(){
                 selectedModel = 2;
-                var carColorIndex = $(".car-color").data("color-id");
+                var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 2;
                 $(".hpes").addClass("active");
@@ -1081,7 +1083,7 @@
               $(".exterior-items").removeClass("active");
               $(".interior-items").addClass("active");
               $("#colorPicker").removeClass("active");
-              //$("#colorPicker2").addClass("active");
+              $("#colorPicker2").addClass("active");
             });
 
 
