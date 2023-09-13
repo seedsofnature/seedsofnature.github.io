@@ -51,14 +51,16 @@
             </div>
             
             
+            <center>
+                <div class="btn-group" style="width: 100%;">
+                <button style="float: left; margin-left: 15px;" class="changeColor active">Exterior</button>
+                <button style="float: right; margin-right: 15px;" class="changeColorInt">Interior</button>
+                </div>
+            </center>
+            
 
-            <div class="btn-group">
-            <button style="float: left; margin-left: 15px;" class="changeColor active">Exterior</button>
-            <button style="float: right; margin-right: 15px;" class="changeColorInt">Interior</button>
-            </div>
 
-
-            <div class="exterior-items active">
+            <div class="exterior-items active" style="padding-top: 10px;">
                 <span >-Acabamento Black Piano;</span>
                 <span >-Design com esportividade e conforto;</span>
                 <span >-Dynamic Shield;          &nbsp;</span>
@@ -67,7 +69,7 @@
                 <span >-Rodas com acabamento diamantado;</span>
                 <span >-Teto solar duplo.</span>
             </div>
-            <div class="interior-items">
+            <div class="interior-items" style="padding-top: 10px;">
                 <span >-Ajuste interno do banco;</span>
                 <span >-Amplo espaço interno;</span>
                 <span >-Amplo porta-malas;</span>
@@ -76,27 +78,38 @@
                 <span >-Espelho retrovisor interno eletrocrômico;</span>
                 <span >-Câmera de ré.</span>
             </div>
-        </div>
-        <div class="selector-box">
-            <span style="padding-left: 50px;">A partir de</span>
-            <span style="padding-left: 50px;margin-top: 6px;font-size: 32px; letter-spacing: 1px;" class="car-feature price" id="totalPrice"></span>
-        </div>
-    </div>
 
-    <div class="timeSelector">
-        <div class="btn-group day">
-          <button style="float: left; margin-left: 15px;" class="dia active">Dia</button>
-          <button style="float: right; margin-right: 15px;" class="noite">Noite</button>
-        </div>
-    </div>
-    <div class="modelButtons" >
-        <div class="btn-group">
-            <button style="float: left; margin-right: 15px;margin-left: 15px;" class="gls active">GLS</button>
-            <button style="float: right; margin-right: 15px;" class="hpes">HPE-S</button>
-            <button style="float: right; margin-right: 15px;" class="hpe">HPE</button>
+            <div class="selector-box">
+                <span style="padding-left: 50px;">A partir de</span>
+                <span style="padding-left: 50px;margin-top: 6px;font-size: 32px; letter-spacing: 1px;" class="car-feature price" id="totalPrice"></span>
+            </div>
+            <center>
+                <div class="modelButtons"  >
+                    <div class="btn-group" style="width: 100%;">
+                        <button style="float: left; margin-right: 15px;margin-left: 15px;" class="gls active">GLS</button>
+                        <button style=" margin-right: 15px;" class="hpe">HPE</button>
+                        <button style="float: right; margin-right: 15px;" class="hpes">HPE-S</button>
+                        
+                    </div>
+                </div>
+            </center>
+            <center>
+                <div class="timeSelector">
+                    <div class="btn-group day" style="width: 100%;">
+                      <button style="float: left; margin-left: 15px; margin-bottom: 0px !important;" class="dia active">Dia</button>
+                      <button style="float: right; margin-right: 15px;" class="noite">Noite</button>
+                    </div>
+                </div>
+            </center>
+            
             
         </div>
+        
+
+        
     </div>
+
+    
 
     <div class="views" id="cameraPicker">
         
@@ -171,7 +184,7 @@
           document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
         var iframe = document.getElementById('api-frame');
-        var urlid = 'b3a5e6a4770a4388bfdf3b1a0d82a3f9';
+        var urlid = '33bd9534879a4f8d9491c96691be117f';
         var client = null;
         var loadedApi = null;
         var myAnimations = null;

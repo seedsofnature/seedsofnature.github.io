@@ -365,11 +365,9 @@
         }
 
         .timeSelector{
-            position: fixed;
+            margin-top: 10px;
             left: 50%;
             bottom: -35px;
-            transform: translate(-50%, -50%);
-            margin: 0 auto;
             z-index: 1;
         }
 
@@ -392,12 +390,12 @@
 
             #top-right {
                 top: 50%;
-                width: 65%;
-                right: 40px;
+                width: 71vw;
+                right: 2px;
             }
 
             .info-area {
-                height: 183px;
+                height: 35vh;
                 overflow: scroll;
             }
 
@@ -422,7 +420,7 @@
             }
             .colors {
                 padding: 10px 3px 0;
-                margin-bottom: -350px;
+                margin-bottom: -450px;
             }
             .colors div {
                 display: block;
@@ -533,50 +531,7 @@
                 height: 20px;
             }
         }
-        @media (max-width: 1461px) {
-            .iframe-container{
-                width: 75%;
-            }
-        }
-        @media (max-width: 1200px) {
-            .iframe-container{
-                width: 70%;
-            }
-
-            .modelButtons{
-                left: 50% !important;
-                top: 66px !important;
-                bottom: unset !important;
-                
-            }
-
-            .btn-group button.gls{
-                width: 40px !important;
-            }
-
-            .btn-group button.hpe{
-                width: 40px !important;
-            }
-
-            .btn-group button.hpes{
-                width: 40px !important;
-            }
-
-            .btn-group.day{
-                height: 36px;
-            }
-            .btn-group button.dia{
-                width: 64px;
-            }
-            .btn-group button.noite{
-                width: 64px;
-            }
-
-            .colors div{
-                width: 20px;
-                height: 20px;
-            }
-        }
+        
         
 
         @media (min-aspect-ratio: 12/10) and (max-height: 600px) {
@@ -593,7 +548,7 @@
             }
 
             .btn-group button.gls{
-                width: 60px;
+                width: 40px;
             }
 
             .btn-group button.hpe{
@@ -647,6 +602,7 @@
             background-color: #ed1c24;
             border-radius: 17px;
             height: 36px;
+            display: inline-block;
         }
 
         .btn-group button {
@@ -659,7 +615,8 @@
           width: 90px;
           border-radius: 15px;
           margin-top: 5px;
-          margin-bottom: 25px;
+          
+          /*margin-bottom: 25px;*/
         }
 
         .btn-group button:focus{
@@ -684,16 +641,15 @@
         }
 
         .modelButtons{
-            position: fixed;
+           
             left: 68%;
             bottom: -35px;
-            transform: translate(-50%, -50%);
             margin: 0 auto;
             z-index: 32;
         }
 
         .btn-group button.gls{
-            width: 60px;
+            width: 40px;
         }
 
         .btn-group button.hpe{
@@ -710,8 +666,8 @@
         }
  
         .car-info{
-            height: 90px;
-            padding-top: 20px;
+            height: 64px;
+            padding-top: 5px;
         }
 
 
@@ -732,7 +688,7 @@
         .exterior-items span{
             font-size: 12px;
             text-align: left;
-            float: left;
+            display: inline-block;
         }
 
         .exterior-items.active{
@@ -741,13 +697,13 @@
 
         .exterior-items{
             display: none;
-            margin-bottom: 180px;
+            margin-bottom: 20px;
         }
 
         .interior-items span{
             font-size: 12px;
             text-align: left;
-            float: left;
+            display: inline-block;
         }
 
         .interior-items.active{
@@ -756,5 +712,5 @@
 
         .interior-items{
             display: none;
-            margin-bottom: 180px;
+            margin-bottom: 20px;
         }
