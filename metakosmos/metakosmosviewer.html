@@ -170,7 +170,7 @@
 
     <div class="colors" id="colorPicker2">
         <span class="info"></span>
-        <div class="int-color active" data-color-id="0" data-name="Couro Branco" style="background-color: #FFFFFF;" data-price="0">
+        <div class="int-color active" data-color-id="0" data-name="Couro Branco" style="background-color: #FFFFFF; border: 1px solid black;" data-price="0">
         </div>
         <div class="int-color" data-color-id="1" data-name="Couro Preto" style="background-color: #000000;" data-price="0">
         </div>
@@ -851,6 +851,14 @@
                             api.hide(1090);
                             api.hide(1165);*/
                             console.log(graph);
+
+                            //front logo 1622 chrome
+                            api.hide(1622);
+                            //front logo 1652 black
+
+                            //cambio gls 2201
+                            //cambio hpe 2174
+                            api.hide (2174);
                         });
 
                         //door leather objects: white 694 892 1090 1165
@@ -1109,6 +1117,15 @@
                 loadedApi.hide(181);
                 loadedApi.hide(1697);
                 loadedApi.hide(1682);
+                loadedApi.hide(1622);
+                loadedApi.show(1652);
+
+                loadedApi.hide (2174);//cambio
+                loadedApi.show(2201);
+                
+                loadedApi.show(2296); //freio
+                            
+                
                 selectedModel = 0;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
@@ -1131,6 +1148,14 @@
                 loadedApi.hide(181);
                 loadedApi.hide(1697);
                 loadedApi.hide(1682);
+                loadedApi.hide(1622);
+                loadedApi.show(1652);
+
+                loadedApi.show (2174);
+                loadedApi.hide(2201);
+
+                loadedApi.hide(2296); //freio
+
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
@@ -1156,6 +1181,13 @@
                 loadedApi.show(181);
                 loadedApi.show(1697);
                 loadedApi.show(1682);
+                loadedApi.show(1622);
+                loadedApi.hide(1652);
+
+                loadedApi.show (2174);
+                loadedApi.hide(2201);
+
+                loadedApi.hide(2296); //freio
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
