@@ -311,7 +311,7 @@
 
         loadedApi.getTextureList(function(err, textures) {
             if (!err) {
-                console.log(textures);
+                //console.log(textures);
             }
         });
 
@@ -850,7 +850,6 @@
                             api.hide(892);
                             api.hide(1090);
                             api.hide(1165);*/
-                            console.log(graph);
 
                             //front logo 1622 chrome
                             api.hide(1622);
@@ -870,6 +869,7 @@
 
 
                         api.getAnimations(function(err, animations){
+                            console.log(animations);
                             myAnimations = animations;
                             if(animations.length > 0){
                                 api.setCurrentAnimationByUID(animations[0][0]); //0 8 18 30
@@ -922,7 +922,6 @@
                         });
 
                         api.getMaterialList(function(err, materials){
-                            console.log(materials);
                             for(var i=0;i<materials.length;i++){
                                 if (materials[i].name == "Eclipse_Body_Textures") {
                                     paintMaterial = materials[i];
