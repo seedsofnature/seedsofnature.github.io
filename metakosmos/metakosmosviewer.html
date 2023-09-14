@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Metakosmos Teste Viewer do Sketchfab</title>
-    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.0.js"></script>
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,7 +21,7 @@
     <div class="iframe-loader" id="iframe-loader">carregando 0%...<div></div></div>
     <div class="iframe-container">
         <!-- Insert an empty iframe, hidden by default using a class-->
-        <iframe src="" id="api-frame" allow="autoplay; fullscreen; vr" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <iframe src="" id="api-frame" allow="autoplay; fullscreen;" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
 
     <div class="top">
@@ -205,13 +205,12 @@
         var cameraHeadPosition2 = [0.5, -0.4, 1.4];
         var cameraHeadTarget2 = [0, 0.5, 1];
         var selectedModel = 0; //0 GLS 1 HPE 2 HPE-S
-        var bodyTextureUID = "b8c1df00203c4d4784101715f0dbb831";
-        var bodyRoghnessTextureUID = "c7f769ebd3d44a9488afb88367603e3d";
-        var detailsColorTextureUID = "661eb23915fc44bb9c28a411ed39bbc7";
-        var detailsRoughnessTextureUID = "5dd5a90bab6c47d38b944490da8ec814";
-        var leatherAlbedoTextureUID = "6bfe686c033441f396db5fac40b7a18e";
-        var leatherAOTextureUID = "791d8a36b7fe4d49a6878b4c4917f21c";
-        var leatherAOTextureUID = "791d8a36b7fe4d49a6878b4c4917f21c";
+        var bodyTextureUID = "fb02b24e15944d63a1d58fde13069ef3";
+        var bodyRoghnessTextureUID = "58f851db7a6c490badabd589c17e59f9";
+        var detailsColorTextureUID = "fde4622894aa4f74920e796e51cc1101";
+        var detailsRoughnessTextureUID = "1b51e530d2094fd39bd3d97dc5d617a1";
+        var leatherAlbedoFrontTextureUID = "37069bc499a04c31b91cca968a8a8978";
+        var leatherAlbedoBackTextureUID = "1c1da2477f7f4f489edde6870a3c66b6";
         var lastestModelSelected = 0;
 
         var basePrice = 242990;
@@ -559,12 +558,59 @@
             return;
         }
 
+        if(index == 0){
+            //door leather black
+            loadedApi.hide(675);
+            loadedApi.hide(877);
+            loadedApi.hide(1074);
+            loadedApi.hide(1150);
+            //door leather white
+            loadedApi.show(694);
+            loadedApi.show(892);
+            loadedApi.show(1090);
+            loadedApi.show(1165);
+
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_White_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
+            if (!err) {
+                console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
+            }
+            });
+
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Back/Seat_Back_LeatherWhite_Color.png', leatherAlbedoBackTextureUID, function(err, leatherAlbedoBackTextureUID) {
+            if (!err) {
+                console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
+            }
+            });
+        }else if(index == 1){
+            
+            //door leather black
+            loadedApi.show(675);
+            loadedApi.show(877);
+            loadedApi.show(1074);
+            loadedApi.show(1150);
+            //door leather white
+            loadedApi.hide(694);
+            loadedApi.hide(892);
+            loadedApi.hide(1090);
+            loadedApi.hide(1165);
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_Black_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
+            if (!err) {
+                console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
+            }
+            });
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Back/Seat_Back_LeatherBlack_Color.png', leatherAlbedoBackTextureUID, function(err, leatherAlbedoBackTextureUID) {
+            if (!err) {
+                console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
+            }
+            });
+        }
+
         //Trocar cor do banco
         /*
         if(index == 0){
-            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_BrancoAlpino.png', bodyTextureUID, function(err, bodyTextureUID) {
+            loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_BrancoAlpino.png', leatherAlbedoTextureUID, function(err, leatherAlbedoTextureUID) {
             if (!err) {
-                console.log('Replaced texture with UID', bodyTextureUID);
+                console.log('Replaced texture with UID', leatherAlbedoTextureUID);
             }
             });
         }else if(index == 2){
@@ -755,14 +801,17 @@
                 prcValue += 1;
             document.getElementById("iframe-loader").innerHTML = "carregando " + prcValue + "%<div style='width: " + prcValue + "%'></div>";
         }, 150);
+
+
         function loadmodel(){
             nextprc = 20;
             document.addEventListener('load', () => console.log('viewerready'));
-            var client = new Sketchfab( iframe );
+            var client = new Sketchfab('1.12.1', iframe );
 
             client.init( urlid, {
                 success: function onSuccess( api ){
                     console.log( 'Success' );
+
                     $(".changeColor").click();
                     loadedApi = api;
                     nextprc = 30;
@@ -778,22 +827,41 @@
                         var loader = document.getElementById("iframe-loader");
                         $apiFrame.classList.remove("iframe-hidden");
 
-                        api.getNodeMap(function(err, nodes){
-                            console.log(nodes);
+
+                        api.getSceneGraph(
+                            function(err, graph) {
+                                if (err) {
+                                    console.log('Error getting nodes');
+                                return;
+                            }
+                            api.hide(1327);
+                            api.hide(163);
+                            api.hide(206);
+                            api.hide(181);
+                            api.hide(1682);
+                            api.hide(1697);
+                            //door leather black
+                            api.hide(675);
+                            api.hide(877);
+                            api.hide(1074);
+                            api.hide(1150);
+                            //door leather white
+                            /*api.hide(694);
+                            api.hide(892);
+                            api.hide(1090);
+                            api.hide(1165);*/
+                            console.log(graph);
                         });
 
-                        api.getSceneGraph(function (err, result) {
-                            if (err) {
-                            console.log('Error getting nodes');
-                            return;
-                            }
-                            // get the id from that log
-                            console.log(result);
-                        });
+                        //door leather objects: white 694 892 1090 1165
+                        // \\  black  675 877 1074 1150
+                        //initial hide parts for normal model ids: 224 246 2534
+                        //glass 1327 163 206 181 1697 1682
+                        //hpe 1697
+                        //hpes 1697 1682
 
 
                         api.getAnimations(function(err, animations){
-                            console.log(animations);
                             myAnimations = animations;
                             if(animations.length > 0){
                                 api.setCurrentAnimationByUID(animations[0][0]); //0 8 18 30
@@ -821,6 +889,7 @@
                             vignetteEnable: false
                         });
 
+                        
                         api.addEventListener('camerastop', function(){
                             api.getCameraLookAt(function(err, camera) {
                                 var camTarget = camera.target;
@@ -886,7 +955,7 @@
                 error: function onError(callback){
                     console.log(this.error);
                 },
-                graph_optimizer: 1,
+                graph_optimizer: 0,
                 ui_animations: 0,
                 ui_annotations: 0,
                 ui_general_controls: 0,
@@ -1031,30 +1100,70 @@
             });
 
             $(".gls").click(function(){
+                loadedApi.show(224);
+                loadedApi.show(246);
+                loadedApi.show(2534);
+                loadedApi.hide(1327);
+                loadedApi.hide(163);
+                loadedApi.hide(206);
+                loadedApi.hide(181);
+                loadedApi.hide(1697);
+                loadedApi.hide(1682);
                 selectedModel = 0;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 0;
+                loadedApi.hide(1697);
+                loadedApi.hide(1682);
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
                 $(".hpes").removeClass("active");
             });
 
             $(".hpe").click(function(){
+
+                loadedApi.show(224);
+                loadedApi.show(246);
+                loadedApi.show(2534);
+                loadedApi.hide(1327);
+                loadedApi.hide(163);
+                loadedApi.hide(206);
+                loadedApi.hide(181);
+                loadedApi.hide(1697);
+                loadedApi.hide(1682);
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 1;
+                //hpe 1682
+                loadedApi.hide(1697);
+                loadedApi.show(1682);
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpes").removeClass("active");
             });
 
             $(".hpes").click(function(){
+
+                //ids: 224 246 2534
+                //glass 1327 163 206 181 1697 1682
+                loadedApi.hide(224);
+                loadedApi.hide(246);
+                loadedApi.hide(2534);
+                loadedApi.show(1327);
+                loadedApi.show(163);
+                loadedApi.show(206);
+                loadedApi.show(181);
+                loadedApi.show(1697);
+                loadedApi.show(1682);
+
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 2;
+                //hpes 1697 1682
+                loadedApi.show(1697);
+                loadedApi.show(1682);
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
