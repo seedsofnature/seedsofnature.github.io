@@ -812,11 +812,24 @@
 
                     api.load();
                     api.start();
-                    nextprc = 100;
                     let $apiFrame = document.getElementById("api-frame");
                         var frameMask = document.getElementById("iframe-mask");
                         var loader = document.getElementById("iframe-loader");
                         $apiFrame.classList.remove("iframe-hidden");
+                        api.getCameraLookAt(function(err, camera) {
+                                changeCamera(0);
+                                setTimeout(function(){
+                                    nextprc = 100;
+                                    changeCarColor(0);
+                                    changeInterior(0);
+                                    setTimeout(function(){
+                                        prcValue = 100;
+                                        document.getElementById("iframe-loader").innerHTML = "carregando 100%<div style='width: 100%'></div>";
+                                        frameMask.classList.add("hidden");
+                                        loader.classList.add("hidden");
+                                    }, 1000);
+                                }, 1100);
+                            });
                 },
                 error: function onError(callback){
                     console.log(this.error);
