@@ -488,13 +488,13 @@
             }
 
             #top-right {
-                top: 20px;
-                right: 0px;
-                width: 30%;
+                top: 45%;
+                right: 2px;
+                width: 71vw;
             }
 
             .iframe-container{
-                width: 69% !important;
+                width: 100% !important;
             }
 
             .modelButtons{
