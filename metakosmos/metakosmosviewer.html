@@ -307,12 +307,12 @@
             return;
         }
         //const linearColor = srgbToLinear(hexToRgb(carColors[index]));
-
+/*
         loadedApi.getTextureList(function(err, textures) {
             if (!err) {
                 //console.log(textures);
             }
-        });
+        });*/
 
         if(selectedModel == 0){
 
@@ -320,21 +320,21 @@
                  //roughness 
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                        //console.log('Replaced texture with UID', bodyRoghnessTextureUID);
                     }
                 });
 
                 //Details
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Dets%20Color/GLS_Dets_Color.png', detailsColorTextureUID, function(err, detailsColorTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', detailsColorTextureUID);
+                        //console.log('Replaced texture with UID', detailsColorTextureUID);
                     }
                 });
 
                 //Details Roughtness
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Dets%20Color/GLS_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                        //console.log('Replaced texture with UID', detailsRoughnessTextureUID);
                     }
                 });
             }
@@ -344,43 +344,43 @@
             if(index == 0){
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
+                    //console.log('Replaced texture with UID', bodyTextureUID);
                 }
                 });
             }else if(index == 2){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 3){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 4){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 5){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 6){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }
@@ -390,21 +390,21 @@
                 //roughness 
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                        //console.log('Replaced texture with UID', bodyRoghnessTextureUID);
                     }
                 });
 
                 //Details
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Dets%20Color/HPE_Dets_Color.png', detailsColorTextureUID, function(err, detailsColorTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', detailsColorTextureUID);
+                        //console.log('Replaced texture with UID', detailsColorTextureUID);
                     }
                 });
 
                 //Details Roughtness
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Dets%20Color/HPE_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                        //console.log('Replaced texture with UID', detailsRoughnessTextureUID);
                     }
                 });
             }
@@ -412,43 +412,43 @@
             if(index == 0){
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
+                    //console.log('Replaced texture with UID', bodyTextureUID);
                 }
                 });
             }else if(index == 2){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 3){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 4){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 5){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 6){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }
@@ -458,21 +458,21 @@
                 //roughness 
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                        //console.log('Replaced texture with UID', bodyRoghnessTextureUID);
                     }
                 });
 
                 //Details
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Dets_Color.png', detailsColorTextureUID, function(err, detailsColorTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', detailsColorTextureUID);
+                        //console.log('Replaced texture with UID', detailsColorTextureUID);
                     }
                 });
 
                 //Details Roughtness
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                        //console.log('Replaced texture with UID', detailsRoughnessTextureUID);
                     }
                 });
             }
@@ -481,43 +481,43 @@
             if(index == 0){
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_BrancoAlpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
-                    console.log('Replaced texture with UID', bodyTextureUID);
+                    //console.log('Replaced texture with UID', bodyTextureUID);
                 }
                 });
             }else if(index == 2){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PretoOnix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_AzulBaikal.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 3){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PrataLitio.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 4){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_VermelhoLucid.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 5){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PrataCool.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 6){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_CinzaLondrino.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
-                        console.log('Replaced texture with UID', bodyTextureUID);
+                        //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }
@@ -571,13 +571,13 @@
 
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_White_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
             if (!err) {
-                console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
+                //console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
             }
             });
 
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Back/Seat_Back_LeatherWhite_Color.png', leatherAlbedoBackTextureUID, function(err, leatherAlbedoBackTextureUID) {
             if (!err) {
-                console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
+                //console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
             }
             });
         }else if(index == 1){
@@ -594,12 +594,12 @@
             loadedApi.hide(1195);
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_Black_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
             if (!err) {
-                console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
+                //console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
             }
             });
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Back/Seat_Back_LeatherBlack_Color.png', leatherAlbedoBackTextureUID, function(err, leatherAlbedoBackTextureUID) {
             if (!err) {
-                console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
+                //console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
             }
             });
         }
@@ -874,7 +874,6 @@
 
 
                         api.getAnimations(function(err, animations){
-                            console.log(animations);
                             myAnimations = animations;
                             if(animations.length > 0){
                                 api.setCurrentAnimationByUID(animations[0][0]); //0 8 18 30
