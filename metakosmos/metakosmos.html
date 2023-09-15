@@ -810,7 +810,13 @@
                 success: function onSuccess( api ){
                     console.log( 'Success' );
 
+                    api.load();
+                    api.start();
                     nextprc = 100;
+                    let $apiFrame = document.getElementById("api-frame");
+                        var frameMask = document.getElementById("iframe-mask");
+                        var loader = document.getElementById("iframe-loader");
+                        $apiFrame.classList.remove("iframe-hidden");
                 },
                 error: function onError(callback){
                     console.log(this.error);
