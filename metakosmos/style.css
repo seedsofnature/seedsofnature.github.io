@@ -531,6 +531,12 @@
                 height: 20px;
             }
         }
+
+        @media (max-height: 780px) {
+            .iframe-container{
+                width: 69% ;
+            }
+        }
         
         
 
