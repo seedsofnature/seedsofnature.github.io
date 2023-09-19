@@ -207,47 +207,45 @@
             transition: all 0.5s ease-out;
         }
         .colors {
-            position: absolute;
+            /*position: absolute;*/
             background: #fff;
-            padding: 40px 10px 10px 10px;
+            padding: 10px;
             left: 20px;
             bottom: 0px;
             z-index: 20;
-            *width: 100%;
+            width: 100%;
             user-select: none;
-            margin-bottom: -155px;
+            /*margin-bottom: -155px;*/
             text-align: center;
-            -webkit-transition: all 0.5s ease-out;
+            display: none;
+            /*-webkit-transition: all 0.5s ease-out;
             -moz-transition: all 0.5s ease-out;
             -o-transition: all 0.5s ease-out;
-            transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;*/
         }
         .colors div {
             display: inline-block;
-            margin-left: 5px;
-            margin-right: 5px;
+            /*margin-left: 5px;
+            margin-right: 5px;*/
             cursor: pointer;
             user-select: none;
             position: relative;
-            height: 50px;
-            width: 50px;
+            height: 25px;
+            width: 25px;
         }
         .colors div > img {
             width: 60px;
             height: auto;
         }
         .colors.active {
-            margin-bottom: 0;
-            -webkit-transition: all 0.5s ease-out;
-            -moz-transition: all 0.5s ease-out;
-            -o-transition: all 0.5s ease-out;
-            transition: all 0.5s ease-out;
+            display: block;
+            
         }
         .colors div.active {
             border: 1px solid #242424;
         }
         .colors span {
-            position: absolute;
+            /*position: absolute;*/
             top: 8px;
             left: 15px;
             /*color: #000 !important;*/
@@ -380,8 +378,8 @@
             }
             
             .colors div{
-                width: 50px !important;
-                height: 50px !important;
+                width: 30px !important;
+                height: 30px !important;
             }
 
             .btn-group button{
@@ -390,11 +388,13 @@
 
             #top-right {
                 top: 50%;
-                width: 71vw;
+                width: 100%;
+                padding: 17px 0px 17px 17px;
                 right: 2px;
             }
 
             .info-area {
+                padding-right: 17px;
                 height: 35vh;
                 overflow: scroll;
             }
@@ -419,125 +419,30 @@
                 width: 40px;
             }
             .colors {
-                padding: 10px 3px 0;
-                margin-bottom: -450px;
+                /*padding: 10px 3px 0;
+                margin-bottom: -450px;*/
             }
             .colors div {
-                display: block;
-                margin-bottom: 10px;
+                /*display: block;
+                margin-bottom: 10px;*/
             }
             .colors span.info {
-                display: none !important;
+                /*display: none !important;*/
             }
         }
-        @media (max-height: 600px) {
-            #top-right span.descr {
-                display: none !important;
+        @media (max-height: 900px) {
+            .info-area{
+                height: 29vh;
             }
 
-            #top-right {
-                top: 20px;
-                right: 0px;
-                width: 30%;
-            }
+        }
 
+        @media (max-width: 1460px) {
             .iframe-container{
-                width: 69% !important;
+                width: 69%;
             }
 
-            .modelButtons{
-                left: 50% !important;
-                top: 35px !important;
-                bottom: unset !important;
-                
-            }
-
-            .btn-group button.gls{
-                width: 60px;
-            }
-
-            .btn-group button.hpe{
-                width: 60px;
-            }
-
-            .btn-group button.hpes{
-                width: 60px;
-            }
-
-            .btn-group.day{
-                height: 36px;
-            }
-            .btn-group button.dia{
-                width: 64px;
-            }
-            .btn-group button.noite{
-                width: 64px;
-            }
-
-            .colors div{
-                width: 20px;
-                height: 20px;
-            }
         }
-        @media (max-height: 700px) {
-            #top-right .selector-box {
-                margin-bottom: 8px;
-            }
-            #top-right span.car-feature.price {
-                margin-top: 30px;
-            }
-
-            #top-right {
-                top: 45%;
-                right: 2px;
-                width: 71vw;
-            }
-
-            .iframe-container{
-                width: 100% !important;
-            }
-
-            .modelButtons{
-                left: 50% !important;
-                top: 35px !important;
-                bottom: unset !important;
-                
-            }
-
-            .btn-group button.gls{
-                width: 60px;
-            }
-
-            .btn-group button.hpe{
-                width: 60px;
-            }
-
-            .btn-group button.hpes{
-                width: 60px;
-            }
-
-            .btn-group.day{
-                height: 36px;
-            }
-            .btn-group button.dia{
-                width: 64px;
-            }
-            .btn-group button.noite{
-                width: 64px;
-            }
-
-            .colors div{
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        @media (max-height: 780px) {
-            .iframe-container{
-                width: 69% ;
-            }
-        }
-        
         
 
         @media (min-aspect-ratio: 12/10) and (max-height: 600px) {

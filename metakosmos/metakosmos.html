@@ -56,8 +56,32 @@
                 <button style="float: right; margin-right: 15px;" class="changeColorInt">Interior</button>
                 </div>
             </center>
-            
 
+            <div class="colors active" id="colorPicker" style="background: none;">
+                <span class="info" style="font-weight: bolder;"></span>
+                <div class="car-color active" data-color-id="0" data-name="Branco Alpino" style="background-color: #ffffff; border: 1px solid black;" data-price="0">
+                </div>
+                <div class="car-color" data-color-id="2" data-name="Preto Onix Pearl" style="background-color: #343434;" data-price="0">
+                </div>
+                <div class="car-color" data-color-id="1" data-name="Azul Baikal" style="background-color: #1f478f;" data-price="0">
+                </div>
+                <div class="car-color" data-color-id="4" data-name="Vermelho Lucid" style="background-color: #aa0e1e;" data-price="0">
+                </div>
+                <div class="car-color" data-color-id="5" data-name="Prata Cool" style="background-color: #6d7170;" data-price="0">
+                </div>
+                <div class="car-color" data-color-id="6" data-name="Cinza Londrino" style="background-color: #4a494f;" data-price="0">
+                </div>
+                <div class="car-color" data-color-id="3" data-name="Prata Lítio" style="background-color: #8d9391;" data-price="0">
+                </div>
+            </div>
+
+            <div class="colors" id="colorPicker2" style="background: none;">
+                <span class="info"></span>
+                <div class="int-color active" id="intcolorwhite" data-color-id="0" data-name="Couro Branco" style="background-color: #FFFFFF; border: 1px solid black;" data-price="0">
+                </div>
+                <div class="int-color" data-color-id="1" data-name="Couro Preto" style="background-color: #000000;" data-price="0">
+                </div>
+            </div>
 
             <div class="exterior-items active" style="padding-top: 10px;">
                 <span >-Acabamento Black Piano;</span>
@@ -68,7 +92,7 @@
                 <span >-Rodas com acabamento diamantado;</span>
                 <span >-Teto solar duplo.</span>
             </div>
-            <div class="interior-items" style="padding-top: 10px;">
+            <div class="interior-items" style="padding-top: 0px; margin-bottom: 10px;">
                 <span >-Ajuste interno do banco;</span>
                 <span >-Amplo espaço interno;</span>
                 <span >-Amplo porta-malas;</span>
@@ -148,31 +172,9 @@
         </div>
     </div>
 
-    <div class="colors" id="colorPicker" style="background: none;">
-        <span class="info" style="font-weight: bolder;"></span>
-        <div class="car-color active" data-color-id="0" data-name="Branco Alpino" style="background-color: #ffffff; border: 1px solid black;" data-price="0">
-        </div>
-        <div class="car-color" data-color-id="2" data-name="Preto Onix Pearl" style="background-color: #343434;" data-price="0">
-        </div>
-        <div class="car-color" data-color-id="1" data-name="Azul Baikal" style="background-color: #1f478f;" data-price="0">
-        </div>
-        <div class="car-color" data-color-id="4" data-name="Vermelho Lucid" style="background-color: #aa0e1e;" data-price="0">
-        </div>
-        <div class="car-color" data-color-id="5" data-name="Prata Cool" style="background-color: #6d7170;" data-price="0">
-        </div>
-        <div class="car-color" data-color-id="6" data-name="Cinza Londrino" style="background-color: #4a494f;" data-price="0">
-        </div>
-        <div class="car-color" data-color-id="3" data-name="Prata Lítio" style="background-color: #8d9391;" data-price="0">
-        </div>
-    </div>
+    
 
-    <div class="colors" id="colorPicker2" style="background: none;">
-        <span class="info"></span>
-        <div class="int-color active" data-color-id="0" data-name="Couro Branco" style="background-color: #FFFFFF; border: 1px solid black;" data-price="0">
-        </div>
-        <div class="int-color" data-color-id="1" data-name="Couro Preto" style="background-color: #000000;" data-price="0">
-        </div>
-    </div>
+    
 
     <script type="text/javascript">
         let vh = window.innerHeight * 0.01;
@@ -198,8 +200,8 @@
         var currentCamera = 0;
         var cameraPosition = [-5, 0, 0];
         var cameraTarget = [0, 0, 1];
-        var cameraHeadPosition = [0.2, 0.2, 1.1];
-        var cameraHeadTarget = [0.2, 0, 1.1];
+        var cameraHeadPosition = [0.16, 0.24, 1.32];
+        var cameraHeadTarget = [0.14, -0.06, 1.25];
         var cameraHeadPosition2 = [0.5, -0.4, 1.4];
         var cameraHeadTarget2 = [0, 0.5, 1];
         var selectedModel = 0; //0 GLS 1 HPE 2 HPE-S
@@ -220,6 +222,7 @@
         var animationInt;
         var animationRunning = false;
         var doorOpened = false;
+        var maxTextureSize = 2048;
 
         const GAMMA = 2.4;
 
@@ -556,6 +559,10 @@
             return;
         }
 
+        if(selectedModel != 2){
+            index = 1;
+        }
+
         if(index == 0){
             //door leather black
             loadedApi.hide(705);
@@ -769,24 +776,66 @@
                 cameraTarget,
                 animate ? 1 : 0
               );
+
+              loadedApi.setCameraConstraints({
+                    zoomIn: 2.9,
+                    zoomOut: 7,
+                    useCameraConstraints: true,
+                    useZoomConstraints: true,
+                    usePitchConstraints: true,
+                    useYawConstraints: false,
+                    left: -1.6755160819145563,
+                    right: 1.6755160819145563,
+                    up: 1.5707963267948966,
+                    down: 0.08,
+              });
+ 
               loadedApi.setFov(40);
               if($("#api-frame").hasClass("interior"))
                   $("#api-frame").removeClass("interior");
           } else if(index == 1){
+            loadedApi.setCameraConstraints({
+                    zoomIn: 0.1,
+                    zoomOut: 0.4,
+                    useCameraConstraints: true,
+                    useZoomConstraints: true,
+                    usePitchConstraints: true,
+                    useYawConstraints: true,
+                    left: -1.6755160819145563,
+                    right: 1.6755160819145563,
+                    up: 1.5707963267948966,
+                    down: -0.22597420841610782,
+              });
+
               loadedApi.lookat(
                 cameraHeadPosition,
                 cameraHeadTarget,
                 animate ? 1 : 0
               );
+
+              
               loadedApi.setFov(60);
               if(!$("#api-frame").hasClass("interior"))
                   $("#api-frame").addClass("interior");
           } else if(index == 2){
+
+            loadedApi.setCameraConstraints({
+                    zoomIn: 0.1,
+                    zoomOut: 0.7,
+                    useCameraConstraints: true,
+                    useZoomConstraints: true,
+                    usePitchConstraints: true,
+                    useYawConstraints: false,
+                    up: 1.5707963267948966,
+                    down: -0.22597420841610782,
+              });
+
               loadedApi.lookat(
                 cameraHeadPosition2,
                 cameraHeadTarget2,
                 animate ? 1 : 0
               );
+              
               loadedApi.setFov(60);
               if(!$("#api-frame").hasClass("interior"))
                   $("#api-frame").addClass("interior");
@@ -805,6 +854,13 @@
             nextprc = 20;
             document.addEventListener('load', () => console.log('viewerready'));
             var client = new Sketchfab('1.12.1', iframe );
+
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                maxTextureSize = 512;
+            }else{
+                maxTextureSize = 2048;
+            }
 
             client.init( urlid, {
                 success: function onSuccess( api ){
@@ -825,6 +881,8 @@
                         $apiFrame.classList.remove("iframe-hidden");
 
 
+                        //shifter 2306
+                        loadedApi.hide(2306);
                             //body
                             api.hide(224);
                             api.hide(181);
@@ -862,7 +920,7 @@
                         //hpe 1697
                         //hpes 1697 1682
 
-/*
+
                         api.getAnimations(function(err, animations){
                             myAnimations = animations;
                             if(animations.length > 0){
@@ -886,7 +944,7 @@
                             }
                             
                         });
-*/
+
                         api.setPostProcessing({
                             vignetteEnable: false
                         });
@@ -942,6 +1000,7 @@
                                     nextprc = 100;
                                     changeCarColor(0);
                                     changeInterior(0);
+                                    $("#intcolorwhite").css("display","none");
                                     setTimeout(function(){
                                         prcValue = 100;
                                         document.getElementById("iframe-loader").innerHTML = "carregando 100%<div style='width: 100%'></div>";
@@ -968,7 +1027,7 @@
                 transparent: 1,
                 camera: 0,
                 scrollwheel: 1,
-                max_texture_size: 512,
+                max_texture_size: maxTextureSize,
                 preload: 1,
                 double_click: 0,
                 orbit_constraint_pitch_down: 0,
@@ -1103,7 +1162,9 @@
             });
 
             $(".gls").click(function(){
-
+                
+                //shifter 2306
+                loadedApi.hide(2306);
                 //body
                 loadedApi.hide(224);
                 loadedApi.hide(181);
@@ -1132,12 +1193,18 @@
                 //back logo
                 loadedApi.hide(1712);
                 loadedApi.hide(1727);
+                $("#intcolorwhite").css("display","none");
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
                 $(".hpes").removeClass("active");
+                changeInterior(0);
             });
 
             $(".hpe").click(function(){
+
+                
+                //shifter 2306
+                loadedApi.show(2306);
 
                 //body
                 loadedApi.hide(224);
@@ -1154,10 +1221,10 @@
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.hide(2204);
-                loadedApi.show(2231);
+                loadedApi.show(2204);
+                loadedApi.hide(2231);
 
-                loadedApi.show(2326); //freio
+                loadedApi.hide(2326); //freio
 
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
@@ -1169,10 +1236,15 @@
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpes").removeClass("active");
+                $("#intcolorwhite").css("display","none");
+                changeInterior(0);
             });
 
             $(".hpes").click(function(){
 
+                
+                //shifter 2306
+                loadedApi.show(2306);
                 //body
                 loadedApi.show(224);
                 loadedApi.show(181);
@@ -1202,6 +1274,8 @@
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
+                $("#intcolorwhite").css("display","inline-block");
+                changeInterior(0);
             });
 
 
