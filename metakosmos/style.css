@@ -1,10 +1,4 @@
 
-        @font-face {
-          font-family: MitsubishiType;
-          src: url('https://seedsofnature.github.io/metakosmos/MMCRegular.ttf') format('truetype');
-          font-weight: bold;
-        }
-
         html,
         body {
             overflow: hidden;
@@ -132,7 +126,7 @@
             z-index: 11;
             display: block;
             color: #000;
-            font-family: MitsubishiType;
+            font-family: 'MMC', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
             pointer-events: none;
@@ -305,7 +299,7 @@
         }
         #top-right span {
             display: block;
-            font-family: MitsubishiType;
+            font-family: 'MMC', sans-serif;
             text-align: left;
         }
         #top-right .selector-box {
@@ -352,13 +346,13 @@
             font-size: .8125rem;
             line-height: 1.4375rem;
             *margin: 20px 0;
-            font-family: MitsubishiType;
+            font-family: 'MMC', sans-serif;
         }
         #top-right span.car-feature.price {
             font-size: 1.875rem;
             letter-spacing: 8px;
             line-height: 1rem;
-            font-family: MitsubishiType;
+            font-family: 'MMC', sans-serif;
             margin-top: 50px;
         }
 
@@ -510,8 +504,9 @@
         }
 
         .btn-group {
-            background-color: #ed1c24;
-            border-radius: 17px;
+            background-color: white;
+            border: 1px solid #ff0000;
+            border-radius: 8px;
             height: 36px;
             display: inline-block;
         }
@@ -519,12 +514,14 @@
         .btn-group button {
           background-color: #fd3c3c00; /* Green background */
           border: 0px solid rgb(241, 115, 115); /* Green border */
-          color: white; /* White text */
+          color: #ff0000; /* White text */
+          font-family: 'MMC', sans-serif;
+          font-weight: bold;
           /*padding: 10px 42px; /* Some padding */
           cursor: pointer; /* Pointer/hand icon */
           /*margin-bottom: 25px;*/
           width: 90px;
-          border-radius: 15px;
+          border-radius: 8px;
           margin-top: 5px;
           
           /*margin-bottom: 25px;*/
@@ -534,9 +531,14 @@
             outline: 0;
         }
 
+        .btn-group button:hover{
+            background-color: #fadbdb !important;
+            color: #ff0000 !important;
+        }
+
         .btn-group button.active{
-            background-color: #FFFFFF;
-            color: #000;
+            background-color: #ff0000;
+            color: white;
             border: 0px;
         }
 
