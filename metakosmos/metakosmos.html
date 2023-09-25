@@ -208,12 +208,12 @@
         var cameraHeadPosition2 = [0.5, -0.4, 1.4];
         var cameraHeadTarget2 = [0, 0.5, 1];
         var selectedModel = 0; //0 GLS 1 HPE 2 HPE-S
-        var bodyTextureUID = "8b862e03ef2f49d482b4dd6132c56a02";
-        var bodyRoghnessTextureUID = "6329b8ef79364d22a752f1c0eec9710d";
-        var detailsColorTextureUID = "29e3cc4aa9df4d3eb8993063cc26f83a";
-        var detailsRoughnessTextureUID = "cb51c174907349699dd2a3bfd9363829";
-        var leatherAlbedoFrontTextureUID = "33d6aa2f476f48159ab263568507e175";
-        var leatherAlbedoBackTextureUID = "999181a0e0ef4533be54151379187bbc";
+        var bodyTextureUID = "bcf45b654f964f089b7e75b5574a2b0a";
+        var bodyRoghnessTextureUID = "36bd92aa2a21424fb27f87ff7c30ebd0";
+        var detailsColorTextureUID = "0021f247b398472aa0e7c98d06e03026";
+        var detailsRoughnessTextureUID = "5166ba7e3ff14e60a6ca3b79e3e8c639";
+        var leatherAlbedoFrontTextureUID = "cde7035facc7479f9dd777c89d646728";
+        var leatherAlbedoBackTextureUID = "a1fc55729b2a433a95e021eaa96d8cb9";
         var lastestModelSelected = 0;
 
         var basePrice = 242990;
@@ -888,22 +888,22 @@
 
 
                         //shifter 2306
-                        loadedApi.hide(2306);
+                        //loadedApi.hide(2855);
                             //body
-                            api.hide(224);
-                            api.hide(181);
-                            api.hide(2579);
-                            api.hide(1357);
+                            api.hide(473);
+                            api.hide(516);
+                            api.hide(2138);
+                            //api.hide(1357);
 
                             //back logo
-                            loadedApi.hide(1712);
-                            loadedApi.hide(1727);
+                            loadedApi.hide(1909);
+                            loadedApi.hide(1894);
 
                             //door leather black
-                            api.hide(705);
-                            api.hide(907);
-                            api.hide(1104);
-                            api.hide(1180);
+                            api.hide(1257);
+                            api.hide(1542);
+                            //api.hide(1104);
+                            //api.hide(1180);
                             //door leather white
                             /*api.hide(724);
                             api.hide(922);
@@ -911,13 +911,13 @@
                             api.hide(1195);*/
 
                             //front logo 1652 chrome
-                            api.hide(1652);
+                            api.hide(2428);
                             //front logo 1682 black
                             //cambio
-                            api.hide(2204);
-                            api.show(2231);
+                            api.hide(2855);
+                            api.show(2882);
                 
-                            api.show(2326); //freio
+                            api.show(2954); //freio
 
                         //door leather objects: white 694 892 1090 1165
                         // \\  black  675 877 1074 1150
@@ -1170,26 +1170,26 @@
             $(".gls").click(function(){
                 
                 //shifter 2306
-                loadedApi.hide(2306);
+                //loadedApi.hide(2306);
                 //body
-                loadedApi.hide(224);
-                loadedApi.hide(181);
-                loadedApi.hide(2579);
-                loadedApi.hide(1357);
+                loadedApi.hide(473);
+                loadedApi.hide(516);
+                loadedApi.hide(2138);
+                //loadedApi.hide(1357);
 
-                loadedApi.show(276);
-                loadedApi.show(2564);
+                loadedApi.show(584);
+                loadedApi.show(3192);
                 
                 //front logo
-                loadedApi.hide(1652);
-                loadedApi.show(1682);
+                loadedApi.hide(2428);
+                loadedApi.show(2458);
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.hide(2204);
-                loadedApi.show(2231);
+                loadedApi.hide(2855);
+                loadedApi.show(2882);
                 
-                loadedApi.show(2326); //freio
+                loadedApi.show(2954); //freio
                             
                 
                 selectedModel = 0;
@@ -1197,8 +1197,8 @@
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 0;
                 //back logo
-                loadedApi.hide(1712);
-                loadedApi.hide(1727);
+                loadedApi.hide(1909);
+                loadedApi.hide(1894);
                 $("#intcolorwhite").css("display","none");
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
@@ -1210,35 +1210,34 @@
 
                 
                 //shifter 2306
-                loadedApi.show(2306);
-
+                //loadedApi.hide(2306);
                 //body
-                loadedApi.hide(224);
-                loadedApi.hide(181);
-                loadedApi.hide(2579);
-                loadedApi.hide(1357);
+                loadedApi.hide(473);
+                loadedApi.hide(516);
+                loadedApi.hide(2138);
+                //loadedApi.hide(1357);
 
-                loadedApi.show(276);
-                loadedApi.show(2564);
-
+                loadedApi.show(584);
+                loadedApi.show(3192);
+                
                 //front logo
-                loadedApi.hide(1652);
-                loadedApi.show(1682);
+                loadedApi.hide(2428);
+                loadedApi.show(2458);
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.show(2204);
-                loadedApi.hide(2231);
-
-                loadedApi.hide(2326); //freio
+                loadedApi.hide(2855);
+                loadedApi.show(2882);
+                
+                loadedApi.show(2954); //freio
 
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 1;
                 //back logo
-                loadedApi.show(1712);
-                loadedApi.hide(1727);
+                loadedApi.show(1894);
+                loadedApi.hide(1909);
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpes").removeClass("active");
@@ -1250,33 +1249,33 @@
 
                 
                 //shifter 2306
-                loadedApi.show(2306);
+                //loadedApi.show(2306);
                 //body
-                loadedApi.show(224);
-                loadedApi.show(181);
-                loadedApi.show(2579);
-                loadedApi.show(1357);
+                loadedApi.show(473);
+                loadedApi.show(516);
+                loadedApi.show(2138);
+                //loadedApi.show(1357);
 
-                loadedApi.hide(276);
-                loadedApi.hide(2564);
+                loadedApi.hide(584);
+                loadedApi.hide(3192);
                 //cambio
-                loadedApi.show(2204);
-                loadedApi.hide(2231);
+                loadedApi.show(2855);
+                loadedApi.hide(2882);
 
                  //front logo
-                loadedApi.show(1652);
-                loadedApi.hide(1682);
+                loadedApi.show(2428);
+                loadedApi.hide(2458);
                 //front logo 1682 black
 
-                loadedApi.hide(2326); //freio
+                loadedApi.hide(2954); //freio
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 2;
                 //back logo
-                loadedApi.show(1712);
-                loadedApi.show(1727);
+                loadedApi.show(1909);
+                loadedApi.show(1894);
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
