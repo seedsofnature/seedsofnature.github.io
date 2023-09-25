@@ -963,14 +963,17 @@
                                     case 0:
                                         if(camTarget[0] != cameraTarget[0] || camTarget[1] != cameraTarget[1] || camTarget[2] != cameraTarget[2])
                                             changeCamera(0, true);
+                                            $(".logo").attr("src","logo/mitsubishi.png");
                                         break;
                                     case 1:
                                         if(camTarget[0] != cameraHeadTarget[0] || camTarget[1] != cameraHeadTarget[1] || camTarget[2] != cameraHeadTarget[2])
                                             changeCamera(1, true);
+                                            $(".logo").attr("src","logo/mitsubishi-white.png");
                                         break;
                                     case 2:
                                         if(camTarget[0] != cameraHeadTarget2[0] || camTarget[1] != cameraHeadTarget2[1] || camTarget[2] != cameraHeadTarget2[2])
                                             changeCamera(2, true);
+                                            $(".logo").attr("src","logo/mitsubishi-white.png");
                                         break;
                                     default:
                                         console.log("Wrong camera index!");
@@ -1030,7 +1033,7 @@
                 ui_watermark: 0,
                 ui_infos: 0,
                 ui_stop: 0,
-                transparent: 0,
+                transparent: 1,
                 camera: 0,
                 scrollwheel: 1,
                 max_texture_size: maxTextureSize,
@@ -1289,6 +1292,7 @@
 
             $(".changeColor").click(function(){
               currentCamera = 0;
+              $(".logo").attr("src","logo/mitsubishi.png");
               changeCamera(currentCamera);
               $(".changeColor").addClass("active");
               $(".changeColorInt").removeClass("active");
@@ -1300,6 +1304,7 @@
 
             $(".changeColorInt").click(function(){
               currentCamera = 1;
+              $(".logo").attr("src","logo/mitsubishi-white.png");
               changeCamera(currentCamera);
               $(".changeColor").removeClass("active");
               $(".changeColorInt").addClass("active");
