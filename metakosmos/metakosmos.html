@@ -54,10 +54,10 @@
             <center>
                 <div class="modelButtons" style="margin-bottom: 20px;" >
                     <div class="btn-group" style="width: 100%;">
-                        <button style="float: left; margin-right: 15px;margin-left: 15px;" class="gls active">GLS</button>
-                        <button style=" margin-right: 15px;" class="hpe">HPE</button>
-                        <button style="float: right; margin-right: 15px;" class="hpes">HPE-S</button>
-                        
+                        <button style="float: left; margin-right: 2px;margin-left: 10px;" class="gls active">GLS</button>
+                        <button style=" margin-right: 0px;" class="hpe">HPE</button>
+                        <button style="margin-right: 0px;" class="hpes">HPE-S</button>
+                        <button style="float: right; margin-right: 10px;" class="awd">AWC</button>
                     </div>
                 </div>
             </center>
@@ -210,12 +210,12 @@
         var cameraHeadPosition2 = [0.5, -0.4, 1.4];
         var cameraHeadTarget2 = [0, 0.5, 1];
         var selectedModel = 0; //0 GLS 1 HPE 2 HPE-S
-        var bodyTextureUID = "bcf45b654f964f089b7e75b5574a2b0a";
-        var bodyRoghnessTextureUID = "36bd92aa2a21424fb27f87ff7c30ebd0";
-        var detailsColorTextureUID = "0021f247b398472aa0e7c98d06e03026";
-        var detailsRoughnessTextureUID = "5166ba7e3ff14e60a6ca3b79e3e8c639";
-        var leatherAlbedoFrontTextureUID = "cde7035facc7479f9dd777c89d646728";
-        var leatherAlbedoBackTextureUID = "a1fc55729b2a433a95e021eaa96d8cb9";
+        var bodyTextureUID = "1f9e5cf2617141f08dcbb2ab83a5bdac";
+        var bodyRoghnessTextureUID = "b7c2ddadcbb14759bb9cc233beb7941b";
+        var detailsColorTextureUID = "d74990fd70b04759b42a293476cbf9ea";
+        var detailsRoughnessTextureUID = "8b4b4347a48e43a3a584b52532ed8151";
+        var leatherAlbedoFrontTextureUID = "bcb12d1c7db34753a9ec6aab44493e2e";
+        var leatherAlbedoBackTextureUID = "a5f66dfd927d48e8ad543e309ccd19f6";
         var lastestModelSelected = 0;
 
         var basePrice = 242990;
@@ -570,14 +570,14 @@
 
         if(index == 0){
             //door leather black
-            loadedApi.hide(1257);
-            loadedApi.hide(1542);
+            loadedApi.hide(1303);
+            loadedApi.hide(1575);
             //loadedApi.hide(1104);
             //loadedApi.hide(1180);
 
             //door leather white
-            loadedApi.show(1275);
-            loadedApi.show(1557);
+            loadedApi.show(1321);
+            loadedApi.show(1590);
             //loadedApi.show(1120);
             //loadedApi.show(1195);
 
@@ -604,14 +604,14 @@
         }else if(index == 1){
             
             //door leather black
-            loadedApi.show(1257);
-            loadedApi.show(1542);
+            loadedApi.show(1303);
+            loadedApi.show(1575);
             //loadedApi.hide(1104);
             //loadedApi.hide(1180);
 
             //door leather white
-            loadedApi.hide(1275);
-            loadedApi.hide(1557);
+            loadedApi.hide(1321);
+            loadedApi.hide(1590);
             //loadedApi.show(1120);
             //loadedApi.show(1195);
             
@@ -908,20 +908,22 @@
 
 
                         //shifter 2306
-                        //loadedApi.hide(2855);
+                        loadedApi.hide(568);
                             //body
-                            api.hide(473);
-                            api.hide(516);
-                            api.hide(2138);
-                            //api.hide(1357);
+                            api.hide(2201);
+                            api.hide(479);
+                            api.hide(522);
+                            api.hide(3298);
 
                             //back logo
-                            loadedApi.hide(1909);
-                            loadedApi.hide(1894);
+                            loadedApi.hide(1927);
+                            loadedApi.hide(1942);
+                            loadedApi.hide(1990);
+                            loadedApi.show(2125);
 
                             //door leather black
-                            api.hide(1257);
-                            api.hide(1542);
+                            loadedApi.hide(1303);
+                            loadedApi.hide(1575);
                             //api.hide(1104);
                             //api.hide(1180);
                             //door leather white
@@ -931,13 +933,13 @@
                             api.hide(1195);*/
 
                             //front logo 1652 chrome
-                            api.hide(2428);
+                            api.hide(2491);
                             //front logo 1682 black
                             //cambio
-                            api.hide(2855);
-                            api.show(2882);
+                            api.hide(2934);
+                            api.show(2961);
                 
-                            api.show(2954); //freio
+                            api.show(3033); //freio
 
                         //door leather objects: white 694 892 1090 1165
                         // \\  black  675 877 1074 1150
@@ -951,7 +953,7 @@
                             myAnimations = animations;
                             if(animations.length > 0){
                                 api.setCurrentAnimationByUID(animations[0][0]); //0 8 18 30
-                                api.setCycleMode('one');
+                                api.setCycleMode('none');
                                 api.pause();
                                 api.seekTo(0);
                                 /*api.setCurrentAnimationByUID(animations[1][0]); //0 8 18 30
@@ -1025,7 +1027,7 @@
                                     intMaterial6 = materials[i];
                                 } else if(materials[i].name == "int_brown"){
                                     intMaterial7 = materials[i];
-                                } else if(materials[i].name == "PortaInt_Leather_White"){
+                                } else if(materials[i].name == "PortaInt_Leather_White.002"){
                                     porta1Material = materials[i];
                                 }else if(materials[i].name == "PortaInt_Leather_White.001"){
                                     porta2Material = materials[i];
@@ -1202,26 +1204,26 @@
             $(".gls").click(function(){
                 
                 //shifter 2306
-                //loadedApi.hide(2306);
+                loadedApi.hide(568);
                 //body
-                loadedApi.hide(473);
-                loadedApi.hide(516);
-                loadedApi.hide(2138);
-                //loadedApi.hide(1357);
+                loadedApi.hide(2201);
+                loadedApi.hide(479);
+                loadedApi.hide(522);
+                loadedApi.hide(3298);
 
-                loadedApi.show(584);
-                loadedApi.show(3192);
+                loadedApi.show(3283);
+                loadedApi.show(628);
                 
                 //front logo
-                loadedApi.hide(2428);
-                loadedApi.show(2458);
+                loadedApi.hide(2491);
+                loadedApi.show(2521);
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.hide(2855);
-                loadedApi.show(2882);
+                loadedApi.hide(2934);
+                loadedApi.show(2961);
                 
-                loadedApi.show(2954); //freio
+                loadedApi.show(3033); //freio
                             
                 
                 selectedModel = 0;
@@ -1229,8 +1231,10 @@
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 0;
                 //back logo
-                loadedApi.hide(1909);
-                loadedApi.hide(1894);
+                loadedApi.show(2125);
+                loadedApi.hide(1927);
+                loadedApi.hide(1942);
+                loadedApi.hide(1990);
                 $("#intcolorwhite").css("display","none");
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
@@ -1242,34 +1246,37 @@
 
                 
                 //shifter 2306
-                //loadedApi.hide(2306);
+                loadedApi.hide(568);
                 //body
-                loadedApi.hide(473);
-                loadedApi.hide(516);
-                loadedApi.hide(2138);
-                //loadedApi.hide(1357);
+                loadedApi.hide(2201);
+                loadedApi.hide(479);
+                loadedApi.hide(522);
+                loadedApi.hide(3298);
 
-                loadedApi.show(584);
-                loadedApi.show(3192);
+                loadedApi.show(3283);
+                loadedApi.show(628);
                 
                 //front logo
-                loadedApi.hide(2428);
-                loadedApi.show(2458);
+                loadedApi.hide(2491);
+                loadedApi.show(2521);
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.hide(2855);
-                loadedApi.show(2882);
+                loadedApi.hide(2934);
+                loadedApi.show(2961);
                 
-                loadedApi.show(2954); //freio
+                loadedApi.show(3033); //freio
 
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 1;
                 //back logo
-                loadedApi.show(1894);
-                loadedApi.hide(1909);
+                loadedApi.hide(2125);
+                loadedApi.show(1927);
+                loadedApi.hide(1942);
+                loadedApi.hide(1990);
+
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpes").removeClass("active");
@@ -1281,39 +1288,83 @@
 
                 
                 //shifter 2306
-                //loadedApi.show(2306);
+                loadedApi.show(568);
                 //body
-                loadedApi.show(473);
-                loadedApi.show(516);
-                loadedApi.show(2138);
-                //loadedApi.show(1357);
+                loadedApi.show(2201);
+                loadedApi.show(479);
+                loadedApi.show(522);
+                loadedApi.show(3298);
 
-                loadedApi.hide(584);
-                loadedApi.hide(3192);
+                loadedApi.hide(3283);
+                loadedApi.hide(628);
                 //cambio
-                loadedApi.show(2855);
-                loadedApi.hide(2882);
+                loadedApi.show(2934);
+                loadedApi.hide(2961);
 
                  //front logo
-                loadedApi.show(2428);
-                loadedApi.hide(2458);
+                loadedApi.show(2491);
+                loadedApi.hide(2521);
                 //front logo 1682 black
 
-                loadedApi.hide(2954); //freio
+                loadedApi.hide(3033); //freio
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 2;
                 //back logo
-                loadedApi.show(1909);
-                loadedApi.show(1894);
+                //back logo
+                loadedApi.hide(2125);
+                loadedApi.show(1927);
+                loadedApi.show(1942);
+                loadedApi.hide(1990);
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
                 $("#intcolorwhite").css("display","inline-block");
                 changeInterior(0);
             });
+
+            $(".awd").click(function(){
+
+                
+                //shifter 2306
+                loadedApi.show(568);
+                //body
+                loadedApi.show(2201);
+                loadedApi.show(479);
+                loadedApi.show(522);
+                loadedApi.show(3298);
+
+                loadedApi.hide(3283);
+                loadedApi.hide(628);
+                //cambio
+                loadedApi.show(2934);
+                loadedApi.hide(2961);
+
+                //front logo
+                loadedApi.show(2491);
+                loadedApi.hide(2521);
+                //front logo 1682 black
+
+                loadedApi.hide(3033); //freio
+
+                selectedModel = 2;
+                var carColorIndex = $(".car-color.active").data("color-id");
+                changeCarColor(carColorIndex);
+                lastestModelSelected = 2;
+                //back logo
+                //back logo
+                loadedApi.hide(2125);
+                loadedApi.show(1927);
+                loadedApi.show(1942);
+                loadedApi.show(1990);
+                $(".hpes").addClass("active");
+                $(".gls").removeClass("active");
+                $(".hpe").removeClass("active");
+                $("#intcolorwhite").css("display","inline-block");
+                changeInterior(0);
+                });
 
 
             
@@ -1370,7 +1421,7 @@
                     
 
                     loadedApi.seekTo(2.5);
-                    loadedApi.setCycleMode('all');
+                    loadedApi.setCycleMode('none');
                     loadedApi.setSpeed(-1);
                     loadedApi.pause();
                     loadedApi.seekTo(2.5);
@@ -1391,7 +1442,7 @@
                     
 
                     loadedApi.seekTo(0);
-                    loadedApi.setCycleMode('all');
+                    loadedApi.setCycleMode('one');
                     loadedApi.setSpeed(1);
                     loadedApi.pause();
                     loadedApi.seekTo(0);
