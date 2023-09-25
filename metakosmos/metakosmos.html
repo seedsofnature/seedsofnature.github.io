@@ -983,7 +983,12 @@
                                     case 0:
                                         if(camTarget[0] != cameraTarget[0] || camTarget[1] != cameraTarget[1] || camTarget[2] != cameraTarget[2])
                                             changeCamera(0, true);
-                                            $(".logo").attr("src","logo/mitsubishi.png");
+                                            if($(".dia").hasClass("active")){
+                                                $(".logo").attr("src","logo/mitsubishi.png");
+                                            }else{
+                                                $(".logo").attr("src","logo/mitsubishi-white.png");
+                                            }
+                                            
                                         break;
                                     case 1:
                                         if(camTarget[0] != cameraHeadTarget[0] || camTarget[1] != cameraHeadTarget[1] || camTarget[2] != cameraHeadTarget[2])
