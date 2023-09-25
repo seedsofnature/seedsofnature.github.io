@@ -192,6 +192,8 @@
         var loadedApi = null;
         var myAnimations = null;
         var paintMaterial = null;
+        var porta1Material = null;
+        var porta2Material = null;
         var leatherMaterial = null;
         var intMaterial1 = null;
         var intMaterial2 = null;
@@ -590,6 +592,15 @@
                 //console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
             }
             });
+
+            porta1Material.channels.AlbedoPBR.color = [1,1,1];
+            porta2Material.channels.AlbedoPBR.color = [1,1,1];
+
+            loadedApi.setMaterial(porta1Material, function(){
+            });
+
+            loadedApi.setMaterial(porta2Material, function(){
+            });
         }else if(index == 1){
             
             //door leather black
@@ -613,6 +624,15 @@
             if (!err) {
                 //console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
             }
+            });
+
+            porta1Material.channels.AlbedoPBR.color = [0.37,0.37,0.37];
+            porta2Material.channels.AlbedoPBR.color = [0.37,0.37,0.37];
+
+            loadedApi.setMaterial(porta1Material, function(){
+            });
+
+            loadedApi.setMaterial(porta2Material, function(){
             });
         }
 
@@ -1000,6 +1020,10 @@
                                     intMaterial6 = materials[i];
                                 } else if(materials[i].name == "int_brown"){
                                     intMaterial7 = materials[i];
+                                } else if(materials[i].name == "PortaInt_Leather_White"){
+                                    porta1Material = materials[i];
+                                }else if(materials[i].name == "PortaInt_Leather_White.001"){
+                                    porta2Material = materials[i];
                                 }
                             }
 
