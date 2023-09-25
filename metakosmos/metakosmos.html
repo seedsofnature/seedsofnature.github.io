@@ -194,6 +194,7 @@
         var paintMaterial = null;
         var porta1Material = null;
         var porta2Material = null;
+        var lightsMaterial = null;
         var leatherMaterial = null;
         var intMaterial1 = null;
         var intMaterial2 = null;
@@ -1031,6 +1032,10 @@
                                     porta1Material = materials[i];
                                 }else if(materials[i].name == "PortaInt_Leather_White.001"){
                                     porta2Material = materials[i];
+                                }else if(materials[i].name == "Emessive"){
+                                    lightsMaterial = materials[i];
+                                    lightsMaterial.channels.EmitColor.factor = 0;
+                                    api.setMaterial(lightsMaterial);
                                 }
                             }
 
@@ -1172,6 +1177,8 @@
                     if (!err) {
                     }
                 });
+                lightsMaterial.channels.EmitColor.factor = 0;
+                loadedApi.setMaterial(lightsMaterial);
                 
             });
 
@@ -1199,6 +1206,9 @@
                     if (!err) {
                     }
                 });
+
+                lightsMaterial.channels.EmitColor.factor = 7.5;
+                loadedApi.setMaterial(lightsMaterial);
             });
 
             $(".gls").click(function(){
