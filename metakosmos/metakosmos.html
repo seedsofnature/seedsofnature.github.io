@@ -40,7 +40,7 @@
         
         <div class="info-area">
             <!--<span style="font-size: 12px; text-align: left;padding-bottom: 10px;">O Mitsubishi Eclipse Cross é a combinação do 4x4 com o high-tech, perfeito para quem gosta de tecnologia e prazer ao dirigir. Sofisticação e dirigibilidade unido à segurança, eficiência e muito conforto.</span> -->
-            <div class="car-info">
+            <!--<div class="car-info">
                 <div class="potencia">
                     <span style="text-align: center; font-weight: bolder;" >1.5 16 v</span>
                     <span style="font-size: 11px; text-align: center;font-weight: bolder">POTÊNCIA</span>
@@ -49,15 +49,15 @@
                     <span style="text-align: center; font-weight: bolder;" >10 km/L</span>
                     <span style="font-size: 11px; text-align: center;font-weight: bolder">CONSUMO MÉDIO</span>
                 </div>
-            </div>
-
+            </div> -->
+            <span style="margin-bottom: 10px;">Selecione a Versão</span>
             <center>
                 <div class="modelButtons" style="margin-bottom: 20px;" >
                     <div class="btn-group" style="width: 100%;">
                         <button style="float: left; margin-right: 2px;margin-left: 10px;" class="gls active">GLS</button>
                         <button style=" margin-right: 0px;" class="hpe">HPE</button>
                         <button style="margin-right: 0px;" class="hpes">HPE-S</button>
-                        <button style="float: right; margin-right: 10px;" class="awd">AWC</button>
+                        <button style="float: right;" class="awd">S-AWC</button>
                     </div>
                 </div>
             </center>
@@ -97,24 +97,15 @@
 
             <div class="exterior-items active" style="padding-top: 10px;">
                 <span >-Acabamento Black Piano;</span>
-                <span >-Design com esportividade e conforto;</span>
-                <span >-Dynamic Shield;          &nbsp;</span>
-                <span >-Novo design traseiro;</span>
-                <span >-Luz de condução diurna (DRL);</span>
-                <span >-Rodas com acabamento diamantado;</span>
                 <span >-Teto solar duplo.</span>
             </div>
             <div class="interior-items" style="padding-top: 0px; margin-bottom: 10px;">
-                <span >-Ajuste interno do banco;</span>
-                <span >-Amplo espaço interno;</span>
-                <span >-Amplo porta-malas;</span>
                 <span >-Ar-condicionado automático;</span>
-                <span >-Bancos em couro;</span>
                 <span >-Espelho retrovisor interno eletrocrômico;</span>
                 <span >-Câmera de ré.</span>
             </div>
            
-            <center>
+            <!--<center>
                 <div class="timeSelector">
                     <div class="btn-group day" style="width: 100%;">
                       <button style="float: left; margin-left: 15px; margin-bottom: 0px !important;" class="dia active">Dia</button>
@@ -125,7 +116,7 @@
             <div class="selector-box">
                 <span style="padding-left: 50px;">A partir de</span>
                 <span style="padding-left: 50px;margin-top: 6px;font-size: 32px; letter-spacing: 1px;" class="car-feature price" id="totalPrice"></span>
-            </div>
+            </div>-->
             
             
         </div>
@@ -139,7 +130,7 @@
     <div class="views" id="cameraPicker">
         
         <div>
-            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="0" style="height: 50px;">
+            <svg id="exteriorView" width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera active" data-cam-id="0" style="height: 50px;">
                 <title>
                     car-large
                 </title>
@@ -147,7 +138,7 @@
             </svg>
         </div>
         <div style="margin-left: 14px;">
-            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="1" style="height: 35px;">
+            <svg id="interiorView" width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="1" style="height: 35px;">
                 <title>
                     test-drive-large
                 </title>
@@ -155,7 +146,7 @@
             </svg>
         </div>
         <div>
-            <svg width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="2" style="height: 35px;">
+            <svg id="interiorView2" width="48" height="48" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" class="camera" data-cam-id="2" style="height: 35px;">
                 <title>
                     interior-configuration-large
                 </title>
@@ -1249,6 +1240,7 @@
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
                 $(".hpes").removeClass("active");
+                $(".awd").removeClass("active");
                 changeInterior(0);
             });
 
@@ -1290,6 +1282,7 @@
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpes").removeClass("active");
+                $(".awd").removeClass("active");
                 $("#intcolorwhite").css("display","none");
                 changeInterior(0);
             });
@@ -1331,6 +1324,7 @@
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
+                $(".awd").removeClass("active");
                 $("#intcolorwhite").css("display","inline-block");
                 changeInterior(0);
             });
@@ -1369,7 +1363,8 @@
                 loadedApi.show(1927);
                 loadedApi.show(1942);
                 loadedApi.show(1990);
-                $(".hpes").addClass("active");
+                $(".awd").addClass("active");
+                $(".hpes").removeClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
                 $("#intcolorwhite").css("display","inline-block");
@@ -1377,7 +1372,23 @@
                 });
 
 
-            
+                $("#interiorView").click(function(){
+                    $("#interiorView").addClass("active");
+                    $("#exteriorView").removeClass("active");
+                    $("#interiorView2").removeClass("active");
+                });
+
+                $("#interiorView2").click(function(){
+                    $("#interiorView").removeClass("active");
+                    $("#exteriorView").removeClass("active");
+                    $("#interiorView2").addClass("active");
+                });
+
+                $("#exteriorView").click(function(){
+                    $("#interiorView").removeClass("active");
+                    $("#exteriorView").addClass("active");
+                    $("#interiorView2").removeClass("active");
+                });
 
 
             $(".changeColor").click(function(){

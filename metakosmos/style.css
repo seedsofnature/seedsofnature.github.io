@@ -39,6 +39,10 @@
             -o-transition: all 0.5s ease-out;
             transition: all 0.5s ease-out;
         }
+
+        body svg.active{
+            stroke: red;
+        }
         body.light {
             color: #fff;
         }
@@ -457,7 +461,7 @@
             }
 
             .btn-group button.awd{
-                width: 40px;
+                width: 65px;
             }
 
             .btn-group button.hpe{
@@ -570,7 +574,7 @@
         }
 
         .btn-group button.awd{
-            width: 40px;
+            width: 65px;
         }
 
         .btn-group button.hpe{
