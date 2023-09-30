@@ -178,7 +178,7 @@
           document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
         var iframe = document.getElementById('api-frame');
-        var urlid = '33bd9534879a4f8d9491c96691be117f';
+        var urlid = '42b51939c68e448b9c9a06a24a0d21e5';
         var client = null;
         var loadedApi = null;
         var myAnimations = null;
@@ -562,14 +562,14 @@
 
         if(index == 0){
             //door leather black
-            loadedApi.hide(1303);
-            loadedApi.hide(1575);
+            loadedApi.hide(1532);
+            loadedApi.hide(1260);
             //loadedApi.hide(1104);
             //loadedApi.hide(1180);
 
             //door leather white
-            loadedApi.show(1321);
-            loadedApi.show(1590);
+            loadedApi.show(1547);
+            loadedApi.show(1278);
             //loadedApi.show(1120);
             //loadedApi.show(1195);
 
@@ -596,14 +596,14 @@
         }else if(index == 1){
             
             //door leather black
-            loadedApi.show(1303);
-            loadedApi.show(1575);
+            loadedApi.show(1532);
+            loadedApi.show(1260);
             //loadedApi.hide(1104);
             //loadedApi.hide(1180);
 
             //door leather white
-            loadedApi.hide(1321);
-            loadedApi.hide(1590);
+            loadedApi.hide(1547);
+            loadedApi.hide(1278);
             //loadedApi.show(1120);
             //loadedApi.show(1195);
             
@@ -899,23 +899,23 @@
                         $apiFrame.classList.remove("iframe-hidden");
 
 
-                        //shifter 2306
-                        loadedApi.hide(568);
+                       //shifter 2306
+                       loadedApi.hide(3201);
                             //body
-                            api.hide(2201);
-                            api.hide(479);
-                            api.hide(522);
-                            api.hide(3298);
+                            api.hide(450);
+                            api.hide(493);
+                            api.hide(3488);
+                            api.hide(2158);
 
                             //back logo
-                            loadedApi.hide(1927);
-                            loadedApi.hide(1942);
-                            loadedApi.hide(1990);
-                            loadedApi.show(2125);
+                            loadedApi.hide(1947);
+                            loadedApi.hide(1899);
+                            loadedApi.hide(1884);
+                            loadedApi.show(2082);
 
                             //door leather black
-                            loadedApi.hide(1303);
-                            loadedApi.hide(1575);
+                            loadedApi.hide(1532);
+                            loadedApi.hide(1260);
                             //api.hide(1104);
                             //api.hide(1180);
                             //door leather white
@@ -925,13 +925,15 @@
                             api.hide(1195);*/
 
                             //front logo 1652 chrome
-                            api.hide(2491);
+                            api.hide(2616);
                             //front logo 1682 black
                             //cambio
-                            api.hide(2934);
-                            api.show(2961);
-                
-                            api.show(3033); //freio
+                            api.hide(3079);
+                            api.show(3108);
+
+                            api.hide(3165); //botao
+
+                            api.show(3223); //freio
 
                         //door leather objects: white 694 892 1090 1165
                         // \\  black  675 877 1074 1150
@@ -1205,26 +1207,28 @@
             $(".gls").click(function(){
                 
                 //shifter 2306
-                loadedApi.hide(568);
+                loadedApi.hide(3201);
                 //body
-                loadedApi.hide(2201);
-                loadedApi.hide(479);
-                loadedApi.hide(522);
-                loadedApi.hide(3298);
+                loadedApi.hide(450);
+                loadedApi.hide(493);
+                loadedApi.hide(3488);
+                loadedApi.hide(2158);
 
-                loadedApi.show(3283);
-                loadedApi.show(628);
+                loadedApi.show(668);
+                loadedApi.show(3473);
                 
                 //front logo
-                loadedApi.hide(2491);
-                loadedApi.show(2521);
+                loadedApi.hide(2616);
+                loadedApi.show(2616);
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.hide(2934);
-                loadedApi.show(2961);
+                loadedApi.hide(3079);
+                loadedApi.show(3108);
+
+                loadedApi.hide(3165);
                 
-                loadedApi.show(3033); //freio
+                loadedApi.show(3223); //freio
                             
                 
                 selectedModel = 0;
@@ -1232,10 +1236,10 @@
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 0;
                 //back logo
-                loadedApi.show(2125);
-                loadedApi.hide(1927);
-                loadedApi.hide(1942);
-                loadedApi.hide(1990);
+                loadedApi.show(2082);
+                loadedApi.hide(1884);
+                loadedApi.hide(1899);
+                loadedApi.hide(1947);
                 $("#intcolorwhite").css("display","none");
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
@@ -1248,36 +1252,38 @@
 
                 
                 //shifter 2306
-                loadedApi.hide(568);
+                loadedApi.show(3201);
                 //body
-                loadedApi.hide(2201);
-                loadedApi.hide(479);
-                loadedApi.hide(522);
-                loadedApi.hide(3298);
+                loadedApi.hide(450);
+                loadedApi.hide(493);
+                loadedApi.hide(3488);
+                loadedApi.hide(2158);
 
-                loadedApi.show(3283);
-                loadedApi.show(628);
+                loadedApi.show(668);
+                loadedApi.show(3473);
                 
                 //front logo
-                loadedApi.hide(2491);
-                loadedApi.show(2521);
+                loadedApi.hide(2616);
+                loadedApi.show(2616);
                 //front logo 1682 black
 
                 //cambio
-                loadedApi.hide(2934);
-                loadedApi.show(2961);
+                loadedApi.hide(3108);
+                loadedApi.show(3079);
+
+                loadedApi.show(3165);
                 
-                loadedApi.show(3033); //freio
+                loadedApi.hide(3223); //freio
 
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 1;
                 //back logo
-                loadedApi.hide(2125);
-                loadedApi.show(1927);
-                loadedApi.hide(1942);
-                loadedApi.hide(1990);
+                loadedApi.hide(2082);
+                loadedApi.show(1884);
+                loadedApi.hide(1899);
+                loadedApi.hide(1947);
 
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
@@ -1290,26 +1296,27 @@
             $(".hpes").click(function(){
 
                 
-                //shifter 2306
-                loadedApi.show(568);
+               //shifter 2306
+               loadedApi.show(3201);
                 //body
-                loadedApi.show(2201);
-                loadedApi.show(479);
-                loadedApi.show(522);
-                loadedApi.show(3298);
+                loadedApi.show(450);
+                loadedApi.show(493);
+                loadedApi.show(3488);
+                loadedApi.show(2158);
 
-                loadedApi.hide(3283);
-                loadedApi.hide(628);
+                loadedApi.hide(668);
+                loadedApi.hide(3473);
                 //cambio
-                loadedApi.show(2934);
-                loadedApi.hide(2961);
+                loadedApi.show(3079);
+                loadedApi.hide(3108);
 
                  //front logo
-                loadedApi.show(2491);
-                loadedApi.hide(2521);
+                loadedApi.show(2616);
+                loadedApi.hide(2616);
                 //front logo 1682 black
 
-                loadedApi.hide(3033); //freio
+                loadedApi.show(3165);
+                loadedApi.hide(3223); //freio
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
@@ -1317,10 +1324,10 @@
                 lastestModelSelected = 2;
                 //back logo
                 //back logo
-                loadedApi.hide(2125);
-                loadedApi.show(1927);
-                loadedApi.show(1942);
-                loadedApi.hide(1990);
+                loadedApi.hide(2082);
+                loadedApi.show(1884);
+                loadedApi.show(1899);
+                loadedApi.hide(1947);
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
@@ -1333,25 +1340,26 @@
 
                 
                 //shifter 2306
-                loadedApi.show(568);
+                loadedApi.show(3201);
                 //body
-                loadedApi.show(2201);
-                loadedApi.show(479);
-                loadedApi.show(522);
-                loadedApi.show(3298);
+                loadedApi.show(450);
+                loadedApi.show(493);
+                loadedApi.show(3488);
+                loadedApi.show(2158);
 
-                loadedApi.hide(3283);
-                loadedApi.hide(628);
+                loadedApi.hide(668);
+                loadedApi.hide(3473);
                 //cambio
-                loadedApi.show(2934);
-                loadedApi.hide(2961);
+                loadedApi.show(3079);
+                loadedApi.hide(3108);
+                loadedApi.show(3165);
 
-                //front logo
-                loadedApi.show(2491);
-                loadedApi.hide(2521);
+                 //front logo
+                loadedApi.show(2616);
+                loadedApi.hide(2616);
                 //front logo 1682 black
 
-                loadedApi.hide(3033); //freio
+                loadedApi.hide(3223); //freio
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
@@ -1359,10 +1367,10 @@
                 lastestModelSelected = 2;
                 //back logo
                 //back logo
-                loadedApi.hide(2125);
-                loadedApi.show(1927);
-                loadedApi.show(1942);
-                loadedApi.show(1990);
+                loadedApi.hide(2082);
+                loadedApi.show(1884);
+                loadedApi.show(1899);
+                loadedApi.show(1947);
                 $(".awd").addClass("active");
                 $(".hpes").removeClass("active");
                 $(".gls").removeClass("active");
