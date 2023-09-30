@@ -202,12 +202,12 @@
         var cameraHeadPosition2 = [0.5, -0.4, 1.4];
         var cameraHeadTarget2 = [0, 0.5, 1];
         var selectedModel = 0; //0 GLS 1 HPE 2 HPE-S
-        var bodyTextureUID = "1f9e5cf2617141f08dcbb2ab83a5bdac";
-        var bodyRoghnessTextureUID = "b7c2ddadcbb14759bb9cc233beb7941b";
-        var detailsColorTextureUID = "d74990fd70b04759b42a293476cbf9ea";
-        var detailsRoughnessTextureUID = "8b4b4347a48e43a3a584b52532ed8151";
-        var leatherAlbedoFrontTextureUID = "bcb12d1c7db34753a9ec6aab44493e2e";
-        var leatherAlbedoBackTextureUID = "a5f66dfd927d48e8ad543e309ccd19f6";
+        var bodyTextureUID = "615b725c793b4265bc175b3e4482c04c";
+        var bodyRoghnessTextureUID = "a9f1fb7601114adbb614c7f324632df5";
+        var detailsColorTextureUID = "b92f89769b8347cca727b4777ba8ca2b";
+        var detailsRoughnessTextureUID = "76595a30daf740e5ba608d1ebccdba9c";
+        var leatherAlbedoFrontTextureUID = "5945fc0eedc546248de8bb7ce8f2c3cd";
+        var leatherAlbedoBackTextureUID = "05be3256011a4ec49be6cefd689edeed";
         var lastestModelSelected = 0;
 
         var basePrice = 242990;
@@ -313,11 +313,14 @@
             }
         });*/
 
+        paintMaterial.channels.RoughnessPBR.texture = null
+        loadedApi.setMaterial(paintMaterial);
+
         if(selectedModel == 0){
 
             if(lastestModelSelected != selectedModel){
                  //roughness 
-                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                loadedApi.updateTexture('', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyRoghnessTextureUID);
                     }
@@ -343,43 +346,63 @@
             if(index == 0){
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
+                    loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    
+                    });
                     //console.log('Replaced texture with UID', bodyTextureUID);
+                    paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    loadedApi.setMaterial(paintMaterial);
                 }
                 });
             }else if(index == 2){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                         //console.log('Replaced texture with UID', bodyTextureUID);
                     }
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
+                        loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    
+                        });
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 3){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 4){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 5){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 6){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }
@@ -387,9 +410,10 @@
 
             if(lastestModelSelected != selectedModel){
                 //roughness 
-                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                loadedApi.updateTexture('', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyRoghnessTextureUID);
+                        
                     }
                 });
 
@@ -411,43 +435,63 @@
             if(index == 0){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Branco_Alpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
+                    loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    
+                });
                     //console.log('Replaced texture with UID', bodyTextureUID);
+                    paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    loadedApi.setMaterial(paintMaterial);
                 }
                 });
             }else if(index == 2){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
+                        loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    
+                });
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 3){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Prata_Litio.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 4){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Vermelho_Lucid.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 5){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Prata_Cool.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 6){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Cinza_Londrino.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }
@@ -455,7 +499,7 @@
 
             if(lastestModelSelected != selectedModel){
                 //roughness 
-                loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                loadedApi.updateTexture('', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyRoghnessTextureUID);
                     }
@@ -472,6 +516,7 @@
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Dets_Roghness.png', detailsRoughnessTextureUID, function(err, detailsRoughnessTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', detailsRoughnessTextureUID);
+                        
                     }
                 });
             }
@@ -480,43 +525,64 @@
             if(index == 0){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_BrancoAlpino.png', bodyTextureUID, function(err, bodyTextureUID) {
                 if (!err) {
+                    loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    
+                });
                     //console.log('Replaced texture with UID', bodyTextureUID);
+                    paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(paintMaterial);
                 }
+                
                 });
             }else if(index == 2){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PretoOnix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_AzulBaikal.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
+                        loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_Roghness.png', bodyRoghnessTextureUID, function(err, bodyRoghnessTextureUID) {
+                    
+                });
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 3){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PrataLitio.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 4){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_VermelhoLucid.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 5){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_PrataCool.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }else if(index == 6){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Body_CinzaLondrino.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
+                        paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(paintMaterial);
                     }
                 });
             }
@@ -899,8 +965,16 @@
                         $apiFrame.classList.remove("iframe-hidden");
 
 
+
+                        //farol
+                        api.hide(2466);
+                        api.hide(2481);
+                        api.hide(2496);
+                        api.hide(2511);
+                        api.hide(2526);
+
                        //shifter 2306
-                       loadedApi.hide(3201);
+                       api.hide(3201);
                             //body
                             api.hide(450);
                             api.hide(493);
@@ -1206,6 +1280,21 @@
 
             $(".gls").click(function(){
                 
+                        //farol
+                        loadedApi.hide(2466);
+                        loadedApi.hide(2481);
+                        loadedApi.hide(2496);
+                        loadedApi.hide(2511);
+                        loadedApi.hide(2526);
+
+                        loadedApi.show(2343);
+                        loadedApi.show(2359);
+                        loadedApi.show(2374);
+                        loadedApi.show(2390);
+                        loadedApi.show(2406);
+                        loadedApi.show(2421);
+                        loadedApi.show(2436);
+
                 //shifter 2306
                 loadedApi.hide(3201);
                 //body
@@ -1250,7 +1339,21 @@
 
             $(".hpe").click(function(){
 
-                
+                //farol
+                loadedApi.show(2466);
+                        loadedApi.show(2481);
+                        loadedApi.show(2496);
+                        loadedApi.show(2511);
+                        loadedApi.show(2526);
+
+                        loadedApi.hide(2343);
+                        loadedApi.hide(2359);
+                        loadedApi.hide(2374);
+                        loadedApi.hide(2390);
+                        loadedApi.hide(2406);
+                        loadedApi.hide(2421);
+                        loadedApi.hide(2436);
+
                 //shifter 2306
                 loadedApi.show(3201);
                 //body
@@ -1295,7 +1398,20 @@
 
             $(".hpes").click(function(){
 
-                
+                 //farol
+                 loadedApi.show(2466);
+                        loadedApi.show(2481);
+                        loadedApi.show(2496);
+                        loadedApi.show(2511);
+                        loadedApi.show(2526);
+
+                        loadedApi.hide(2343);
+                        loadedApi.hide(2359);
+                        loadedApi.hide(2374);
+                        loadedApi.hide(2390);
+                        loadedApi.hide(2406);
+                        loadedApi.hide(2421);
+                        loadedApi.hide(2436);
                //shifter 2306
                loadedApi.show(3201);
                 //body
@@ -1338,7 +1454,20 @@
 
             $(".awd").click(function(){
 
-                
+                 //farol
+                 loadedApi.show(2466);
+                        loadedApi.show(2481);
+                        loadedApi.show(2496);
+                        loadedApi.show(2511);
+                        loadedApi.show(2526);
+
+                        loadedApi.hide(2343);
+                        loadedApi.hide(2359);
+                        loadedApi.hide(2374);
+                        loadedApi.hide(2390);
+                        loadedApi.hide(2406);
+                        loadedApi.hide(2421);
+                        loadedApi.hide(2436);
                 //shifter 2306
                 loadedApi.show(3201);
                 //body
