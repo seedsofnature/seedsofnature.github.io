@@ -222,6 +222,9 @@
         var maxTextureSize = 2048;
 
         const GAMMA = 2.4;
+        var myNodesByNameFromMap = {};
+        var myTexturesByNameFromMap = {};
+        var idxNodes = 0;
 
         function srgbToLinear1(c) {
             var v = 0.0;
@@ -964,58 +967,73 @@
                         var loader = document.getElementById("iframe-loader");
                         $apiFrame.classList.remove("iframe-hidden");
 
+                        api.getNodeMap(function(err, nodes) {
+                            if (err) {
+                                console.log('Error getting nodes');
+                                return;
+                            }
+                            for (var instanceID in nodes){
+                                var node= nodes[instanceID];
+                                var name = node.name;
+                                if (!name) name = "noname_" + idxNodes++;                		
+                                myNodesByNameFromMap[name] = node;
+                            }
+                        
+
+                            //farol
+                            api.hide(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
+                            api.hide(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
+                            api.hide(myNodesByNameFromMap['Lights_Front_Chrome'].instanceID);
+                            api.hide(myNodesByNameFromMap['Lights_Front_BlackShiny'].instanceID);
+                            api.hide(myNodesByNameFromMap['Lights_Front_Chrome.003'].instanceID);
+
+                        //shifter 2306
+                        api.hide(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+
+                        //body
+                        api.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
+                        api.hide(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
+                        api.hide(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
+                        api.hide(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+                            
+                        api.hide(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
+                        api.hide(myNodesByNameFromMap['LogoBack_S'].instanceID);
+                        api.hide(myNodesByNameFromMap['LogoBack_HPE'].instanceID);
+                        
+
+                        api.hide(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
+                        api.hide(myNodesByNameFromMap['P_Back_Int_L_Leather_Black'].instanceID);
+
+                        api.hide(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
+
+                        api.hide(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
+
+                        api.hide(myNodesByNameFromMap['Button_SeatHealting'].instanceID);
+                        
+                        });
+
+                        api.getTextureList(function(err, textures) {
+                            if (err) {
+                                console.log('Error getting nodes');
+                                return;
+                            }
+                            idxNodes = 0;
+                            for (var tUID in textures){
+                                var texture= textures[tUID];
+                                var name = texture.name;
+                                if (!name) name = "noname_" + idxNodes++;                		
+                                myTexturesByNameFromMap[name] = texture;
+                            }
 
 
-                        //farol
-                        api.hide(2466);
-                        api.hide(2481);
-                        api.hide(2496);
-                        api.hide(2511);
-                        api.hide(2526);
-
-                       //shifter 2306
-                       api.hide(3201);
-                            //body
-                            api.hide(450);
-                            api.hide(493);
-                            api.hide(3488);
-                            api.hide(2158);
-
-                            //back logo
-                            loadedApi.hide(1947);
-                            loadedApi.hide(1899);
-                            loadedApi.hide(1884);
-                            loadedApi.show(2082);
-
-                            //door leather black
-                            loadedApi.hide(1532);
-                            loadedApi.hide(1260);
-                            //api.hide(1104);
-                            //api.hide(1180);
-                            //door leather white
-                            /*api.hide(724);
-                            api.hide(922);
-                            api.hide(1120);
-                            api.hide(1195);*/
-
-                            //front logo 1652 chrome
-                            api.hide(2616);
-                            //front logo 1682 black
-                            //cambio
-                            api.hide(3079);
-                            api.show(3108);
-
-                            api.hide(3165); //botao
-
-                            api.show(3223); //freio
-
-                        //door leather objects: white 694 892 1090 1165
-                        // \\  black  675 877 1074 1150
-                        //initial hide parts for normal model ids: 224 246 2534
-                        //glass 1327 163 206 181 1697 1682
-                        //hpe 1697
-                        //hpes 1697 1682
-
+                            bodyRoghnessTextureUID = myTexturesByNameFromMap['GLS_Body_Roghness.png'].uid;
+                            detailsColorTextureUID = myTexturesByNameFromMap['GLS_Dets_Color.png'].uid;
+                            detailsRoughnessTextureUID = myTexturesByNameFromMap['GLS_Dets_Roghness.png'].uid;
+                            bodyTextureUID =  myTexturesByNameFromMap['Car_Red.png'].uid; //cor do carro
+                            leatherAlbedoFrontTextureUID = myTexturesByNameFromMap['Leather_White_albedo.jpg'].uid;
+                            leatherAlbedoBackTextureUID = myTexturesByNameFromMap['Seat_Back_LeatherWhite_Color.png'].uid;
+                        
+                        });
 
                         api.getAnimations(function(err, animations){
                             myAnimations = animations;
@@ -1101,8 +1119,8 @@
                                     porta2Material = materials[i];
                                 }else if(materials[i].name == "Emessive"){
                                     lightsMaterial = materials[i];
-                                    lightsMaterial.channels.EmitColor.factor = 0;
-                                    api.setMaterial(lightsMaterial);
+                                    //lightsMaterial.channels.EmitColor.factor = 0;
+                                    //api.setMaterial(lightsMaterial);
                                 }
                             }
 
@@ -1244,8 +1262,8 @@
                     if (!err) {
                     }
                 });
-                lightsMaterial.channels.EmitColor.factor = 0;
-                loadedApi.setMaterial(lightsMaterial);
+                //lightsMaterial.channels.EmitColor.factor = 0;
+                //loadedApi.setMaterial(lightsMaterial);
                 
             });
 
@@ -1274,50 +1292,51 @@
                     }
                 });
 
-                lightsMaterial.channels.EmitColor.factor = 7.5;
-                loadedApi.setMaterial(lightsMaterial);
+                //lightsMaterial.channels.EmitColor.factor = 7.5;
+                //loadedApi.setMaterial(lightsMaterial);
             });
 
             $(".gls").click(function(){
                 
-                        //farol
-                        loadedApi.hide(2466);
-                        loadedApi.hide(2481);
-                        loadedApi.hide(2496);
-                        loadedApi.hide(2511);
-                        loadedApi.hide(2526);
 
-                        loadedApi.show(2343);
-                        loadedApi.show(2359);
-                        loadedApi.show(2374);
-                        loadedApi.show(2390);
-                        loadedApi.show(2406);
-                        loadedApi.show(2421);
-                        loadedApi.show(2436);
+                //farol
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_BlackShiny'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Chrome.003'].instanceID);
+
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Conver_GLS_Chrome'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Case_GLS_Chrome'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_GLS_BlackMatt'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Cover_LedGLS_Silver'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Glass_GLS_Emissive'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Grid_GLS_Silver'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Glass_GLS_Chrome'].instanceID);
+
 
                 //shifter 2306
-                loadedApi.hide(3201);
-                //body
-                loadedApi.hide(450);
-                loadedApi.hide(493);
-                loadedApi.hide(3488);
-                loadedApi.hide(2158);
+                loadedApi.hide(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
 
-                loadedApi.show(668);
-                loadedApi.show(3473);
+                //body
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof'].instanceID);
                 
                 //front logo
-                loadedApi.hide(2616);
-                loadedApi.show(2616);
-                //front logo 1682 black
+                loadedApi.show(myNodesByNameFromMap['LogoFront_BlackMatte'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
                 //cambio
-                loadedApi.hide(3079);
-                loadedApi.show(3108);
+                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
 
-                loadedApi.hide(3165);
-                
-                loadedApi.show(3223); //freio
+                loadedApi.hide(myNodesByNameFromMap['Button_SeatHealting'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Freio_2.001'].instanceID);
                             
                 
                 selectedModel = 0;
@@ -1325,10 +1344,10 @@
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 0;
                 //back logo
-                loadedApi.show(2082);
-                loadedApi.hide(1884);
-                loadedApi.hide(1899);
-                loadedApi.hide(1947);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_GLS'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_S'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_HPE'].instanceID);
                 $("#intcolorwhite").css("display","none");
                 $(".gls").addClass("active");
                 $(".hpe").removeClass("active");
@@ -1340,53 +1359,53 @@
             $(".hpe").click(function(){
 
                 //farol
-                loadedApi.show(2466);
-                        loadedApi.show(2481);
-                        loadedApi.show(2496);
-                        loadedApi.show(2511);
-                        loadedApi.show(2526);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Chrome'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_BlackShiny'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Chrome.003'].instanceID);
 
-                        loadedApi.hide(2343);
-                        loadedApi.hide(2359);
-                        loadedApi.hide(2374);
-                        loadedApi.hide(2390);
-                        loadedApi.hide(2406);
-                        loadedApi.hide(2421);
-                        loadedApi.hide(2436);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Conver_GLS_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Case_GLS_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_GLS_BlackMatt'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Cover_LedGLS_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Emissive'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Grid_GLS_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Chrome'].instanceID);
+
 
                 //shifter 2306
-                loadedApi.show(3201);
-                //body
-                loadedApi.hide(450);
-                loadedApi.hide(493);
-                loadedApi.hide(3488);
-                loadedApi.hide(2158);
+                loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
 
-                loadedApi.show(668);
-                loadedApi.show(3473);
+                //body
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof'].instanceID);
                 
                 //front logo
-                loadedApi.hide(2616);
-                loadedApi.show(2616);
-                //front logo 1682 black
+                loadedApi.show(myNodesByNameFromMap['LogoFront_BlackMatte'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
                 //cambio
-                loadedApi.hide(3108);
-                loadedApi.show(3079);
+                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
 
-                loadedApi.show(3165);
-                
-                loadedApi.hide(3223); //freio
+                loadedApi.show(myNodesByNameFromMap['Button_SeatHealting'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
 
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 1;
                 //back logo
-                loadedApi.hide(2082);
-                loadedApi.show(1884);
-                loadedApi.hide(1899);
-                loadedApi.hide(1947);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_GLS'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_S'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_HPE'].instanceID);
 
                 $(".hpe").addClass("active");
                 $(".gls").removeClass("active");
@@ -1399,51 +1418,52 @@
             $(".hpes").click(function(){
 
                  //farol
-                 loadedApi.show(2466);
-                        loadedApi.show(2481);
-                        loadedApi.show(2496);
-                        loadedApi.show(2511);
-                        loadedApi.show(2526);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Chrome'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_BlackShiny'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Chrome.003'].instanceID);
 
-                        loadedApi.hide(2343);
-                        loadedApi.hide(2359);
-                        loadedApi.hide(2374);
-                        loadedApi.hide(2390);
-                        loadedApi.hide(2406);
-                        loadedApi.hide(2421);
-                        loadedApi.hide(2436);
-               //shifter 2306
-               loadedApi.show(3201);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Conver_GLS_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Case_GLS_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_GLS_BlackMatt'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Cover_LedGLS_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Emissive'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Grid_GLS_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Chrome'].instanceID);
+
+
+                //shifter 2306
+                loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+
                 //body
-                loadedApi.show(450);
-                loadedApi.show(493);
-                loadedApi.show(3488);
-                loadedApi.show(2158);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
 
-                loadedApi.hide(668);
-                loadedApi.hide(3473);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof'].instanceID);
+                
+                //front logo
+                loadedApi.hide(myNodesByNameFromMap['LogoFront_BlackMatte'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
+
                 //cambio
-                loadedApi.show(3079);
-                loadedApi.hide(3108);
+                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
 
-                 //front logo
-                loadedApi.show(2616);
-                loadedApi.hide(2616);
-                //front logo 1682 black
-
-                loadedApi.show(3165);
-                loadedApi.hide(3223); //freio
-
+                loadedApi.show(myNodesByNameFromMap['Button_SeatHealting'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
                 lastestModelSelected = 2;
                 //back logo
-                //back logo
-                loadedApi.hide(2082);
-                loadedApi.show(1884);
-                loadedApi.show(1899);
-                loadedApi.hide(1947);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_GLS'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_S'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_HPE'].instanceID);
                 $(".hpes").addClass("active");
                 $(".gls").removeClass("active");
                 $(".hpe").removeClass("active");
@@ -1455,40 +1475,43 @@
             $(".awd").click(function(){
 
                  //farol
-                 loadedApi.show(2466);
-                        loadedApi.show(2481);
-                        loadedApi.show(2496);
-                        loadedApi.show(2511);
-                        loadedApi.show(2526);
+                 loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Chrome'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_BlackShiny'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Lights_Front_Chrome.003'].instanceID);
 
-                        loadedApi.hide(2343);
-                        loadedApi.hide(2359);
-                        loadedApi.hide(2374);
-                        loadedApi.hide(2390);
-                        loadedApi.hide(2406);
-                        loadedApi.hide(2421);
-                        loadedApi.hide(2436);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Conver_GLS_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Case_GLS_Chrome'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_GLS_BlackMatt'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Cover_LedGLS_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Emissive'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Grid_GLS_Silver'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Chrome'].instanceID);
+
+
                 //shifter 2306
-                loadedApi.show(3201);
+                loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+
                 //body
-                loadedApi.show(450);
-                loadedApi.show(493);
-                loadedApi.show(3488);
-                loadedApi.show(2158);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
 
-                loadedApi.hide(668);
-                loadedApi.hide(3473);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof'].instanceID);
+                
+                //front logo
+                loadedApi.hide(myNodesByNameFromMap['LogoFront_BlackMatte'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
+
                 //cambio
-                loadedApi.show(3079);
-                loadedApi.hide(3108);
-                loadedApi.show(3165);
+                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
 
-                 //front logo
-                loadedApi.show(2616);
-                loadedApi.hide(2616);
-                //front logo 1682 black
-
-                loadedApi.hide(3223); //freio
+                loadedApi.show(myNodesByNameFromMap['Button_SeatHealting'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
@@ -1496,10 +1519,10 @@
                 lastestModelSelected = 2;
                 //back logo
                 //back logo
-                loadedApi.hide(2082);
-                loadedApi.show(1884);
-                loadedApi.show(1899);
-                loadedApi.show(1947);
+                loadedApi.hide(myNodesByNameFromMap['LogoBack_GLS'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_S'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['LogoBack_HPE'].instanceID);
                 $(".awd").addClass("active");
                 $(".hpes").removeClass("active");
                 $(".gls").removeClass("active");
