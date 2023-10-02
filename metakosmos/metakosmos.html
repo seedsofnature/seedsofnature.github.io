@@ -631,16 +631,12 @@
 
         if(index == 0){
             //door leather black
-            loadedApi.hide(1532);
-            loadedApi.hide(1260);
-            //loadedApi.hide(1104);
-            //loadedApi.hide(1180);
+            loadedApi.hide(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
+            loadedApi.hide(myNodesByNameFromMap['P_Back_Int_L_Leather_Black'].instanceID);
 
             //door leather white
-            loadedApi.show(1547);
-            loadedApi.show(1278);
-            //loadedApi.show(1120);
-            //loadedApi.show(1195);
+            loadedApi.show(myNodesByNameFromMap['P_Back_Int_R_Leather_White'].instanceID);
+            loadedApi.show(myNodesByNameFromMap['P_Back_Int_L_Leather_White'].instanceID);
 
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_White_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
             if (!err) {
@@ -665,16 +661,12 @@
         }else if(index == 1){
             
             //door leather black
-            loadedApi.show(1532);
-            loadedApi.show(1260);
-            //loadedApi.hide(1104);
-            //loadedApi.hide(1180);
+            loadedApi.show(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
+            loadedApi.show(myNodesByNameFromMap['P_Back_Int_L_Leather_Black'].instanceID);
 
             //door leather white
-            loadedApi.hide(1547);
-            loadedApi.hide(1278);
-            //loadedApi.show(1120);
-            //loadedApi.show(1195);
+            loadedApi.hide(myNodesByNameFromMap['P_Back_Int_R_Leather_White'].instanceID);
+            loadedApi.hide(myNodesByNameFromMap['P_Back_Int_L_Leather_White'].instanceID);
             
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_Black_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
             if (!err) {
@@ -1039,7 +1031,7 @@
                             myAnimations = animations;
                             if(animations.length > 0){
                                 api.setCurrentAnimationByUID(animations[0][0]); //0 8 18 30
-                                api.setCycleMode('none');
+                                api.setCycleMode('one');
                                 api.pause();
                                 api.seekTo(0);
                                 /*api.setCurrentAnimationByUID(animations[1][0]); //0 8 18 30
@@ -1602,7 +1594,7 @@
                     
 
                     loadedApi.seekTo(2.5);
-                    loadedApi.setCycleMode('none');
+                    loadedApi.setCycleMode('one');
                     loadedApi.setSpeed(-1);
                     loadedApi.pause();
                     loadedApi.seekTo(2.5);
