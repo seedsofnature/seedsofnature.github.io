@@ -89,9 +89,9 @@
 
             <div class="colors" id="colorPicker2" style="background: none;">
                 <span class="info"></span>
-                <div class="int-color active" id="intcolorwhite"  data-color-id="0" data-name="Couro Cinza Claro" style="background-color: #FFFFFF; border: 1px solid black;" data-price="0">
+                <div class="int-color" id="intcolorwhite"  data-color-id="0" data-name="Couro Cinza Claro" style="background-color: #FFFFFF; border: 1px solid black;" data-price="0">
                 </div>
-                <div class="int-color" data-color-id="1" data-name="Couro Preto" style="background-color: #000000;" data-price="0">
+                <div class="int-color active" data-color-id="1" data-name="Couro Preto" style="background-color: #000000;" data-price="0">
                 </div>
             </div>
 
@@ -991,6 +991,9 @@
                         api.hide(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
                         api.hide(myNodesByNameFromMap['LogoBack_S'].instanceID);
                         api.hide(myNodesByNameFromMap['LogoBack_HPE'].instanceID);
+
+                        api.hide(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
+                        api.hide(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
                         
 
                         api.hide(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
@@ -1279,7 +1282,7 @@
 
             $(".gls").click(function(){
                 
-
+                $("#colorPicker2 span.info").text("Couro Preto");
                 //farol
                 loadedApi.hide(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
@@ -1326,6 +1329,9 @@
                 loadedApi.show(myNodesByNameFromMap['Freio_2.001'].instanceID);
                             
                 
+                loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
+
                 selectedModel = 0;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
@@ -1344,7 +1350,7 @@
             });
 
             $(".hpe").click(function(){
-
+                $("#colorPicker2 span.info").text("Couro Preto");
                 //farol
                 loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
@@ -1389,6 +1395,9 @@
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
 
+                loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
+
                 selectedModel = 1;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
@@ -1408,7 +1417,7 @@
             });
 
             $(".hpes").click(function(){
-
+                $("#colorPicker2 span.info").text("Couro Cinza Claro");
                  //farol
                 loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
@@ -1453,6 +1462,10 @@
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
+
+                loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
+
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
                 changeCarColor(carColorIndex);
@@ -1471,7 +1484,7 @@
             });
 
             $(".awd").click(function(){
-
+                $("#colorPicker2 span.info").text("Couro Cinza Claro");
                  //farol
                  loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Lights_Front_VD_Glass'].instanceID);
@@ -1516,6 +1529,10 @@
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
+
+                loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
+                
 
                 selectedModel = 2;
                 var carColorIndex = $(".car-color.active").data("color-id");
