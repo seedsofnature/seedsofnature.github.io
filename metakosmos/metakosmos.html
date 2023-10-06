@@ -195,6 +195,7 @@
         var intMaterial5 = null;
         var intMaterial6 = null;
         var intMaterial7 = null;
+        var enviromment = null;
         var currentCamera = 0;
         var cameraPosition = [-5, 0, 0];
         var cameraTarget = [0, 0, 1];
@@ -356,6 +357,8 @@
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     loadedApi.setMaterial(paintMaterial);
+                    enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                 }
                 });
             }else if(index == 2){
@@ -365,6 +368,8 @@
                         loadedApi.setMaterial(paintMaterial);
                         //console.log('Replaced texture with UID', bodyTextureUID);
                     }
+                    enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                 });
             }else if(index == 1){
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Azul_Baikal.png', bodyTextureUID, function(err, bodyTextureUID) {
@@ -375,6 +380,12 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(paintMaterial);
+
+                        enviromment.exposure = 2.08;
+                        loadedApi.setEnvironment(enviromment);
+                        
+
+
                     }
                 });
             }else if(index == 3){
@@ -383,6 +394,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 4){
@@ -391,6 +404,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 5){
@@ -399,6 +414,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 6){
@@ -407,6 +424,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }
@@ -445,6 +464,8 @@
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     loadedApi.setMaterial(paintMaterial);
+                    enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                 }
                 });
             }else if(index == 2){
@@ -453,6 +474,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 1){
@@ -464,6 +487,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 2.08;
+                        loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 3){
@@ -472,6 +497,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 4){
@@ -480,6 +507,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 5){
@@ -488,6 +517,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 6){
@@ -496,6 +527,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }
@@ -535,6 +568,8 @@
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                 }
                 
                 });
@@ -544,6 +579,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 1){
@@ -555,6 +592,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 2.08;
+                        loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 3){
@@ -563,6 +602,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 4){
@@ -571,6 +612,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 5){
@@ -579,6 +622,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }else if(index == 6){
@@ -587,6 +632,8 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(paintMaterial);
+                        enviromment.exposure = 1;
+                    loadedApi.setEnvironment(enviromment);
                     }
                 });
             }
@@ -1008,6 +1055,12 @@
                         api.hide(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                         api.hide(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
                         
+                        });
+
+                        api.getEnvironment(function(err, envInfo) {
+                            if (!err) {
+                                enviromment = envInfo;
+                            }
                         });
 
                         api.getTextureList(function(err, textures) {
