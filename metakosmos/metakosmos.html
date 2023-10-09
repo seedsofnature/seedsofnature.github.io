@@ -184,17 +184,10 @@
         var loadedApi = null;
         var myAnimations = null;
         var paintMaterial = null;
+        var lowerPaintMaterial = null;
         var porta1Material = null;
         var porta2Material = null;
         var lightsMaterial = null;
-        var leatherMaterial = null;
-        var intMaterial1 = null;
-        var intMaterial2 = null;
-        var intMaterial3 = null;
-        var intMaterial4 = null;
-        var intMaterial5 = null;
-        var intMaterial6 = null;
-        var intMaterial7 = null;
         var enviromment = null;
         var currentCamera = 0;
         var cameraPosition = [-5, 0, 0];
@@ -356,7 +349,9 @@
                     });
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     loadedApi.setMaterial(paintMaterial);
+                    loadedApi.setMaterial(lowerPaintMaterial);
                     enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
                 }
@@ -365,6 +360,8 @@
                 loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Preto_Onix.png', bodyTextureUID, function(err, bodyTextureUID) {
                     if (!err) {
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         //console.log('Replaced texture with UID', bodyTextureUID);
                     }
@@ -379,6 +376,8 @@
                         });
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
 
                         enviromment.exposure = 2.08;
@@ -393,6 +392,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -403,6 +404,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -413,6 +416,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -423,6 +428,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -463,6 +470,8 @@
                 });
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    loadedApi.setMaterial(lowerPaintMaterial);
                     loadedApi.setMaterial(paintMaterial);
                     enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -473,6 +482,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -486,6 +497,8 @@
                 });
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 2.08;
                         loadedApi.setEnvironment(enviromment);
@@ -496,6 +509,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -506,6 +521,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -516,6 +533,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -526,6 +545,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -567,6 +588,8 @@
                 });
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -578,6 +601,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -591,6 +616,8 @@
                 });
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 2.08;
                         loadedApi.setEnvironment(enviromment);
@@ -601,6 +628,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -611,6 +640,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -621,6 +652,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -631,6 +664,8 @@
                     if (!err) {
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
+                        loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
                         enviromment.exposure = 1;
                     loadedApi.setEnvironment(enviromment);
@@ -766,130 +801,9 @@
         //});
     }
 
-
-    function changeIntColor1(index) {
-        var colors = [
-            "#8b7d70",
-            "#a3a3a3",
-            "#a3a3a3",
-            "#a3a3a3",
-            "#1c1c1c"
-        ];
-        if(intMaterial1 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial1.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial1, function(){
-        });
+    function changeInterior(index) {
+        changeLeatherColor(index);
     }
-    function changeIntColor2(index) {
-        var colors = [
-            "#8b7d70",
-            "#1c1c1c",
-            "#1c1c1c",
-            "#606060",
-            "#1c1c1c"
-        ];
-        if(intMaterial2 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial2.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial2, function(){
-        });
-    }
-    function changeIntColor3(index) {
-        var colors = [
-            "#8b7d70",
-            "#1c1c1c",
-            "#1c1c1c",
-            "#606060",
-            "#1c1c1c"
-        ];
-        if(intMaterial3 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial3.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial3, function(){
-        });
-    }
-    function changeIntColor4(index) {
-        var colors = [
-            "#9d9d9d",
-            "#aaaaaa",
-            "#aaaaaa",
-            "#aaaaaa",
-            "#1c1c1c"
-        ];
-        if(intMaterial4 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial4.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial4, function(){
-        });
-    }
-    function changeIntColor5(index) {
-        var colors = [
-            "#3c3c3c",
-            "#3c3c3c",
-            "#3c3c3c",
-            "#3c3c3c",
-            "#3c3c3c"
-        ];
-        if(intMaterial5 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial5.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial5, function(){
-        });
-    }
-    function changeIntColor6(index) {
-        var colors = [
-            "#382f2b", // beige
-            "#1c1c1c",
-            "#1c1c1c",
-            "#434343",
-            "#1c1c1c"
-        ];
-        if(intMaterial6 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial6.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial6, function(){
-        });
-    }
-    function changeIntColor7(index) {
-        var colors = [
-            "#8b7d70",
-            "#1c1c1c",
-            "#1c1c1c",
-            "#606060",
-            "#1c1c1c"
-        ];
-        if(intMaterial7 == null || loadedApi == null){
-            console.log("Api not loaded yet or failed.");
-            return;
-        }
-        const linearColor = srgbToLinear(hexToRgb(colors[index]));
-        intMaterial7.channels.AlbedoPBR.color = linearColor;
-        loadedApi.setMaterial(intMaterial7, function(){
-        });
-    }
-
-        function changeInterior(index) {
-            changeLeatherColor(index);
-        }
 
       function changeCamera(index, animate = false){
           if(loadedApi == null){
@@ -1034,7 +948,7 @@
                         api.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
                         api.hide(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
                         api.hide(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
-                        api.hide(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+                        api.hide(myNodesByNameFromMap['Body_Roof_Open'].instanceID);
                             
                         api.hide(myNodesByNameFromMap['LogoBack_Vidro'].instanceID);
                         api.hide(myNodesByNameFromMap['LogoBack_S'].instanceID);
@@ -1042,6 +956,9 @@
 
                         api.hide(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
                         api.hide(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
+
+                        api.hide(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
+                        api.hide(myNodesByNameFromMap['Seat_Front_Base_HPE_R'].instanceID);
                         
 
                         api.hide(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
@@ -1049,7 +966,7 @@
 
                         api.hide(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
-                        api.hide(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
+                        api.hide(myNodesByNameFromMap['Gear_Panel_HPE'].instanceID);
 
                         api.hide(myNodesByNameFromMap['Button_GearPanel_Parking_Detail'].instanceID);
                         api.hide(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
@@ -1137,22 +1054,10 @@
                             for(var i=0;i<materials.length;i++){
                                 if (materials[i].name == "Eclipse_Body_Textures") {
                                     paintMaterial = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    leatherMaterial = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    intMaterial1 = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    intMaterial3 = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    intMaterial4 = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    intMaterial5 = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    intMaterial6 = materials[i];
-                                } else if(materials[i].name == "int_brown"){
-                                    intMaterial7 = materials[i];
-                                } else if(materials[i].name == "PortaInt_Leather_White.002"){
+                                }else if(materials[i].name == "PortaInt_Leather_White"){
                                     porta1Material = materials[i];
+                                }else if(materials[i].name == "Eclipse_Body_Bottom"){
+                                    lowerPaintMaterial = materials[i];
                                 }else if(materials[i].name == "PortaInt_Leather_White.001"){
                                     porta2Material = materials[i];
                                 }else if(materials[i].name == "Emessive"){
@@ -1161,6 +1066,13 @@
                                     //api.setMaterial(lightsMaterial);
                                 }
                             }
+
+                            lowerPaintMaterial.channels.ClearCoat.enable = false;
+                            lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
+                            lowerPaintMaterial.channels.MetalnessPBR.factor = 0;
+                            lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
+                            loadedApi.setMaterial(lowerPaintMaterial);
+
 
                             api.getCameraLookAt(function(err, camera) {
                                 changeCamera(0);
@@ -1336,11 +1248,18 @@
 
             $(".gls").click(function(){
                 
+                
 
                 var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >-Lanternas em led</span>";
                 $(".exterior-items").html(html);
                 var htmlint = "<span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>";
                 $(".interior-items").html(htmlint);
+
+                lowerPaintMaterial.channels.ClearCoat.enable = false;
+                lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
+                lowerPaintMaterial.channels.MetalnessPBR.factor = 0;
+                lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
+                loadedApi.setMaterial(lowerPaintMaterial);
 
 
                 $("#colorPicker2 span.info").text("Couro Preto");
@@ -1364,16 +1283,18 @@
                 //loadedApi.hide(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
 
                 //seat base
-                loadedApi.hide(myNodesByNameFromMap['Seat_Front_L_Base.001'].instanceID);
-                loadedApi.show(myNodesByNameFromMap['Seat_Front_L_Base_GLS.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_HPE_R'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_GLS_L'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_GLS_R'].instanceID);
 
                 //body
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Open'].instanceID);
 
-                loadedApi.show(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Close'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Body_Roof'].instanceID);
                 
                 //front logo
@@ -1381,13 +1302,13 @@
                 loadedApi.hide(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
                 //cambio
-                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
-                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Gear_Panel_HPE'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Gear_Panel_GLS'].instanceID);
 
                 loadedApi.hide(myNodesByNameFromMap['Button_GearPanel_Parking_Detail'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
-                loadedApi.show(myNodesByNameFromMap['Freio_2.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Handbrake'].instanceID);
                             
                 
                 loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
@@ -1412,6 +1333,12 @@
 
             $(".hpe").click(function(){
 
+                lowerPaintMaterial.channels.ClearCoat.enable = true;
+                lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
+                lowerPaintMaterial.channels.MetalnessPBR.factor = 1;
+                lowerPaintMaterial.channels.SpecularPBR.factor = 1;
+                loadedApi.setMaterial(lowerPaintMaterial);
+
                 var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >- Faróis e lanternas em led</span>";
                 var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span> <span>- Bancos dianteiros elétricos e aquecidos</span>";
                 $(".interior-items").html(htmlint);
@@ -1433,8 +1360,10 @@
                 loadedApi.hide(myNodesByNameFromMap['Lights_Front_Glass_GLS_Chrome'].instanceID);
 
                 //seat base
-                loadedApi.show(myNodesByNameFromMap['Seat_Front_L_Base.001'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Seat_Front_L_Base_GLS.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_R'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_L'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_R'].instanceID);
 
                 //shifter 2306
                 //loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
@@ -1443,9 +1372,9 @@
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Open'].instanceID);
 
-                loadedApi.show(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Close'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Body_Roof'].instanceID);
                 
                 //front logo
@@ -1453,13 +1382,13 @@
                 loadedApi.hide(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
                 //cambio
-                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Gear_Panel_HPE'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Gear_Panel_GLS'].instanceID);
 
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking_Detail'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Handbrake'].instanceID);
 
                 loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
@@ -1483,6 +1412,12 @@
             });
 
             $(".hpes").click(function(){
+
+                lowerPaintMaterial.channels.ClearCoat.enable = true;
+                lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
+                lowerPaintMaterial.channels.MetalnessPBR.factor = 1;
+                lowerPaintMaterial.channels.SpecularPBR.factor = 1;
+                loadedApi.setMaterial(lowerPaintMaterial);
 
                 var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span>";
                 var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
@@ -1510,16 +1445,18 @@
                 //loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
 
                 //seat base
-                loadedApi.show(myNodesByNameFromMap['Seat_Front_L_Base.001'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Seat_Front_L_Base_GLS.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_R'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_L'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_R'].instanceID);
 
                 //body
                 loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
-                loadedApi.show(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Open'].instanceID);
 
-                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Close'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof'].instanceID);
                 
                 //front logo
@@ -1527,13 +1464,13 @@
                 loadedApi.show(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
                 //cambio
-                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Gear_Panel_HPE'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Gear_Panel_GLS'].instanceID);
 
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking_Detail'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Handbrake'].instanceID);
 
                 loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
@@ -1557,6 +1494,11 @@
 
             $(".awd").click(function(){
 
+                lowerPaintMaterial.channels.ClearCoat.enable = true;
+                lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
+                lowerPaintMaterial.channels.MetalnessPBR.factor = 1;
+                lowerPaintMaterial.channels.SpecularPBR.factor = 1;
+                loadedApi.setMaterial(lowerPaintMaterial);
                 var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span>";
                 var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
                 $(".exterior-items").html(html);
@@ -1582,16 +1524,18 @@
                 //loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
 
                 //seat base
-                loadedApi.show(myNodesByNameFromMap['Seat_Front_L_Base.001'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Seat_Front_L_Base_GLS.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_R'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_L'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_R'].instanceID);
 
                 //body
                 loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Body_Roof_HPE-S'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Body_VD_Glass_Top'].instanceID);
-                loadedApi.show(myNodesByNameFromMap['Body_Roof_Open.002'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Body_Roof_Open'].instanceID);
 
-                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Close.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Body_Roof_Close'].instanceID);
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof'].instanceID);
                 
                 //front logo
@@ -1599,13 +1543,13 @@
                 loadedApi.show(myNodesByNameFromMap['LogoFront_BlackShiny'].instanceID);
 
                 //cambio
-                loadedApi.show(myNodesByNameFromMap['Cambio_Esp_HPE-S'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Cambio_Esp_GLS.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Gear_Panel_HPE'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Gear_Panel_GLS'].instanceID);
 
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking_Detail'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_Parking'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['Button_GearPanel_SeatHealting'].instanceID);
-                loadedApi.hide(myNodesByNameFromMap['Freio_2.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Handbrake'].instanceID);
 
                 loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_L'].instanceID);
                 loadedApi.show(myNodesByNameFromMap['P_Front_SideDetail_R'].instanceID);
