@@ -187,6 +187,8 @@
         var lowerPaintMaterial = null;
         var porta1Material = null;
         var porta2Material = null;
+        var seatbackMaterial = null;
+        var seatFrontMaterial = null;
         var lightsMaterial = null;
         var enviromment = null;
         var currentCamera = 0;
@@ -721,6 +723,15 @@
             loadedApi.show(myNodesByNameFromMap['P_Back_Int_R_Leather_White'].instanceID);
             loadedApi.show(myNodesByNameFromMap['P_Back_Int_L_Leather_White'].instanceID);
 
+            seatFrontMaterial.channels.AlbedoPBR.factor = 0.6;
+            loadedApi.setMaterial(seatFrontMaterial);
+            seatbackMaterial.channels.AlbedoPBR.factor = 0.6;
+            loadedApi.setMaterial(seatbackMaterial);
+            porta1Material.channels.AlbedoPBR.factor = 0.6;
+            loadedApi.setMaterial(porta1Material);
+            porta2Material.channels.AlbedoPBR.factor = 0.6;
+            loadedApi.setMaterial(porta2Material);
+
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_White_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
             if (!err) {
                 //console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
@@ -743,6 +754,15 @@
             });
         }else if(index == 1){
             
+            seatFrontMaterial.channels.AlbedoPBR.factor = 1;
+            loadedApi.setMaterial(seatFrontMaterial);
+            seatbackMaterial.channels.AlbedoPBR.factor = 1;
+            loadedApi.setMaterial(seatbackMaterial);
+            porta1Material.channels.AlbedoPBR.factor = 1;
+            loadedApi.setMaterial(porta1Material);
+            porta2Material.channels.AlbedoPBR.factor = 1;
+            loadedApi.setMaterial(porta2Material);
+
             //door leather black
             loadedApi.show(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
             loadedApi.show(myNodesByNameFromMap['P_Back_Int_L_Leather_Black'].instanceID);
@@ -1064,6 +1084,10 @@
                                     lightsMaterial = materials[i];
                                     //lightsMaterial.channels.EmitColor.factor = 0;
                                     //api.setMaterial(lightsMaterial);
+                                }else if(materials[i].name = "Seat_Front_Leather"){
+                                    seatFrontMaterial = materials[i];
+                                }else if(materials[i].name = "Seat_Back_Leather.001"){
+                                    seatbackMaterial = materials[i];
                                 }
                             }
 
@@ -1073,6 +1097,15 @@
                             lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
                             lowerPaintMaterial.channels.AlbedoPBR.factor = 0;
                             loadedApi.setMaterial(lowerPaintMaterial);
+
+                            seatFrontMaterial.channels.AlbedoPBR.factor = 0.6;
+                            loadedApi.setMaterial(seatFrontMaterial);
+                            seatbackMaterial.channels.AlbedoPBR.factor = 0.6;
+                            loadedApi.setMaterial(seatbackMaterial);
+                            porta1Material.channels.AlbedoPBR.factor = 0.6;
+                            loadedApi.setMaterial(porta1Material);
+                            porta2Material.channels.AlbedoPBR.factor = 0.6;
+                            loadedApi.setMaterial(porta2Material);
 
 
                             api.getCameraLookAt(function(err, camera) {
