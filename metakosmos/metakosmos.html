@@ -96,15 +96,13 @@
             </div>
 
             <div class="exterior-items active" style="padding-top: 10px;">
-                <span >-Roda de liga leve 18”</span>
-                <span >-DRL em led</span>
-                <span >-Lanternas em led</span>
+                <span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >-Lanternas em led</span><span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>
             </div>
-            <div class="interior-items" style="padding-top: 0px; margin-bottom: 10px;">
+            <!--<div class="interior-items" style="padding-top: 0px; margin-bottom: 10px;">
                 <span >-Ar-condicionado digital automático</span>
                 <span >-Multimídia JBL com Wi-Fi integrado</span>
                 <span >-Câmera de ré</span>
-            </div>
+            </div>-->
            
             <!--<center>
                 <div class="timeSelector">
@@ -220,6 +218,7 @@
 
         const GAMMA = 2.4;
         var myNodesByNameFromMap = {};
+        var myMaterialsByNameFromMap = {};
         var myTexturesByNameFromMap = {};
         var idxNodes = 0;
 
@@ -724,13 +723,14 @@
             loadedApi.show(myNodesByNameFromMap['P_Back_Int_L_Leather_White'].instanceID);
 
             seatFrontMaterial.channels.AlbedoPBR.factor = 0.6;
+            seatFrontMaterial.channels.SpecularPBR.factor = 0;
             loadedApi.setMaterial(seatFrontMaterial);
             seatbackMaterial.channels.AlbedoPBR.factor = 0.6;
             loadedApi.setMaterial(seatbackMaterial);
-            porta1Material.channels.AlbedoPBR.factor = 0.6;
+            /*porta1Material.channels.AlbedoPBR.factor = 0.6;
             loadedApi.setMaterial(porta1Material);
             porta2Material.channels.AlbedoPBR.factor = 0.6;
-            loadedApi.setMaterial(porta2Material);
+            loadedApi.setMaterial(porta2Material);*/
 
             loadedApi.updateTexture('https://seedsofnature.github.io/metakosmos/textures/Seats/Seats_Front/Leather_White_albedo.jpg', leatherAlbedoFrontTextureUID, function(err, leatherAlbedoFrontTextureUID) {
             if (!err) {
@@ -755,13 +755,14 @@
         }else if(index == 1){
             
             seatFrontMaterial.channels.AlbedoPBR.factor = 1;
+            seatFrontMaterial.channels.SpecularPBR.factor = 0.2;
             loadedApi.setMaterial(seatFrontMaterial);
             seatbackMaterial.channels.AlbedoPBR.factor = 1;
             loadedApi.setMaterial(seatbackMaterial);
-            porta1Material.channels.AlbedoPBR.factor = 1;
+            /*porta1Material.channels.AlbedoPBR.factor = 1;
             loadedApi.setMaterial(porta1Material);
             porta2Material.channels.AlbedoPBR.factor = 1;
-            loadedApi.setMaterial(porta2Material);
+            loadedApi.setMaterial(porta2Material);*/
 
             //door leather black
             loadedApi.show(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
@@ -1071,25 +1072,22 @@
                         });
 
                         api.getMaterialList(function(err, materials){
-                            for(var i=0;i<materials.length;i++){
-                                if (materials[i].name == "Eclipse_Body_Textures") {
-                                    paintMaterial = materials[i];
-                                }else if(materials[i].name == "PortaInt_Leather_White"){
-                                    porta1Material = materials[i];
-                                }else if(materials[i].name == "Eclipse_Body_Bottom"){
-                                    lowerPaintMaterial = materials[i];
-                                }else if(materials[i].name == "PortaInt_Leather_White.002"){
-                                    porta2Material = materials[i];
-                                }else if(materials[i].name == "Emessive"){
-                                    lightsMaterial = materials[i];
-                                    //lightsMaterial.channels.EmitColor.factor = 0;
-                                    //api.setMaterial(lightsMaterial);
-                                }else if(materials[i].name = "Seat_Front_Leather"){
-                                    seatFrontMaterial = materials[i];
-                                }else if(materials[i].name = "Seat_Back_Leather.001"){
-                                    seatbackMaterial = materials[i];
-                                }
+
+                            idxNodes= 0;
+                            for (var instanceID in materials){
+                                var material= materials[instanceID];
+                                var name = material.name;
+                                if (!name) name = "noname_" + idxNodes++;                		
+                                myMaterialsByNameFromMap[name] = material;
                             }
+
+                            paintMaterial = myMaterialsByNameFromMap["Eclipse_Body_Textures"];
+                            porta1Material = myMaterialsByNameFromMap["PortaInt_Leather_White"];
+                            lowerPaintMaterial = myMaterialsByNameFromMap["Eclipse_Body_Bottom"];
+                            porta2Material = myMaterialsByNameFromMap["PortaInt_Leather_White.002"];
+                            seatbackMaterial = myMaterialsByNameFromMap["Seat_Back_Leather.001"];
+                            seatFrontMaterial = myMaterialsByNameFromMap["Seat_Front_Leather"];
+                            lightsMaterial = myMaterialsByNameFromMap["Emessive"];
 
                             lowerPaintMaterial.channels.ClearCoat.enable = false;
                             lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
@@ -1098,14 +1096,15 @@
                             lowerPaintMaterial.channels.AlbedoPBR.factor = 0;
                             loadedApi.setMaterial(lowerPaintMaterial);
 
-                            seatFrontMaterial.channels.AlbedoPBR.factor = 0.6;
+                            seatFrontMaterial.channels.AlbedoPBR.factor = 1;
+                            seatFrontMaterial.channels.SpecularPBR.factor = 0.2;
                             loadedApi.setMaterial(seatFrontMaterial);
                             seatbackMaterial.channels.AlbedoPBR.factor = 0.6;
                             loadedApi.setMaterial(seatbackMaterial);
-                            porta1Material.channels.AlbedoPBR.factor = 0.6;
+                           /* porta1Material.channels.AlbedoPBR.factor = 0.6;
                             loadedApi.setMaterial(porta1Material);
                             porta2Material.channels.AlbedoPBR.factor = 0.6;
-                            loadedApi.setMaterial(porta2Material);
+                            loadedApi.setMaterial(porta2Material);*/
 
 
                             api.getCameraLookAt(function(err, camera) {
@@ -1209,15 +1208,15 @@
                     $("#colorPicker").removeClass("active");
                     $(".changeColor").removeClass("active");
                     $(".changeColorInt").addClass("active");
-                    $(".exterior-items").removeClass("active");
-                    $(".interior-items").addClass("active");
+                    //$(".exterior-items").removeClass("active");
+                    //$(".interior-items").addClass("active");
                 }else{
                     $("#colorPicker").addClass("active");
                     $("#colorPicker2").removeClass("active");
                     $(".changeColor").addClass("active");
                     $(".changeColorInt").removeClass("active");
-                    $(".exterior-items").addClass("active");
-                    $(".interior-items").removeClass("active");
+                    //$(".exterior-items").addClass("active");
+                    //$(".interior-items").removeClass("active");
                 }
                 console.log("Change camera " + currentCamera);
                 changeCamera(currentCamera);
@@ -1284,10 +1283,10 @@
                 
                 
 
-                var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >-Lanternas em led</span>";
+                var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >-Lanternas em led</span><span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>";
                 $(".exterior-items").html(html);
-                var htmlint = "<span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>";
-                $(".interior-items").html(htmlint);
+                //var htmlint = "<span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>";
+                //$(".interior-items").html(htmlint);
 
                 lowerPaintMaterial.channels.ClearCoat.enable = false;
                 lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
@@ -1375,9 +1374,9 @@
                 lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                 loadedApi.setMaterial(lowerPaintMaterial);
 
-                var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >- Faróis e lanternas em led</span>";
-                var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span> <span>- Bancos dianteiros elétricos e aquecidos</span>";
-                $(".interior-items").html(htmlint);
+                var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >- Faróis e lanternas em led</span><span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span> <span>- Bancos dianteiros elétricos e aquecidos</span>";
+                //var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span> <span>- Bancos dianteiros elétricos e aquecidos</span>";
+                //$(".interior-items").html(htmlint);
                 $(".exterior-items").html(html);
                 $("#colorPicker2 span.info").text("Couro Preto");
                 //farol
@@ -1456,10 +1455,10 @@
                 lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                 loadedApi.setMaterial(lowerPaintMaterial);
 
-                var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span>";
-                var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
+                var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span><span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
+                //var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
                 $(".exterior-items").html(html);
-                $(".interior-items").html(htmlint);
+                //$(".interior-items").html(htmlint);
 
                 $("#colorPicker2 span.info").text("Couro Cinza Claro");
                  //farol
@@ -1537,10 +1536,10 @@
                 lowerPaintMaterial.channels.SpecularPBR.factor = 1;
                 lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                 loadedApi.setMaterial(lowerPaintMaterial);
-                var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span>";
-                var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
+                var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span><span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
+                //var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
                 $(".exterior-items").html(html);
-                $(".interior-items").html(htmlint);
+                //$(".interior-items").html(htmlint);
                 $("#colorPicker2 span.info").text("Couro Cinza Claro");
                  //farol
                  loadedApi.show(myNodesByNameFromMap['Lights_Front_Silver'].instanceID);
@@ -1637,8 +1636,8 @@
               changeCamera(currentCamera);
               $(".changeColor").addClass("active");
               $(".changeColorInt").removeClass("active");
-              $(".exterior-items").addClass("active");
-              $(".interior-items").removeClass("active");
+              //$(".exterior-items").addClass("active");
+              //$(".interior-items").removeClass("active");
               $("#colorPicker2").removeClass("active");
               $("#colorPicker").addClass("active");
             });
@@ -1649,8 +1648,8 @@
               changeCamera(currentCamera);
               $(".changeColor").removeClass("active");
               $(".changeColorInt").addClass("active");
-              $(".exterior-items").removeClass("active");
-              $(".interior-items").addClass("active");
+              //$(".exterior-items").removeClass("active");
+              //$(".interior-items").addClass("active");
               $("#colorPicker").removeClass("active");
               $("#colorPicker2").addClass("active");
             });
