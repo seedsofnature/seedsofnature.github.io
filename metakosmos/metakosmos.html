@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="exterior-items active" style="padding-top: 10px;">
+            <div class="exterior-items active" style="padding-top: 10px;border: 1px solid red;padding-bottom:  10px;border-radius: 8px;">
                 <span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >-Lanternas em led</span><span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>
             </div>
             <!--<div class="interior-items" style="padding-top: 0px; margin-bottom: 10px;">
@@ -350,6 +350,7 @@
                     });
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                    paintMaterial.channels.MetalnessPBR.factor = 0.12;
                     paintMaterial.channels.AlbedoPBR.factor = 1;
                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     loadedApi.setMaterial(paintMaterial);
@@ -363,6 +364,7 @@
                     if (!err) {
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -379,6 +381,7 @@
                         });
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(lowerPaintMaterial);
@@ -397,6 +400,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -410,6 +414,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -423,6 +428,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -436,6 +442,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -479,6 +486,7 @@
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     paintMaterial.channels.AlbedoPBR.factor = 1;
+                    paintMaterial.channels.MetalnessPBR.factor = 0.12;
                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     loadedApi.setMaterial(lowerPaintMaterial);
                     loadedApi.setMaterial(paintMaterial);
@@ -492,6 +500,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -508,6 +517,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -521,6 +531,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -534,6 +545,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -547,6 +559,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -560,6 +573,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -604,6 +618,7 @@
                     //console.log('Replaced texture with UID', bodyTextureUID);
                     paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     paintMaterial.channels.AlbedoPBR.factor = 1;
+                    paintMaterial.channels.MetalnessPBR.factor = 0.12;
                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                     loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -618,6 +633,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -634,6 +650,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -647,6 +664,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -660,6 +678,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -673,6 +692,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -686,6 +706,7 @@
                         //console.log('Replaced texture with UID', bodyTextureUID);
                         paintMaterial.channels.ClearCoatRoughness.factor = 0;
                         paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                        paintMaterial.channels.MetalnessPBR.factor = 0.85;
                         lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                         loadedApi.setMaterial(lowerPaintMaterial);
                         loadedApi.setMaterial(paintMaterial);
@@ -1118,6 +1139,7 @@
                             loadedApi.setMaterial(lowerPaintMaterial);
 
                             paintMaterial.channels.AlbedoPBR.factor = 1;
+                            paintMaterial.channels.MetalnessPBR.factor = 0.12;
                             loadedApi.setMaterial(paintMaterial);
 
                             seatFrontMaterial.channels.AlbedoPBR.factor = 1;
