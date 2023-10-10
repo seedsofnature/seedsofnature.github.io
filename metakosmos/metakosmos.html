@@ -942,7 +942,7 @@
                             api.hide(myNodesByNameFromMap['Lights_Front_Chrome.003'].instanceID);
 
                         //shifter 2306
-                        //api.hide(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+                        api.hide(myNodesByNameFromMap['Painel_PaddleShifter'].instanceID);
 
                         //body
                         api.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
@@ -1071,7 +1071,7 @@
                             lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                             lowerPaintMaterial.channels.MetalnessPBR.factor = 0;
                             lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
-                            lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
+                            lowerPaintMaterial.channels.AlbedoPBR.factor = 0;
                             loadedApi.setMaterial(lowerPaintMaterial);
 
 
@@ -1260,7 +1260,7 @@
                 lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                 lowerPaintMaterial.channels.MetalnessPBR.factor = 0;
                 lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
-                lowerPaintMaterial.channels.AlbedoPBR.factor = 0.2
+                lowerPaintMaterial.channels.AlbedoPBR.factor = 0;
                 loadedApi.setMaterial(lowerPaintMaterial);
 
 
@@ -1282,7 +1282,7 @@
 
 
                 //shifter 2306
-                //loadedApi.hide(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+                loadedApi.hide(myNodesByNameFromMap['Painel_PaddleShifter'].instanceID);
 
                 //seat base
                 loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
@@ -1369,7 +1369,7 @@
                 loadedApi.hide(myNodesByNameFromMap['Seat_Front_Base_GLS_R'].instanceID);
 
                 //shifter 2306
-                //loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter'].instanceID);
 
                 //body
                 loadedApi.hide(myNodesByNameFromMap['Body_Roof_HPE-S (Shiny details)'].instanceID);
@@ -1446,7 +1446,7 @@
 
 
                 //shifter 2306
-                //loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter'].instanceID);
 
                 //seat base
                 loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
@@ -1526,7 +1526,7 @@
 
 
                 //shifter 2306
-                //loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter.001'].instanceID);
+                loadedApi.show(myNodesByNameFromMap['Painel_PaddleShifter'].instanceID);
 
                 //seat base
                 loadedApi.show(myNodesByNameFromMap['Seat_Front_Base_HPE_L'].instanceID);
