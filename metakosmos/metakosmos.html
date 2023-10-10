@@ -1058,7 +1058,7 @@
                                     porta1Material = materials[i];
                                 }else if(materials[i].name == "Eclipse_Body_Bottom"){
                                     lowerPaintMaterial = materials[i];
-                                }else if(materials[i].name == "PortaInt_Leather_White.001"){
+                                }else if(materials[i].name == "PortaInt_Leather_White.002"){
                                     porta2Material = materials[i];
                                 }else if(materials[i].name == "Emessive"){
                                     lightsMaterial = materials[i];
@@ -1071,6 +1071,7 @@
                             lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                             lowerPaintMaterial.channels.MetalnessPBR.factor = 0;
                             lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
+                            lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                             loadedApi.setMaterial(lowerPaintMaterial);
 
 
@@ -1259,6 +1260,7 @@
                 lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                 lowerPaintMaterial.channels.MetalnessPBR.factor = 0;
                 lowerPaintMaterial.channels.SpecularPBR.factor = 0.05;
+                lowerPaintMaterial.channels.AlbedoPBR.factor = 0.2
                 loadedApi.setMaterial(lowerPaintMaterial);
 
 
@@ -1337,6 +1339,7 @@
                 lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                 lowerPaintMaterial.channels.MetalnessPBR.factor = 1;
                 lowerPaintMaterial.channels.SpecularPBR.factor = 1;
+                lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                 loadedApi.setMaterial(lowerPaintMaterial);
 
                 var html = "<span >-Roda de liga leve 18”</span> <span >-DRL em led</span> <span >- Faróis e lanternas em led</span>";
@@ -1417,6 +1420,7 @@
                 lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                 lowerPaintMaterial.channels.MetalnessPBR.factor = 1;
                 lowerPaintMaterial.channels.SpecularPBR.factor = 1;
+                lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                 loadedApi.setMaterial(lowerPaintMaterial);
 
                 var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span>";
@@ -1498,6 +1502,7 @@
                 lowerPaintMaterial.channels.RoughnessPBR.factor = 1;
                 lowerPaintMaterial.channels.MetalnessPBR.factor = 1;
                 lowerPaintMaterial.channels.SpecularPBR.factor = 1;
+                lowerPaintMaterial.channels.AlbedoPBR.factor = 1;
                 loadedApi.setMaterial(lowerPaintMaterial);
                 var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis e lanternas em led</span>";
                 var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
