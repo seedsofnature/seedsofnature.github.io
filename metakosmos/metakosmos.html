@@ -1342,7 +1342,8 @@
             $(".gls").click(function(){
                 
                 
-
+                paintMaterial.channels.ClearCoat = true;
+                loadedApi.setMaterial(paintMaterial);
                 var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Lanternas em led</span><span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>";
                 $(".exterior-items").html(html);
                 //var htmlint = "<span >- Ar-condicionado digital automático</span> <span >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>";
