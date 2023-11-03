@@ -466,7 +466,7 @@
 
             .btn-group button.hpe{
                 width: 40px;
-                margin-right: 40px;
+                margin-right: 40px !important;
             }
 
             .btn-group button.hpes{
