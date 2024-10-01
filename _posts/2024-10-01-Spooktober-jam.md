@@ -13,6 +13,7 @@ toc: true
 ---
 
 Post temporário depois escrevo a respeito... muita história pra contar.
-Depois escrevo mais a respeito:
 
+**O jogo**
+Link do jogo:
 <iframe frameborder="0" src="https://itch.io/embed/3001878" width="552" height="167"><a href="https://befinamor.itch.io/beyond-the-veil">Beyond the Veil by Triz, Frost</a></iframe>
